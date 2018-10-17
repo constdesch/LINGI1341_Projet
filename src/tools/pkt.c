@@ -10,8 +10,8 @@
 /* Your code will be inserted here */
 
 typedef struct __attribute__ (( __packed__ )) pkt {
-
-
+    
+    
     uint8_t window:5;
     uint8_t tr:1;
     uint8_t type:2;
@@ -30,7 +30,7 @@ pkt_t* pkt_new()
 {
     pkt_t * pkt=calloc(1,sizeof(pkt_t));
     return pkt;
-
+    
 }
 
 void pkt_del(pkt_t *pkt)
@@ -48,18 +48,18 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
     if(len<12){
         return E_UNCONSISTENT;
     }
-    memcpy(pkt,data,12);
-    pkt->length=ntohs(pkt->length);
-    pkt->payload=malloc(pkt_get_length(pkt));
-    if(!pkt->payload)
-    {
+    if( memcpy(pkt,data,12)==NULL)
         return E_NOMEM;
-    }
-    memcpy(pkt->payload,(data+12),pkt_get_length(pkt));
-    memcpy(&pkt->crc2,data+12+pkt_get_length(pkt),4);
+    
+    pkt->length=ntohs(pkt->length);
+    
+    if(memcpy(&pkt->crc2,data+12+pkt_get_length(pkt),4)==NULL)
+        return E_NOMEM;
+    
     if (pkt_get_type(pkt)!=PTYPE_DATA && pkt_get_tr(pkt)==1){
         return E_UNCONSISTENT;
     }
+    
     if(pkt_set_tr(pkt,pkt->tr)!=PKT_OK){
         return E_TR;
     }
@@ -75,20 +75,23 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
     if(pkt_set_timestamp(pkt,pkt->timestamp)!=PKT_OK){
         return PKT_OK;
     }
-    
+    if(len>12){
+        if(pkt_set_payload(pkt,data+12,pkt_get_length(pkt))!=PKT_OK){
+            return E_NOMEM;
+    }}
     // calcul de crc1
-     pkt->tr=0;
+    pkt->tr=0;
     uLong crc1 = crc32(0L, Z_NULL, 0);
     crc1 = crc32(crc1, ( const Bytef *) data, 8*sizeof(char));
     if(htonl(crc1)!=(pkt->crc1)){
         return E_CRC;
     }
     if(pkt->length!=0){
-    uLong crc2 = crc32(0L, Z_NULL, 0);
-    crc2 = crc32(crc2, (Bytef *)data+12, pkt->length);
-    if (htonl(crc2) != (pkt->crc2)){
-        return E_CRC;
-    }
+        uLong crc2 = crc32(0L, Z_NULL, 0);
+        crc2 = crc32(crc2, (Bytef *)data+12, pkt->length);
+        if (htonl(crc2) != (pkt->crc2)){
+            return E_CRC;
+        }
     }
     return PKT_OK;
 }
@@ -98,31 +101,37 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
 pkt_status_code pkt_encode(const pkt_t* pkt, char *buf, size_t *len)
 
 {
-     {
-    int ll1=12;
-    if(pkt->length>0){
-        ll1=ll1+4+pkt->length;
+    {
+        int ll1=12;
+        if(pkt->length>0){
+            ll1=ll1+4+pkt->length;
+        }
+        if((int)* len<ll1){
+            return E_NOMEM;
+        }
+        uint16_t length1=htons(pkt->length);
+        if(memcpy(buf,pkt,2)==NULL)
+            return E_NOMEM;
+        if(memcpy(buf+2,&length1,2)==NULL)
+            return E_NOMEM;
+        if( memcpy(buf+4,&(pkt->timestamp),4)==NULL)
+            return E_NOMEM;
+        uLong crc1 = crc32(0L, Z_NULL, 0);
+        crc1 = htobe32(crc32(crc1, ( const Bytef *) buf, 8*sizeof(char)));
+        if( memcpy(buf+8,&crc1,4)==NULL)
+            return E_NOMEM;
+        if(pkt->length!=0){
+            if(memcpy(buf+12,pkt->payload,pkt->length)==NULL)
+                return E_NOMEM;
+            uLong crc2= crc32(0L, Z_NULL, 0);
+            crc2= crc32(crc2, (Bytef *) buf+12,pkt->length);
+            uint32_t crc22=htonl(crc2);
+            if  (memcpy(buf+12+pkt->length,&crc22,4)==NULL)
+                return E_NOMEM;
+        }
+        *len= ll1 ;
+        return PKT_OK;
     }
-    if((int)* len<ll1){
-        return E_NOMEM;
-    }
-     uint16_t length1=htons(pkt->length);
-   	memcpy(buf,pkt,2);
-    memcpy(buf+2,&length1,2);
-    memcpy(buf+4,&(pkt->timestamp),4);
-uLong crc1 = crc32(0L, Z_NULL, 0);
-    crc1 = htobe32(crc32(crc1, ( const Bytef *) buf, 8*sizeof(char)));
-memcpy(buf+8,&crc1,4);
-    if(pkt->length!=0){
-     memcpy(buf+12,pkt->payload,pkt->length);
-        uLong crc2= crc32(0L, Z_NULL, 0);
-    crc2= crc32(crc2, (Bytef *) buf+12,pkt->length);
-    uint32_t crc22=htonl(crc2);
-    memcpy(buf+12+pkt->length,&crc22,4);
-       }
-    *len= ll1 ;
-    return PKT_OK;
-}
 }
 
 ptypes_t pkt_get_type  (const pkt_t* pkt)
@@ -174,7 +183,7 @@ uint32_t pkt_get_crc2   (const pkt_t* pkt)
 const char* pkt_get_payload(const pkt_t* pkt)
 {
     return pkt->payload;
-
+    
 }
 
 
@@ -254,12 +263,12 @@ pkt_status_code pkt_set_payload(pkt_t *pkt,
     }
     if(pkt->payload!=NULL){
         free(pkt->payload);
-    } 
+    }
     pkt->payload=malloc(length);
     if(!pkt->payload){
         return E_NOMEM;
     }
-    memcpy(pkt->payload,data,length);
+    if(! memcpy(pkt->payload,data,length))
+        return E_NOMEM;
     return PKT_OK;
 }
-

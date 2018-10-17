@@ -78,12 +78,16 @@ int create_socket(struct sockaddr_in6 *source_addr,
 }
 
 void read_write_loop(int sfd){
-    char bufread[1024];
-    char bufwrite[1024];
+    char bufread[1024]; /* char bufreadfile[512] */
+    char bufwrite[1024];/* char bufwritedfs[512]*/
+    /* char buffdecode[512] */
+    /* char buffencode[512] */
+                         
     struct timeval tv;
     fd_set readfds, writefds;
     tv.tv_sec = 5;
     tv.tv_usec = 5;
+    /* WHILE !EOF || QUEUE->FULL ==0 */
     while(1){
         FD_ZERO(&writefds);
         FD_ZERO(&readfds);
@@ -97,6 +101,18 @@ void read_write_loop(int sfd){
             fprintf(stderr,"select a pas fonctionne\n");
             return;
         }
+        
+        /* Something written on stdin/file */ /*SENDER*/ /*PLUTOT UTILISER READ NON ?*/
+        /* if (queue->full < queue->MAXSIZE){
+            int err = read(file,bufreadfile,512)
+            if (err>0)
+                CREATION PAQUET
+                ENCODE PAQUET
+                ENVOIE PAQUET SUR LA SOCKET
+            if (err==-1) PROBLEME
+         
+        }*/
+        /* CA ON POURRAIT BACKER */
         if(FD_ISSET(STDIN_FILENO,&readfds)){
             int err = read(0,bufread,sizeof(bufread));
             if (err==0) return;
@@ -104,7 +120,41 @@ void read_write_loop(int sfd){
             err = write(sfd,bufread,err);
             if(err==-1) {fprintf(stderr,"Erreur write");}
         }
+        /* Something written on the socket */ /*RECEVEUR*/ /*SENDER AUSSI ICI? */
         else if(FD_ISSET(sfd, &readfds)){
+            
+            /* TOUJOURS*/
+            /*
+            pkt_t *pkt = pkt_new();
+            status = pkt_decode(bufdata,len,pkt);
+            if(status!=PKT_OK) return status;
+            
+            if(pkt_get_type==PTYPE_DATA){
+                // Si DATA : DECODE -> STDOUT -> SEND (N)ACK
+                int tr = pkt_get_tr(pkt)
+                if(tr==1)
+             
+            }
+            else if(pkt_get_type == PTYPE_ACK){
+                uint8_t seqnum = pkt_get_seqnum(pkt);
+                err = deletePrevious(queue, seqnum);
+                if (err == 0) fprintf(stderr, "Seqnum not found in queue.\n");
+                
+            }
+            else if(pkt_get_type == PTYPE_NACK){
+                // Si NACK-> RENVOIE PKT
+                uint8_t seqnum = pkt_get_seqnum(pkt);
+                pkt_t *pkt = get_pkt(seqnum);
+                int data_length;
+                uint16_t length = pkt_get_length(pkt);
+                if (length == 0) data_length = 12;
+                else data_length = length+12;
+                status = pkt_encode(pkt,bufencode,data_length);
+                if(status!=PKT_OK) fprintf(stderr,"Encode failed : %d\n",status);
+                err = write(sfd,data,data_length);
+                if(err==-1) fprintf(stderr,"Could not write on the socket.\n");
+            } */
+            
             int err = read(sfd,bufwrite,sizeof(bufwrite));
             if (err==0) return;
             if(err==-1){ fprintf(stderr,"Erreur read");}

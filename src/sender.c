@@ -29,6 +29,12 @@ void sender(int argc, char* argv[]){
     const char *err;
     pkt_status_code status;
     int seqnum = 0;
+    struct timeval tv;
+    fd_set readfds, writefds;
+    tv.tv_sec = 5;
+    tv.tv_usec = 5;
+    
+    
     
     while ((opt = getopt(argc, argv, "f:")) != -1) {
         switch (opt) {
@@ -85,10 +91,20 @@ void sender(int argc, char* argv[]){
         file = fopen(filename, "r"); /* Only for reading */
     }
     if(file!=NULL) {
-        char buf[512];
-        int byteRead = read(file,buf,512);
+        char bufreadfile[512];
+        char bufreadsocket[20];
+        int byteRead = read(file,bufreadfile,512);
         if (byteRead==-1) fprintf(stderr,"Could not read in file specified\n");
-        while(byteRead>0){
+        while(byteRead>0 || queue->full != 0){
+            FD_ZERO(&writefds);
+            FD_ZERO(&readfds);
+            FD_SET(STDIN_FILENO, &readfds);
+            FD_SET(sfd,&writefds);
+            FD_SET(sfd,&readfds);
+            err = select(sfd+1,&readfds,NULL,NULL,&tv);
+            
+            if (FD_ISSET(sfd, &readfds)){
+                
             /* Create the header */
             pkt_t* pkt = pkt_new();
             pkt_set_type(pkt,PTYPE_DATA);
@@ -114,8 +130,8 @@ void sender(int argc, char* argv[]){
             err = write(sfd,data,data_length);
             if(err==-1) fprintf(stderr,"Could not write on the socket.\n");
             
-            buf = memset(buf,0,sizeof(buf));
-            byteRead = read(file,buf,512)
+            buf = memset(bufreadfile,0,sizeof(buf));
+            byteRead = read(file,bufreadfile,512)
         }
     }
     
