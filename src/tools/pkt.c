@@ -48,6 +48,7 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
     if(len<12){
         return E_UNCONSISTENT;
     }
+<<<<<<< HEAD
     if( memcpy(pkt,data,12)==NULL)
         return E_NOMEM;
     
@@ -56,6 +57,13 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
     if(memcpy(&pkt->crc2,data+12+pkt_get_length(pkt),4)==NULL)
         return E_NOMEM;
     
+=======
+   if( memcpy(pkt,data,12)==NULL)
+       return E_NOMEM;
+    pkt->length=ntohs(pkt->length);
+    if(memcpy(&pkt->crc2,data+12+pkt_get_length(pkt),4)==NULL)
+        return E_NOMEM;
+>>>>>>> 88ac4975aa550d3160653768dd7cf7035010fe70
     if (pkt_get_type(pkt)!=PTYPE_DATA && pkt_get_tr(pkt)==1){
         return E_UNCONSISTENT;
     }
@@ -75,10 +83,16 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
     if(pkt_set_timestamp(pkt,pkt->timestamp)!=PKT_OK){
         return PKT_OK;
     }
+<<<<<<< HEAD
     if(len>12){
         if(pkt_set_payload(pkt,data+12,pkt_get_length(pkt))!=PKT_OK){
             return E_NOMEM;
     }}
+=======
+    if(pkt_set_payload(pkt,data+12,pkt_get_length(pkt))!=PKT_OK){
+        return E_NOMEM;
+    }
+>>>>>>> 88ac4975aa550d3160653768dd7cf7035010fe70
     // calcul de crc1
     pkt->tr=0;
     uLong crc1 = crc32(0L, Z_NULL, 0);
@@ -132,6 +146,32 @@ pkt_status_code pkt_encode(const pkt_t* pkt, char *buf, size_t *len)
         *len= ll1 ;
         return PKT_OK;
     }
+<<<<<<< HEAD
+=======
+    uint16_t length1=htons(pkt->length);
+   	if(memcpy(buf,pkt,2)==NULL)
+        return E_NOMEM;
+    if(memcpy(buf+2,&length1,2)==NULL)
+        return E_NOMEM;
+   if( memcpy(buf+4,&(pkt->timestamp),4)==NULL)
+       return E_NOMEM;
+uLong crc1 = crc32(0L, Z_NULL, 0);
+    crc1 = htobe32(crc32(crc1, ( const Bytef *) buf, 8*sizeof(char)));
+if( memcpy(buf+8,&crc1,4)==NULL)
+    return E_NOMEM;
+    if(pkt->length!=0){
+    if(memcpy(buf+12,pkt->payload,pkt->length)==NULL)
+        return E_NOMEM;
+        uLong crc2= crc32(0L, Z_NULL, 0);
+    crc2= crc32(crc2, (Bytef *) buf+12,pkt->length);
+    uint32_t crc22=htonl(crc2);
+  if  (memcpy(buf+12+pkt->length,&crc22,4)==NULL)
+      return E_NOMEM;
+       }
+    *len= ll1 ;
+    return PKT_OK;
+}
+>>>>>>> 88ac4975aa550d3160653768dd7cf7035010fe70
 }
 
 ptypes_t pkt_get_type  (const pkt_t* pkt)
@@ -268,7 +308,12 @@ pkt_status_code pkt_set_payload(pkt_t *pkt,
     if(!pkt->payload){
         return E_NOMEM;
     }
+<<<<<<< HEAD
     if(! memcpy(pkt->payload,data,length))
         return E_NOMEM;
+=======
+   if(! memcpy(pkt->payload,data,length))
+       return E_NOMEM;
+>>>>>>> 88ac4975aa550d3160653768dd7cf7035010fe70
     return PKT_OK;
 }
