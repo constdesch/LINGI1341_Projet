@@ -32,6 +32,12 @@ int timeOutRoutine(queue_pkt* queue, int sfd){
     if (tac-tic>4500){ /* Timeout -> send whole window again */
         while(node!=NULL){
             pkt_t *pkt = node->data;
+            
+            gettimeofday(&tv, NULL);
+            double timestamp = (tv.tv_sec) * 1000 + (tv.tv_usec) / 1000 ; /*Convertir en ms */
+            status = pkt_set_timestamp(pkt,timestamp);
+            if(status != PKT_OK) fprintf(stderr,"Setting timestamp failed.\n");
+            
             char buf[512];
             int length = pkt->length;
             int tot_length;
@@ -122,7 +128,6 @@ void sender(int argc, char* argv[]){
     
     if(file!=NULL) {
         char bufreadfile[512];
-        char bufreadsocket[20];
         int byteRead = read(file,bufreadfile,512);
         if (byteRead==-1) fprintf(stderr,"Could not read in file specified\n");
         while(byteRead>0 || queue->full != 0){
@@ -130,35 +135,51 @@ void sender(int argc, char* argv[]){
             /* Renvoyer les paquets dont le delai a expire */
 
             /* Lire sur la socket */
-            FD_ZERO(&writefds);
+            //FD_ZERO(&writefds);
             FD_ZERO(&readfds);
-            FD_SET(STDIN_FILENO, &readfds);
-            FD_SET(sfd,&writefds);
+            //FD_SET(STDIN_FILENO, &readfds);
+            //FD_SET(sfd,&writefds);
             FD_SET(sfd,&readfds);
             err = select(sfd+1,&readfds,NULL,NULL,&tv);
             
             if (FD_ISSET(sfd, &readfds)){ /* Quelque chose d'ecrit sur la socket */
                 /* On decode ce qui est ecrit */
-                pkt_t *pkt = pkt_new();
-                status = pkt_decode(bufdata,len,pkt);
+                char bufdata[512];
+                
+                pkt_t *receivedpkt = pkt_new();
+                status = pkt_decode(bufdata,len,receivedpkt);
                 if(status!=PKT_OK) return status;
                 
                 /* Case ACK */
                 if(pkt_get_type == PTYPE_ACK){
-                    uint8_t seqnum = pkt_get_seqnum(pkt);
-                    err = deletePrevious(queue, seqnum); /*should also test timestamp*/
-                    if (err == 0) fprintf(stderr, "Seqnum not found in queue.\n");
+                    uint8_t receivedseqnum = pkt_get_seqnum(receivedpkt); /*seqnum of received packet*/
+                    pkt_t *testpkt = pkt_get_timestamp(receivedpkt->timestamp);/*pkt correponding to timestamp of receiving packet */
+                    if (receivedseqnum == testpkt->seqnum){ /*are the timestamp and seqnum from the same packet?*/
+                        err = deletePrevious(queue,receivedseqnum+1);
+                        if (err==0) fprintf(stderr,"Seqnum not found in queue.\n");
+                    }
+                    else{
+                        err = deletePrevious(queue, receivedseqnum); /*should also test timestamp*/
+                        if (err == 0) fprintf(stderr, "Seqnum not found in queue.\n");
+                    }
                 }
                 
                 /* Case NACK */
                 if(pkt_get_type == PTYPE_NACK){
-                    uint8_t seqnum = pkt_get_seqnum(pkt);
-                    pkt_t *pkt = get_pkt(seqnum);
+                    /* On supprime les paquets precedents dans la queue*/
+                    uint8_t seqnum = pkt_get_seqnum(receivedpkt);
+                    err = deletePrevious(queue, seqnum); /*should also test timestamp*/
+                    if (err == 0) fprintf(stderr, "Seqnum not found in queue.\n");
+                    
+                    /* On renvoie le paquet nack */
                     int data_length;
                     uint16_t length = pkt_get_length(pkt);
                     if (length == 0) data_length = 12;
                     else data_length = length+12;
-                    status = pkt_encode(pkt,bufencode,data_length);
+                    
+                    char buf[512];
+                    
+                    status = pkt_encode(pkt,buf,data_length);
                     if(status!=PKT_OK) fprintf(stderr,"Encode failed : %d\n",status);
                     err = write(sfd,data,data_length);
                     if(err==-1) fprintf(stderr,"Could not write on the socket.\n");
@@ -175,6 +196,9 @@ void sender(int argc, char* argv[]){
                 pkt_set_seqnum(pkt,seqnum % 32);
                 seqnum++;
                 pkt_set_length(pkt,byteRead);
+                
+                char buf[512];
+                
                 pkt_set_payload(pkt,buf,byteRead);
                 uLong crc2= crc32(0L, Z_NULL, 0);
                 crc2= crc32(crc2, (Bytef *) buf+12,pkt->length);
@@ -196,7 +220,7 @@ void sender(int argc, char* argv[]){
                 
                 
             
-            buf = memset(bufreadfile,0,sizeof(buf));
+            bufreadfile = memset(bufreadfile,0,sizeof(bufreadfile));
             byteRead = read(file,bufreadfile,512);
             timeOutRoutine(queue,sfd);
         }
