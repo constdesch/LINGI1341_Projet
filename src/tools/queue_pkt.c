@@ -29,13 +29,16 @@ void free_Node(Node * node){
 }
 Node * addTail(queue_pkt_t *queue, pkt_t *data) {
   Node *node= (Node *) malloc(sizeof(Node));
-  if(node==NULL)
+  if(node==NULL){
+  fprintf(stdout,"malloc pour node failed \n");
   return NULL;
+}
   node->data=data;
   if(queue->head==NULL) {
     queue->head=node;
+    fprintf(stdout,"le payload du node à la head:%s\n",pkt_get_payload(data));
     node->next=NULL;
-    queue->tail=NULL;
+    queue->tail=node;
     queue->full++;
     return node;
   } else {

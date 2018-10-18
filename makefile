@@ -1,4 +1,4 @@
-CFLAGS += -std=gnu99  -Wall -Werror -Wshadow -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-all -D_POSIX_C_SOURCE=201112L -D_XOPEN_SOURCE
+CFLAGS += -std=gnu99  -Wall -Werror -Wshadow -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-all -D_POSIX_C_SOURCE=201112L -D_XOPEN_SOURCE -g
 CC = gcc
 # Default target
 all: clean sender
@@ -40,5 +40,3 @@ rebuild: clean mrproper sender receiver
 
 .PHONY: clean mrproper rebuild
 	# Default target
-
-

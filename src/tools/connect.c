@@ -10,6 +10,8 @@
 #include <arpa/inet.h>
 #include <sys/time.h>
 #include <sys/select.h>
+
+
 #include "connect.h"
 
 const char * real_address(const char *address, struct sockaddr_in6 *rval){
@@ -28,11 +30,11 @@ const char * real_address(const char *address, struct sockaddr_in6 *rval){
         struct sockaddr_in6* h2=(struct sockaddr_in6 *) (res->ai_addr);
         memcpy(rval,h2,sizeof(struct sockaddr_in6));
         if(rval!=NULL){
-              freeadrrinfo(res);
+            freeaddrinfo(res);
             return NULL ;
         }
         char * error="l'adresse n'est pas bonne .";
-        freeadrrinfo(res);
+        freeaddrinfo(res);
         return error;
     }
 }
