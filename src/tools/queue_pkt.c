@@ -47,7 +47,7 @@ Node * addTail(queue_pkt_t *queue, pkt_t *data) {
   return node;
 }
 }
-int deletePrevious(queue_pkt_t *queue, uint_8 seqnum) {
+int deletePrevious(queue_pkt_t *queue, uint8_t seqnum) {
   if(queue->head==NULL){
     return -1;
   }
@@ -150,20 +150,20 @@ return NULL;
 int queue_delete_pkt_timestamp(queue_pkt_t * queue,uint32_t timestamp){
   if(queue==NULL){
     fprintf(stderr,"la queuee n'existe pas\n");
-    return NULL;
+    return -1;
   }
   if(queue->head==NULL){
     fprintf(stderr,"la queue est vide \n");
-    return NULL;
+    return -1;
   }
   else{
     Node * node1=queue->head;
     pkt_t * pkt=node1->data;
-    if(node1->next==NULL && pkt->timestamp!=timestamp){
+    if(node1->next==NULL && pkt_get_timestamp(pkt)!=timestamp){
       fprintf(stderr,"il n'y a pas de pkt avec ce timestamp dans la queue\n");
       return -1;
     }
-    if(pkt->timestamp==timestamp){
+    if(pkt_get_timestamp(pkt)==timestamp){
       Node* node2=node1;
       Node* node3=node1->next;
       free_Node(node2);
@@ -173,7 +173,7 @@ int queue_delete_pkt_timestamp(queue_pkt_t * queue,uint32_t timestamp){
     }
   Node * node2=node1->next;
   pkt=node2->data;
-    while(pkt->timestamp!=timestamp && node2!=NULL){
+    while(pkt_get_timestamp(pkt)!=timestamp && node2!=NULL){
       node1=node2;
       node2=node2->next;
       pkt=node2->data;
