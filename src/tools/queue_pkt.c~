@@ -110,7 +110,7 @@ pkt_t * getPos(queue_pkt_t * queue, int position){
       Node * node1=queue->head;
       while( node1!=NULL){
         pkt_t* pkt=node1->data;
-        if(pkt_get_seqnum(pkt)==seqnum){
+        if(pkt->seqNum==seqnum){
           return pkt;
         }
         node1=node1->next;
@@ -135,7 +135,7 @@ pkt_t *queue_get_timestamp(queue_pkt_t * queue,uint32_t timestamp){
     Node * node1=queue->head;
     while( node1!=NULL){
       pkt_t* pkt=node1->data;
-      if(pkt_get_timestamp(pkt)==timestamp){
+      if(pkt->timestamp==timestamp){
         return pkt;
       }
       node1=node1->next;

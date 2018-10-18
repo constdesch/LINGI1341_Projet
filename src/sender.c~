@@ -237,7 +237,7 @@ int main(int argc, char* argv[]){
 
 
 
-            memset(bufreadfile,0,sizeof(bufreadfile));
+            memset(bufreadfile,0,sizeof(bufread);
             byteRead = read(file,bufreadfile,512);
             timeOutRoutine(queue,sfd);
         }
