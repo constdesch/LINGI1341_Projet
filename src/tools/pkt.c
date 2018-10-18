@@ -48,48 +48,62 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
     if(len<12){
         return E_UNCONSISTENT;
     }
-
-    if( memcpy(pkt,data,12)==NULL)
+    uint8_t header;
+    if(memcpy(&header,data,1)==NULL){
+      return E_NOMEM;
+    }
+    pkt_status_code status;
+    status=pkt_set_type(pkt,(header<<6)>>6);
+    if(status!=PKT_OK)
+      return status;
+      status=pkt_set_tr(pkt,(header<<5)>>7);
+      if(status!=PKT_OK)
+        return status;
+      status=pkt_set_window(pkt,header>>3);
+      if(status!=PKT_OK)
+        return status;
+      if(memcpy(&header,data+1,1)==NULL)
         return E_NOMEM;
+      status=pkt_set_seqnum(pkt,header);
+      if(status!=PKT_OK)
+        return status;
+      uint8_t header1;
+      if(memcpy(&header,data+2,1)==NULL)
+        return E_NOMEM;
+      if(memcpy(&header1,data+3,1)==NULL)
+        return E_NOMEM;
+      uint16_t length=htons((header<<8)|header1);
+      status=pkt_set_length(pkt,length);
+      if(status!=PKT_OK)
+        return E_NOMEM;
+      if(memcpy(pkt+4,data+4,8))
+        return E_NOMEM;
+      status=pkt_set_timestamp(pkt,pkt->timestamp);
+      if(status!=PKT_OK)
+        return status;
+      status=pkt_set_crc1(pkt,pkt->crc1);
+      if(status!=PKT_OK)
+        return status;
 
+  /*  if( memcpy(pkt,data,12)==NULL)
+        return E_NOMEM;
     pkt->length=ntohs(pkt->length);
-
     if(memcpy(&pkt->crc2,data+12+pkt_get_length(pkt),4)==NULL)
         return E_NOMEM;
 
 
    if( memcpy(pkt,data,12)==NULL)
        return E_NOMEM;
-    pkt->length=ntohs(pkt->length);
+    pkt->length=ntohs(pkt->length);*/
+    if(len>12){
+    if(memcpy(pkt+12,data+12,pkt_get_length(pkt))==NULL)
+      return E_NOMEM;
     if(memcpy(&pkt->crc2,data+12+pkt_get_length(pkt),4)==NULL)
         return E_NOMEM;
-
-    if (pkt_get_type(pkt)!=PTYPE_DATA && pkt_get_tr(pkt)==1){
-        return E_UNCONSISTENT;
-    }
-
-    if(pkt_set_tr(pkt,pkt->tr)!=PKT_OK){
-        return E_TR;
-    }
-    if(pkt_set_window(pkt,pkt->window)!=PKT_OK){
-        return E_WINDOW;
-    }
-    if(pkt_set_seqnum(pkt,pkt->seqNum)!=PKT_OK){
-        return E_SEQNUM;
-    }
-    if(pkt_set_length(pkt,pkt->length)!=PKT_OK){
-        return E_LENGTH;
-    }
-    if(pkt_set_timestamp(pkt,pkt->timestamp)!=PKT_OK){
-        return PKT_OK;
-    }
-    if(len>12){
         if(pkt_set_payload(pkt,data+12,pkt_get_length(pkt))!=PKT_OK){
             return E_NOMEM;
-    }}
-    if(pkt_set_payload(pkt,data+12,pkt_get_length(pkt))!=PKT_OK){
-        return E_NOMEM;
     }
+  }
     // calcul de crc1
     pkt->tr=0;
     uLong crc1 = crc32(0L, Z_NULL, 0);

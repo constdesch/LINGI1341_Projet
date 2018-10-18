@@ -24,7 +24,6 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <sys/time.h>
-#include <errno.h>
 #define true 1
 #define false 0
 
@@ -36,7 +35,7 @@ int timeOutRoutine(queue_pkt_t* queue, int sfd){
   if(!queue) return 0;
   struct timeval tv;
   gettimeofday(&tv, NULL);
-  double tac = (tv.tv_sec)* 1000 + (tv.tv_usec) / 1000 ; /*Convertir en ms */
+  uint32_t tac = (tv.tv_sec)* 1000 + (tv.tv_usec) / 1000 ; /*Convertir en ms */
   if(queue==NULL){
     fprintf(stderr,"queue est vide\n");
   }
@@ -46,25 +45,31 @@ int timeOutRoutine(queue_pkt_t* queue, int sfd){
   pkt_t* pkt= node->data;
   if(pkt==NULL)
   fprintf(stderr,"pkt est null\n");
-  double tic = (double)pkt_get_timestamp(pkt); /*Time when the packet was sent*/
-  if (tac-tic>4500){ /* Timeout for the first node? Resend it! */
+  uint32_t tic = pkt_get_timestamp(pkt); /*Time when the packet was sent*/
+  if ((tac-tic)>4500){ /* Timeout for the first node? Resend it! */
     /* New timestamp */
+    printf("on rentre dans tac - tic\n");
     gettimeofday(&tv, NULL);
     double timestamp = (tv.tv_sec)* 1000 + (tv.tv_usec) / 1000 ; /*Convertir en ms */
     pkt_status_code   status = pkt_set_timestamp(pkt,(uint32_t)timestamp);
     if(status != PKT_OK) printf("Setting timestamp failed.\n");
     /*Check total length of packet*/
-    char buf[512];
     uint16_t length = pkt_get_length(pkt);
     size_t tot_length;
     if (length == 0) tot_length =12;
     else if (length>0) tot_length = 16 + (size_t) length;
     else fprintf(stderr,"Length should not be negative.\n");
     /*Encode the packet in a char* and write on sfd*/
+    printf("le payload du pkt dans la routine est: %s", pkt_get_payload(pkt));
+    char buf[tot_length];
+    if(pkt==NULL){
+      printf("pkt est NULL dans la routine wtf?\n");
+    }
     status = pkt_encode(pkt,buf,&tot_length);
+    printf("le buffer qu'on devrait écrire est: %s \n",buf);
     if(status!=PKT_OK) fprintf(stderr,"Encode failed : %d\n",status);
     int  erreur = write(sfd,buf,tot_length);
-    if(erreur==-1) printf("routine : Could not write on the socket, errno: %s.\n",strerror(errno));
+    if(erreur==-1) fprintf(stderr,"Could not write on the socket.\n");
   }
   return 0;
 }
@@ -132,7 +137,7 @@ int main(int argc, char* argv[]){
 
 
     /*Create a socket bound and connected */
-    int sfd = create_socket(NULL, -1, &dst_addr, port); /* Connected */ /* src_port = dst_port ? */
+    int sfd = create_socket(&src_addr, port, &dst_addr, port); /* Connected */ /* src_port = dst_port ? */
     if(sfd==-1) fprintf(stderr,"Could not create socket.\n");
 
     /* Option -f mentionned */
@@ -157,15 +162,13 @@ int main(int argc, char* argv[]){
         /* Lire sur la socket */
         FD_ZERO(&readfds);
         FD_SET(sfd,&readfds);
-        erreur = select(sfd+1,&readfds,NULL,NULL,&tv);
-
-        if (FD_ISSET(sfd, &readfds)){ /* Quelque chose d'ecrit sur la socket */
+        erreur=select(sfd+1,&readfds,NULL,NULL,&tv);
+      if (FD_ISSET(sfd, &readfds)){ /* Quelque chose d'ecrit sur la socket */
         /* On decode ce qui est ecrit */
         printf("est ce qu'on reçoit des acks stp dis moi oui \n");
-        printf("rassure-moi plz\n");
         char bufdata[512];
         if(read(sfd,bufdata,512)==-1){
-          printf("impossible de lire sur la socket, errno = %s \n",strerror(errno));
+          fprintf(stderr,"impossible de lire sur la socket \n");
           return -1;
         }
         int len=strlen(bufdata);
@@ -206,7 +209,7 @@ int main(int argc, char* argv[]){
           status = pkt_encode(receivedpkt,buf,&data_length);
           if(status!=PKT_OK) fprintf(stderr,"Encode failed : %d\n",status);
           erreur = write(sfd,buf,data_length);// data avant
-          if(erreur==-1) fprintf(stderr,"nack : Could not write on the socket.\n");
+          if(erreur==-1) fprintf(stderr,"Could not write on the socket.\n");
         }
         free(receivedpkt);
       }
@@ -224,20 +227,21 @@ int main(int argc, char* argv[]){
         pkt_set_seqnum(pkt1,seqnum % 32);
         seqnum++;
         pkt_set_length(pkt1,byteRead);
-        struct timeval tv1;
-        gettimeofday(&tv1, NULL);
+          struct timeval tv1;
+          gettimeofday(&tv1, NULL);
         uint32_t timestamp1=(tv1.tv_sec)* 1000 + (tv1.tv_usec) /1000 ;
         pkt_set_timestamp(pkt1,timestamp1);
-        int length1=htons(pkt_get_length(pkt1));
+        int length1=htons( pkt_get_length(pkt1));
+        printf("%s",bufreadfile);
         pkt_set_payload(pkt1,bufreadfile,byteRead);
         uLong crc2= crc32(0L, Z_NULL, 0);
-        crc2= crc32(crc2, (Bytef *) bufreadfile,length1);
+        crc2= crc32(crc2, (Bytef *) pkt_get_payload(pkt1),length1);
         uLong crc1 = crc32(0L, Z_NULL, 0);
-        crc1=crc32(crc1,(Bytef*) bufreadfile,8);
+        crc1=crc32(crc1,(Bytef*) pkt1,8);
         pkt_set_crc1(pkt1,htonl(crc1));
         pkt_set_crc2(pkt1,htonl(crc2));
         /* Encode the header */
-        data_length = byteRead + 16;
+        data_length = byteRead +16;
         char data[data_length];
         status = pkt_encode(pkt1,data,&data_length);
         if(status!=PKT_OK) fprintf(stderr,"Encode failed : %d\n",status);
@@ -246,7 +250,7 @@ int main(int argc, char* argv[]){
           return -1;
         }
         erreur = write(sfd,data,data_length);
-        if(erreur==-1) fprintf(stderr,"pkt : Could not write on the socket.\n");
+        if(erreur==-1) fprintf(stderr,"Could not write on the socket.\n");
         memset(bufreadfile,0,sizeof(bufreadfile));
         byteRead = read(file,bufreadfile,512);
       }
@@ -259,9 +263,9 @@ int main(int argc, char* argv[]){
     }
   }
     free(queue);
-    return 0;
+    return 1;
   }
-  fprintf(stderr,"Could not open the file (or stdout in -f not mentionned).\n");
+  fprintf(stderr,"Could not open the file (or stdout in -f not mentionned.\n");
   free(queue);
   if(close(sfd)==-1){
     printf("close(sfd) n'a pas fonctionné \n");
@@ -271,5 +275,5 @@ int main(int argc, char* argv[]){
       printf("close(file) n'a pas fonctionné\n");
     }
   }
-  return -1;
+  return 0;
 }
