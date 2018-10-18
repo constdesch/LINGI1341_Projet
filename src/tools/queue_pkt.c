@@ -5,15 +5,6 @@
 #include <arpa/inet.h>
 #include <zlib.h>
 #include <endian.h>
-typedef struct node {
-  pkt_t *data; // pointeur vers la donnée stockée
-  struct node *next; // pointeur vers le noeud suivant
-} Node;
-typedef struct queue_pkt{
-  int full;
-  Node* head;
-  Node* tail;
-}queue_pkt_t;
 void init(queue_pkt_t* queue){
   queue->full=0;
   queue->head=NULL;
