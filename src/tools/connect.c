@@ -10,6 +10,7 @@
 #include <arpa/inet.h>
 #include <sys/time.h>
 #include <sys/select.h>
+#include "connect.h"
 
 const char * real_address(const char *address, struct sockaddr_in6 *rval){
     struct addrinfo hints,*res;
