@@ -5,7 +5,7 @@
 #include <arpa/inet.h>
 #include <zlib.h>
 #include <endian.h>
-void init(queue_pkt_t* queue){
+void init_queue(queue_pkt_t* queue){
   queue->full=0;
   queue->head=NULL;
   queue->tail=NULL;
@@ -88,3 +88,53 @@ pkt_t * getPos(queue_pkt_t * queue, int position){
     return pkt;
     }
   }
+  pkt_t * get_pkt_seq(queue_pkt_t * queue,uint8_t seqnum){
+    if(queue==NULL){
+      fprintf(stderr,"la queuee n'existe pas\n");
+      return NULL;
+    }
+    if(queue->head==NULL){
+      fprintf(stderr,"la queuee est vide \n");
+      return NULL;
+    }
+    else{
+      Node * node1=queue->head;
+      while( node1!=NULL){
+        pkt_t* pkt=node1->data;
+        if(pkt->seqNum==seqnum){
+          return pkt;
+        }
+        node1=node1->next;
+      }
+      if(node1==NULL){
+        fprintf(stderr,"il n'y a pas de pkt avec ce seqnum dans la liste \n");
+        return NULL;
+      }
+  return NULL;
+  }
+}
+pkt_t * get_pkt_timestamp(queue_pkt_t * queue,uint32_t timestamp){
+  if(queue==NULL){
+    fprintf(stderr,"la queuee n'existe pas\n");
+    return NULL;
+  }
+  if(queue->head==NULL){
+    fprintf(stderr,"la queuee est vide \n");
+    return NULL;
+  }
+  else{
+    Node * node1=queue->head;
+    while( node1!=NULL){
+      pkt_t* pkt=node1->data;
+      if(pkt->timestamp==timestamp){
+        return pkt;
+      }
+      node1=node1->next;
+    }
+    if(node1==NULL){
+      fprintf(stderr,"il n'y a pas de pkt avec ce timestamp dans la liste \n");
+      return NULL;
+    }
+return NULL;
+}
+}
