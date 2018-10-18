@@ -281,9 +281,6 @@ pkt_status_code pkt_set_payload(pkt_t *pkt,
     if(!pkt->payload){
         return E_NOMEM;
     }
-    if(! memcpy(pkt->payload,data,length))
-        return E_NOMEM;
-=======
    if(! memcpy(pkt->payload,data,length))
        return E_NOMEM;
     return PKT_OK;

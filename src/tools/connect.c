@@ -8,6 +8,8 @@
 #include <errno.h>
 #include <string.h>
 #include <arpa/inet.h>
+#include <sys/time.h>
+#include <sys/select.h>
 
 const char * real_address(const char *address, struct sockaddr_in6 *rval){
     struct addrinfo hints,*res;
@@ -39,17 +41,17 @@ int create_socket(struct sockaddr_in6 *source_addr,
     /*CREATION SOCKET*/
     int fd = socket(AF_INET6, SOCK_DGRAM, 0);
     if(fd==-1) {fprintf(stderr,"bug pour socket \n"); return -1;}
-    
+
     /*ON CONNECTE LE PORT SOURCE*/
     if(source_addr!=NULL){
         if(src_port>0) source_addr->sin6_port=htons(src_port);
     }
-    
+
     /*ON CONNECTE LE PORT DEST*/
     if(dest_addr!=NULL){
         if (dst_port>0) dest_addr->sin6_port=htons(dst_port);
     }
-    
+
     /*BIND*/
     if(source_addr!=NULL){
         source_addr->sin6_family=AF_INET6;
@@ -82,7 +84,7 @@ void read_write_loop(int sfd){
     char bufwrite[1024];/* char bufwritedfs[512]*/
     /* char buffdecode[512] */
     /* char buffencode[512] */
-                         
+
     struct timeval tv;
     fd_set readfds, writefds;
     tv.tv_sec = 5;
@@ -101,7 +103,7 @@ void read_write_loop(int sfd){
             fprintf(stderr,"select a pas fonctionne\n");
             return;
         }
-        
+
         /* Something written on stdin/file */ /*SENDER*/ /*PLUTOT UTILISER READ NON ?*/
         /* if (queue->full < queue->MAXSIZE){
             int err = read(file,bufreadfile,512)
@@ -110,7 +112,7 @@ void read_write_loop(int sfd){
                 ENCODE PAQUET
                 ENVOIE PAQUET SUR LA SOCKET
             if (err==-1) PROBLEME
-         
+
         }*/
         /* CA ON POURRAIT BACKER */
         if(FD_ISSET(STDIN_FILENO,&readfds)){
@@ -122,24 +124,24 @@ void read_write_loop(int sfd){
         }
         /* Something written on the socket */ /*RECEVEUR*/ /*SENDER AUSSI ICI? */
         else if(FD_ISSET(sfd, &readfds)){
-            
+
             /* TOUJOURS*/
             /*
             pkt_t *pkt = pkt_new();
             status = pkt_decode(bufdata,len,pkt);
             if(status!=PKT_OK) return status;
-            
+
             if(pkt_get_type==PTYPE_DATA){
                 // Si DATA : DECODE -> STDOUT -> SEND (N)ACK
                 int tr = pkt_get_tr(pkt)
                 if(tr==1)
-             
+
             }
             else if(pkt_get_type == PTYPE_ACK){
                 uint8_t seqnum = pkt_get_seqnum(pkt);
                 err = deletePrevious(queue, seqnum);
                 if (err == 0) fprintf(stderr, "Seqnum not found in queue.\n");
-                
+
             }
             else if(pkt_get_type == PTYPE_NACK){
                 // Si NACK-> RENVOIE PKT
@@ -154,7 +156,7 @@ void read_write_loop(int sfd){
                 err = write(sfd,data,data_length);
                 if(err==-1) fprintf(stderr,"Could not write on the socket.\n");
             } */
-            
+
             int err = read(sfd,bufwrite,sizeof(bufwrite));
             if (err==0) return;
             if(err==-1){ fprintf(stderr,"Erreur read");}
@@ -173,11 +175,11 @@ int wait_for_client(int sfd){
     struct sockaddr_in6 from;
     from.sin6_family = AF_INET6;
     socklen_t addrlen = sizeof(struct sockaddr_in6);
-    
+
     int a = recvfrom(sfd,(void *) buf, sizeof(buf), MSG_PEEK, (struct sockaddr*)&from, &addrlen);
     if(a==-1) return -1;
     a = connect(sfd, (struct sockaddr*) &from,addrlen);
     if(a==-1) return -1;
-    
+
     return 0;
 }

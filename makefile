@@ -1,41 +1,44 @@
-CFLAGS += -std=gnu99  -Wall -Werror -Wshadow -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-all -D_POSIX_C_SOURCE=201112L -D_XOPEN_SOURCE -lz
+CFLAGS += -std=gnu99  -Wall -Werror -Wshadow -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-all -D_POSIX_C_SOURCE=201112L -D_XOPEN_SOURCE
 CC = gcc
 # Default target
-all: clean receiver sender
+all: clean sender
 # If we run make debug instead, keep the debug symbols for gdb
 # and define the DEBUG macro.
 #debug: CFLAGS += -g -DDEBUG -Wno-unused-parameter -fno-omit-frame-pointer
-debug: clean sender receiver
 
 # We use an implicit rule to build an executable named 'chat'
-sender: out/sender.o out/pkt.o out/connect.o out/queue_pkt.o
-	@$(CC) -o $@ $^
+sender: src/sender.o src/tools/pkt.o src/tools/connect.o src/tools/queue_pkt.o
+	@$(CC) -o  $@ $^ -lz
 
-receiver: out/receiver.o  out/pkt.o out/connect.o out/queue_pkt.o
-	@$(CC) -o $@ $^
+receiver: src/receiver.o  src/tools/pkt.o src/tools/connect.o src/tools/queue_pkt.o
+	@$(CC) -o  $@ $^ -lz
 
-out/pkt.o: src/tools/pkt.c
-	@$(CC) $(CFLAGS) -c -o $@ $<
+src/tools/pkt.o: src/tools/pkt.c
+	@$(CC) $(CFLAGS)  -c -o  $@ $<
 
-out/connect.o: src/tools/connect.c
-	@$(CC) $(CFLAGS) -c -o $@ $<
+src/tools/connect.o: src/tools/connect.c
+	@$(CC) $(CFLAGS) -c -o  $@ $<
 
-out/queue_pkt.o: src/tools/queue_pkt.c
-	@$(CC) $(CFLAGS) -c -o $@ $<
+src/tools/queue_pkt.o: src/tools/queue_pkt.c
+	@$(CC) $(CFLAGS) -c -o  $@ $<
 
-out/receiver.o: src/receiver.c
-		@$(CC) $(CFLAGS) -c -o $@ $<
+src/receiver.o: src/receiver.c
+		@$(CC) $(CFLAGS) -c -o  $@ $<
 
-out/sender.o: src/sender.c
-		@$(CC) $(CFLAGS) -c -o $@ $<
+src/sender.o: src/sender.c
+		@$(CC) $(CFLAGS) -c -o  $@ $<
 
+.PHONY: clean
 
 clean:
-	rm -rf *.o
+	@rm -rf src/tools/pkt.o src/tools/connect.o src/tools/queue_pkt.o
 
 mrproper:
-	rm -rf sender receiver
+	@rm -rf sender receiver
 
 rebuild: clean mrproper sender receiver
 
 .PHONY: clean mrproper rebuild
+	# Default target
+
+
