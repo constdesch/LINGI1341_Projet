@@ -168,10 +168,15 @@ int main(int argc, char* argv[]){
           printf("impossible de lire sur la socket, errno = %s \n",strerror(errno));
           return -1;
         }
+
         int len=strlen(bufdata);
         pkt_t *receivedpkt = pkt_new();
         status = pkt_decode(bufdata,len,receivedpkt);
-        if(status!=PKT_OK) return status;
+        printf("la: \n");
+        printf("Type : %d\n",pkt_get_type(receivedpkt));
+        printf("Seqnum: %d\n",pkt_get_seqnum(receivedpkt));
+        printf("Tr: %d\n",pkt_get_tr(receivedpkt));
+        if(status!=PKT_OK)  return status;
 
         /* Case ACK */
         if(pkt_get_type(receivedpkt) == PTYPE_ACK){
@@ -240,7 +245,19 @@ int main(int argc, char* argv[]){
         data_length = byteRead + 16;
         char data[data_length];
         status = pkt_encode(pkt1,data,&data_length);
+        printf("data : %s\n",data);
         if(status!=PKT_OK) fprintf(stderr,"Encode failed : %d\n",status);
+
+        pkt_t *pkt2 = pkt_new();
+        status = pkt_decode(data,data_length,pkt2);
+        if(status!= PKT_OK) return status;
+        printf("C'est ici : \n");
+        printf("Type : %d\n",pkt_get_type(pkt2));
+        printf("Seqnum: %d\n",pkt_get_seqnum(pkt2));
+        printf("Tr: %d\n",pkt_get_tr(pkt2));
+
+
+
         if( addTail(queue, pkt1)==NULL){
           fprintf(stdout,"l'ajout à la liste n'a pas réussi");
           return -1;
