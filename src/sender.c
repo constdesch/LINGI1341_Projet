@@ -21,6 +21,22 @@
 #define true 1
 #define false 0
 
+int client = 0;
+int port = 0;
+int opt;
+char *sender = "::1";
+char *receiver = NULL;
+char *filename = NULL;
+const char *err;
+pkt_status_code status;
+int seqnum = 0;
+struct timeval tv;
+fd_set readfds;
+tv.tv_sec = 5;
+tv.tv_usec = 5;
+
+
+
 int timeOutRoutine(queue_pkt* queue, int sfd){
     if(!queue) return 0;
     
@@ -51,28 +67,12 @@ int timeOutRoutine(queue_pkt* queue, int sfd){
         if(err==-1) fprintf(stderr,"Could not write on the socket.\n");
     }
 }
-void sender(int argc, char* argv[]){
-    int client = 0;
-    int port = 0;
-    int opt;
-    char *sender = "::1";
-    char *receiver = NULL;
-    char *filename = NULL;
-    const char *err;
-    pkt_status_code status;
-    int seqnum = 0;
-    struct timeval tv;
-    fd_set readfds, writefds;
-    tv.tv_sec = 5;
-    tv.tv_usec = 5;
-    
-    
+int sender(int argc, char* argv[]){
     
     while ((opt = getopt(argc, argv, "f:")) != -1) {
         switch (opt) {
             case 'f':
                 filename = optarg;
-                fflag = true;
                 break;
             case '?':
                 if(optopt =='c')
@@ -86,7 +86,7 @@ void sender(int argc, char* argv[]){
                 abort();
         }
     }
-    if(argc - optind !=2) fprintf(stderr,"Wrong number of arguments, expected two\n");
+    if(argc - optind <2) fprintf(stderr,"Wrong number of arguments, expected two\n");
     receiver = argv[optind]; /*receiver est le premier argument */
     port = atoi(argv[optind+1]); /*port est le deuxieme argument */
     
@@ -116,11 +116,11 @@ void sender(int argc, char* argv[]){
     
     /* Option -f mentionned */
     if(filename != NULL){
-        file = fopen(filename, "r");/* Only for reading */
+        int file = fopen(filename, "r");/* Only for reading */
     }
     else{ /* Option f not mentionned */
         filename = argv[argc-1] /*ATTENTION suggere que ce sera toujours le dernier element */
-        file = fopen(filename, "r"); /* Only for reading */
+        int file = fopen(filename, "r"); /* Only for reading */
     }
     
     if(file!=NULL) {
@@ -222,6 +222,8 @@ void sender(int argc, char* argv[]){
             timeOutRoutine(queue,sfd);
         }
     }
+    fprintf(stderr,"Could not open the file (or stdout in -f not mentionned.\n");
+    return -1;
 }
 
 
