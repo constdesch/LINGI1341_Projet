@@ -1,5 +1,5 @@
-// avec l'aide de Const de Schaetzen + Lucille Dierkxc + Konstaninos
-#include "packet_interface.h"
+// avec l'aide de Const de Schaetzen
+#include "pkt.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include "string.h"
