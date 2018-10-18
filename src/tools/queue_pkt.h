@@ -16,7 +16,8 @@ typedef struct queue_pkt{
 void init_queue(queue_pkt_t* queue);
 void free_Node(Node * node);
 Node * addTail(queue_pkt_t *queue, pkt_t *data);
-int deletePrevious(queue_pkt_t *queue, int seqnum) ;
+int deletePrevious(queue_pkt_t *queue, uint8_t seqnum) ;
 pkt_t * getPos(queue_pkt_t * queue, int position);
 pkt_t * queue_get_seq(queue_pkt_t * queue,uint8_t seqnum);
 pkt_t * queue_get_timestamp(queue_pkt_t * queue,uint32_t timestamp);
+int queue_delete_pkt_timestamp(queue_pkt_t * queue,uint32_t timestamp);
