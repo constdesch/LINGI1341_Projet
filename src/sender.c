@@ -32,20 +32,28 @@
 
 
 int timeOutRoutine(queue_pkt_t* queue, int sfd){
+  printf("hello world\n");
     if(!queue) return 0;
-
     struct timeval tv;
     gettimeofday(&tv, NULL);
     double tac = (tv.tv_sec) * 1000 + (tv.tv_usec) / 1000 ; /*Convertir en ms */
+    if(queue==NULL){
+      fprintf(stderr,"queue est vide\n");
+    }
     Node *node = queue->head;
+    if(node==NULL)
+      fprintf(stderr,"queue->head est vide\n");
     pkt_t* pkt= node->data;
+    if(pkt==NULL)
+    fprintf(stderr,"pkt est null\n");
     double tic = (double)pkt_get_timestamp(pkt); /*Time when the packet was sent*/
     if (tac-tic>4500){ /* Timeout for the first node? Resend it! */
         /* New timestamp */
         gettimeofday(&tv, NULL);
         double timestamp = (tv.tv_sec) * 1000 + (tv.tv_usec) / 1000 ; /*Convertir en ms */
-     pkt_status_code   status = pkt_set_timestamp(pkt,timestamp);
-        if(status != PKT_OK) fprintf(stderr,"Setting timestamp failed.\n");
+        printf("%f\n",timestamp);
+     pkt_status_code   status = pkt_set_timestamp(pkt,uint32_t(imestamp));
+        if(status != PKT_OK) printf("Setting timestamp failed.\n");
         /*Check total length of packet*/
         char buf[512];
         uint16_t length = pkt_get_length(pkt);
@@ -213,7 +221,6 @@ int main(int argc, char* argv[]){
                 pkt_set_seqnum(pkt1,seqnum % 32);
                 seqnum++;
                 pkt_set_length(pkt1,byteRead);
-
                 char buf[512];
 		int length1=htons( pkt_get_length(pkt1));
                 pkt_set_payload(pkt1,buf,byteRead);
@@ -223,13 +230,15 @@ int main(int argc, char* argv[]){
 		crc1=crc32(crc1,(Bytef*) buf,8);
                 pkt_set_crc1(pkt1,htonl(crc1));
                 pkt_set_crc2(pkt1,htonl(crc2));
-
                 /* Encode the header */
                 data_length = byteRead +16;
                 char data[data_length];
                 status = pkt_encode(pkt1,data,&data_length);
                 if(status!=PKT_OK) fprintf(stderr,"Encode failed : %d\n",status);
-
+                if( addTail(queue, pkt1)==NULL){
+                  fprintf(stout,"l'ajout à la liste n'a pas réussi");
+                  return -1;
+                }
                 erreur = write(sfd,data,data_length);
                 if(erreur==-1) fprintf(stderr,"Could not write on the socket.\n");
                 }
@@ -239,9 +248,14 @@ int main(int argc, char* argv[]){
 
             memset(bufreadfile,0,sizeof(bufreadfile));
             byteRead = read(file,bufreadfile,512);
+            if(queue==NULL){
+            fprintf(stder,"la queue est null\n");
+          }
             timeOutRoutine(queue,sfd);
         }
+        free(queue);
     }
     fprintf(stderr,"Could not open the file (or stdout in -f not mentionned.\n");
+      free(queue);
     return -1;
 }
