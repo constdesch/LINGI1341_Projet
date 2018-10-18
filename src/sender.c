@@ -222,13 +222,6 @@ void sender(int argc, char* argv[]){
             timeOutRoutine(queue,sfd);
         }
     }
-    
-        
-        
-    
-
-        
-    }
-    
 }
+
 
