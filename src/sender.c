@@ -32,6 +32,12 @@ int timeOutRoutine(queue_pkt* queue, int sfd){
     if (tac-tic>4500){ /* Timeout -> send whole window again */
         while(node!=NULL){
             pkt_t *pkt = node->data;
+            
+            gettimeofday(&tv, NULL);
+            double timestamp = (tv.tv_sec) * 1000 + (tv.tv_usec) / 1000 ; /*Convertir en ms */
+            status = pkt_set_timestamp(pkt,timestamp);
+            if(status != PKT_OK) fprintf(stderr,"Setting timestamp failed.\n");
+            
             char buf[512];
             int length = pkt->length;
             int tot_length;
@@ -139,21 +145,26 @@ void sender(int argc, char* argv[]){
             
             if (FD_ISSET(sfd, &readfds)){ /* Quelque chose d'ecrit sur la socket */
                 /* On decode ce qui est ecrit */
-                pkt_t *pkt = pkt_new();
-                status = pkt_decode(bufdata,len,pkt);
+                pkt_t *receivedpkt = pkt_new();
+                status = pkt_decode(bufdata,len,receivedpkt);
                 if(status!=PKT_OK) return status;
                 
                 /* Case ACK */
                 if(pkt_get_type == PTYPE_ACK){
-                    uint8_t seqnum = pkt_get_seqnum(pkt);
-                    err = deletePrevious(queue, seqnum); /*should also test timestamp*/
-                    if (err == 0) fprintf(stderr, "Seqnum not found in queue.\n");
+                    uint8_t receivedseqnum = pkt_get_seqnum(receivedpkt); /*seqnum of received packet*/
+                    pkt_t *testpkt = pkt_get_timestamp(receivedpkt->timestamp);/*pkt correponding to timestamp of receiving packet */
+                    if (receivedseqnum == testpkt->seqnum){ /*are the timestamp and seqnum from the same packet?*/
+                        err = deletePrevious(queue,seqnum+1);
+                        if (err==0) fprintf(stderr,"Seqnum not found in queue.\n");
+                    }
+                    else{
+                        err = deletePrevious(queue, seqnum); /*should also test timestamp*/
+                        if (err == 0) fprintf(stderr, "Seqnum not found in queue.\n");
+                    }
                 }
                 
                 /* Case NACK */
                 if(pkt_get_type == PTYPE_NACK){
-                    uint8_t seqnum = pkt_get_seqnum(pkt);
-                    pkt_t *pkt = get_pkt(seqnum);
                     int data_length;
                     uint16_t length = pkt_get_length(pkt);
                     if (length == 0) data_length = 12;
