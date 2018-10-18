@@ -26,32 +26,29 @@ int timeOutRoutine(queue_pkt* queue, int sfd){
     
     struct timeval tv;
     gettimeofday(&tv, NULL);
-    double tic = (tv.tv_sec) * 1000 + (tv.tv_usec) / 1000 ; /*Convertir en ms */
-    Node *node = queue->head; /* "Oldest" node */
-    double tac = node->timestamp; /*Oldest node sent time */
-    if (tac-tic>4500){ /* Timeout -> send whole window again */
-        while(node!=NULL){
-            pkt_t *pkt = node->data;
-            
-            gettimeofday(&tv, NULL);
-            double timestamp = (tv.tv_sec) * 1000 + (tv.tv_usec) / 1000 ; /*Convertir en ms */
-            status = pkt_set_timestamp(pkt,timestamp);
-            if(status != PKT_OK) fprintf(stderr,"Setting timestamp failed.\n");
-            
-            char buf[512];
-            int length = pkt->length;
-            int tot_length;
-            if (length == 0) tot_length =12;
-            else if (length>0) tot_length = 16 + length;
-            else fprintf(stderr,"Length should not be negative.\n");
-            
-            status = pkt_encode(pkt,buf,tot_length);
-            if(status!=PKT_OK) fprintf(stderr,"Encode failed : %d\n",status);
-            err = write(sfd,data,tot_length);
-            if(err==-1) fprintf(stderr,"Could not write on the socket.\n");
-            
-            node = node->next;
-        }
+    double tac = (tv.tv_sec) * 1000 + (tv.tv_usec) / 1000 ; /*Convertir en ms */
+    Node *node = queue->head;
+    double tic = node->timestamp; /*Time when the packet was sent*/
+    if (tac-tic>4500){ /* Timeout for the first node? Resend it! */
+        pkt_t *pkt = node->data;
+    
+        /* New timestamp */
+        gettimeofday(&tv, NULL);
+        double timestamp = (tv.tv_sec) * 1000 + (tv.tv_usec) / 1000 ; /*Convertir en ms */
+        status = pkt_set_timestamp(pkt,timestamp);
+        if(status != PKT_OK) fprintf(stderr,"Setting timestamp failed.\n");
+        /*Check total length of packet*/
+        char buf[512];
+        int length = pkt->length;
+        int tot_length;
+        if (length == 0) tot_length =12;
+        else if (length>0) tot_length = 16 + length;
+        else fprintf(stderr,"Length should not be negative.\n");
+        /*Encode the packet in a char* and write on sfd*/
+        status = pkt_encode(pkt,buf,tot_length);
+        if(status!=PKT_OK) fprintf(stderr,"Encode failed : %d\n",status);
+        err = write(sfd,data,tot_length);
+        if(err==-1) fprintf(stderr,"Could not write on the socket.\n");
     }
 }
 void sender(int argc, char* argv[]){
