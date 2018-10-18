@@ -94,15 +94,15 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
     pkt->tr=0;
     uLong crc1 = crc32(0L, Z_NULL, 0);
     crc1 = crc32(crc1, ( const Bytef *) data, 8*sizeof(char));
-    if(htonl(crc1)!=(pkt->crc1)){
-        return E_CRC;
-    }
+    if (crc1 != ntohl(pkt->crc1)){
+     return E_CRC;
+ }
     if(pkt->length!=0){
         uLong crc2 = crc32(0L, Z_NULL, 0);
         crc2 = crc32(crc2, (Bytef *)data+12, pkt->length);
-        if (htonl(crc2) != (pkt->crc2)){
-            return E_CRC;
-        }
+        if (crc2 != ntohl(pkt->crc2)){
+         return E_CRC;
+     }
     }
     return PKT_OK;
 }
@@ -111,7 +111,6 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
 
 pkt_status_code pkt_encode(const pkt_t* pkt, char *buf, size_t *len)
 
-{
     {
         int ll1=12;
         if(pkt->length>0){
@@ -128,7 +127,7 @@ pkt_status_code pkt_encode(const pkt_t* pkt, char *buf, size_t *len)
         if( memcpy(buf+4,&(pkt->timestamp),4)==NULL)
             return E_NOMEM;
         uLong crc1 = crc32(0L, Z_NULL, 0);
-        crc1 = htobe32(crc32(crc1, ( const Bytef *) buf, 8*sizeof(char)));
+        crc1 = htonl(crc32(crc1, ( const Bytef *) buf, 8*sizeof(char)));
         if( memcpy(buf+8,&crc1,4)==NULL)
             return E_NOMEM;
         if(pkt->length!=0){
@@ -139,35 +138,13 @@ pkt_status_code pkt_encode(const pkt_t* pkt, char *buf, size_t *len)
             uint32_t crc22=htonl(crc2);
             if  (memcpy(buf+12+pkt->length,&crc22,4)==NULL)
                 return E_NOMEM;
-        }
-        *len= ll1 ;
-        return PKT_OK;
-    }
+  }
+  *len=ll1;
+  return PKT_OK;
+}
 
-    uint16_t length1=htons(pkt->length);
-   	if(memcpy(buf,pkt,2)==NULL)
-        return E_NOMEM;
-    if(memcpy(buf+2,&length1,2)==NULL)
-        return E_NOMEM;
-   if( memcpy(buf+4,&(pkt->timestamp),4)==NULL)
-       return E_NOMEM;
-uLong crc1 = crc32(0L, Z_NULL, 0);
-    crc1 = htobe32(crc32(crc1, ( const Bytef *) buf, 8*sizeof(char)));
-if( memcpy(buf+8,&crc1,4)==NULL)
-    return E_NOMEM;
-    if(pkt->length!=0){
-    if(memcpy(buf+12,pkt->payload,pkt->length)==NULL)
-        return E_NOMEM;
-        uLong crc2= crc32(0L, Z_NULL, 0);
-    crc2= crc32(crc2, (Bytef *) buf+12,pkt->length);
-    uint32_t crc22=htonl(crc2);
-  if  (memcpy(buf+12+pkt->length,&crc22,4)==NULL)
-      return E_NOMEM;
-       }
-    *len= ll1 ;
-    return PKT_OK;
-}
-}
+
+
 
 ptypes_t pkt_get_type  (const pkt_t* pkt)
 {
