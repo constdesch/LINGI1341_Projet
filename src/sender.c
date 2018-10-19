@@ -24,6 +24,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <sys/time.h>
+#include <errno.h>
 #define true 1
 #define false 0
 
@@ -137,7 +138,7 @@ int main(int argc, char* argv[]){
 
 
     /*Create a socket bound and connected */
-    int sfd = create_socket(&src_addr, port, &dst_addr, port); /* Connected */ /* src_port = dst_port ? */
+    int sfd = create_socket(NULL, -1, &dst_addr, port); /* Connected */ /* src_port = dst_port ? */
     if(sfd==-1) fprintf(stderr,"Could not create socket.\n");
 
     /* Option -f mentionned */
@@ -168,7 +169,7 @@ int main(int argc, char* argv[]){
         printf("est ce qu'on reçoit des acks stp dis moi oui \n");
         char bufdata[512];
         if(read(sfd,bufdata,512)==-1){
-          fprintf(stderr,"impossible de lire sur la socket \n");
+          fprintf(stderr,"impossible de lire sur la socket:%s \n",strerror(errno));
           return -1;
         }
 

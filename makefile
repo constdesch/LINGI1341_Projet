@@ -1,7 +1,7 @@
 CFLAGS += -std=gnu99  -Wall -Werror -Wshadow -O2 -D_FORTIFY_SOURCE=2 -fstack-protector-all -D_POSIX_C_SOURCE=201112L -D_XOPEN_SOURCE -g
 CC = gcc
 # Default target
-all: clean sender
+all: clean sender receiver
 # If we run make debug instead, keep the debug symbols for gdb
 # and define the DEBUG macro.
 #debug: CFLAGS += -g -DDEBUG -Wno-unused-parameter -fno-omit-frame-pointer

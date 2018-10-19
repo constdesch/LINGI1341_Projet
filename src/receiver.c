@@ -5,6 +5,7 @@
 //  Created by Constantin de Schaetzen and Jean Gillain on 16/10/18.
 //
 
+
 #include <string.h>
 #include <ctype.h>
 #include <stdio.h>
@@ -16,7 +17,14 @@
 #include <netinet/in.h>
 #include <string.h>
 #include <arpa/inet.h>
-#include <time.h>
+#include <sys/select.h>
+#include "tools/connect.h"
+#include "tools/pkt.h"
+#include "tools/queue_pkt.h"
+#include <unistd.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <sys/time.h>
 
 #define true 1
 #define false 0
@@ -25,19 +33,27 @@
 
 
 
-void receiver(int argc, char* argv[]){
-    int client = 0;
+int main(int argc, char* argv[]){
+  queue_pkt_t * queue=malloc(sizeof(queue_pkt_t));
+  if(!queue){
+    printf("malloc failed \n");
+    return -1;
+  }
+  init_queue(queue);
+  int erreur=0;
     int port = 0;
     int opt;
     char *filename = NULL;
     const char *err;
     pkt_status_code status;
-    int seqnum = 0;
+    uint32_t seqnum = 0;
+    char * receiver = "::1";
+    char * sender= NULL;
     struct timeval tv;
     fd_set readfds;
-    tv.tv_sec = 5;
+    tv.tv_sec = 15;
     tv.tv_usec = 5;
-
+  //  int openall=0;
 
     while ((opt = getopt(argc, argv, "f:")) != -1) {
         switch (opt) {
@@ -46,7 +62,7 @@ void receiver(int argc, char* argv[]){
                 break;
             case '?':
                 if(optopt =='c')
-                    fprintf(stderr,"Option -%f requires an argument.\n",optopt);
+                    fprintf(stderr,"Option -f requires an argument .\n");
                 else
                     fprintf (stderr,
                              "Unknown option character `\\x%x'.\n",
@@ -56,25 +72,178 @@ void receiver(int argc, char* argv[]){
                 abort();
         }
     }
-    if(argc - optind <2) fprintf(stderr,"Wrong number of arguments, expected at least two, got %d\n",arc-optind);
-    receiver = argv[optind]; /*receiver est le premier argument */
+    if(argc - optind <2) {fprintf(stderr,"Wrong number of arguments, expected at least two, got %d\n",argc-optind);free(queue); return -1;}
+    sender = argv[optind]; /*sender est le premier argument */
+  //  if(strlen(sender)==0 && sender[0]=='.' && sender[1]=='.'){
+    //  openall=1;
+    //}
     port = atoi(argv[optind+1]); /*port est le deuxieme argument */
-
-    if(!receiver) fprintf(stderr, "Receiver is NULL\n");
+    if(!sender) fprintf(stderr, "Sender is NULL\n");
     if(!port) fprintf(stderr, "Port is 0\n");
-    printf("Receiver : %s\n",receiver);
+    printf("Sender : %s\n",sender);
     printf("Port : %d\n",port);
-    
+
     /* Option -f mentionned */
-    if(filename != NULL){
-        int file = fopen(filename,"r");
+    struct sockaddr_in6 dst_addr;
+    err = real_address(sender,&dst_addr);
+    if (err){
+      fprintf(stderr, "Could not resolve sender name %s : %s\n",sender,err);
     }
-    else{
-        int file = fopen(stdout, "r");
+    /* Resolve sender name */
+    struct sockaddr_in6 src_addr;
+    err = real_address(receiver,&src_addr);
+    if(err){
+      fprintf(stderr,"Could not resolve sender name %s : %s\n",sender,err);
     }
-    
-    if(file!=NULL){
-        /* DO SOMETHING */
+    int sfd = create_socket(&src_addr, port,NULL, -1); /* Connected */ /* src_port = dst_port ? */
+    if (sfd > 0 && wait_for_client(sfd) < 0) { /* Connected */
+			fprintf(stderr,
+					"Could not connect the socket after the first message.\n");
+			close(sfd);
+      free(queue);
+			return EXIT_FAILURE;
+		}
+
+int file;
+if(filename != NULL){
+      file = open(filename,O_WRONLY);
+      if(file==-1){
+      free(queue);
+      printf("on ne sait pas ouvrir fichier %s \n",filename);
+      return -1;
     }
-    return -1;
 }
+else{
+     file = STDOUT_FILENO;
+}
+if(file!=-1){
+  while(1){
+    FD_ZERO(&readfds);
+    FD_SET(sfd,&readfds);
+    erreur=select(sfd+1,&readfds,NULL,NULL,&tv);
+       if(erreur<0){
+         free(queue);
+           fprintf(stderr,"select a pas fonctionne\n");
+           return -1;
+       }
+       else if(FD_ISSET(sfd, &readfds)){
+         printf("est ce qu'on reçoit des acks dans le receiver \n");
+         char bufdata[512];
+         if(read(sfd,bufdata,512)==-1){
+           free(queue);
+           fprintf(stderr,"impossible de lire sur la socket dans le receiver \n");
+           return -1;
+         }
+         int length=strlen(bufdata);
+         pkt_t *receivedpkt = pkt_new();
+         status = pkt_decode(bufdata,length,receivedpkt);
+         /*
+         printf("Type : %d\n",pkt_get_type(receivedpkt));
+         printf("Seqnum: %d\n",pkt_get_seqnum(receivedpkt));
+         printf("Tr: %d\n",pkt_get_tr(receivedpkt));
+         */
+         if(status!=PKT_OK)  return status;
+         /* Case ACK */
+         if(pkt_get_type(receivedpkt) == PTYPE_DATA){
+           printf("PUTAIIIIIIIIIIIIIIIN ACK  dans le receiver !!!!!!!!!!!!!!!!\n");
+           uint8_t receivedseqnum = pkt_get_seqnum(receivedpkt); /*seqnum of received packet*/
+           if( pkt_get_tr(receivedpkt)!=1){
+             if(receivedseqnum==seqnum){
+               pkt_t *pktToSend=pkt_new();
+               if(!memcpy(pktToSend,receivedpkt,12))
+                return E_NOMEM;
+                status=pkt_set_type(pktToSend,PTYPE_ACK);
+                if(status!=PKT_OK)
+                  return status;
+                size_t len=12;
+                status=pkt_encode( pktToSend,bufdata, &len);
+                if(status!=PKT_OK) return status;
+                erreur=write(sfd,bufdata,len);
+                if(erreur==-1) printf("impossible de répondre via la socket(receiver)\n");
+                pkt_del(pktToSend);
+               erreur=write(file,pkt_get_payload(receivedpkt),pkt_get_length(receivedpkt));
+               if(erreur==-1){
+                 printf("impossible d'écrire dans le fichier file dans le receiver \n");
+               }
+               if(seqnum==255){
+                 seqnum=0;
+             }
+             else{
+               seqnum++;
+             }
+             pkt_del(receivedpkt);
+             pkt_t * pktrec=queue_get_seq(queue,seqnum);
+             while(pktrec!=NULL){
+               memset(bufdata,0,sizeof(bufdata));
+               pktToSend=pkt_new();
+               if(!memcpy(pktToSend,pktrec,12))
+                return E_NOMEM;
+                status=pkt_set_type(pktToSend,PTYPE_ACK);
+                if(status!=PKT_OK)
+                  return status;
+                 len=12;
+                status=pkt_encode( pktToSend,bufdata, &len);
+                if(status!=PKT_OK)
+                  return status;
+                pkt_del(pktToSend);
+               erreur=write(file,pkt_get_payload(pktrec),pkt_get_length(pktrec));
+               if(erreur==-1){
+                    printf("impossible d'écrire des pkt hors séquence dans le fichier file dans le receiver  \n");
+               }
+               queue_delete_pkt_timestamp(queue,pkt_get_timestamp(pktrec));
+               if(seqnum==255){
+                 seqnum=0;
+               }
+               else{
+                 seqnum++;
+               }
+               pktrec= queue_get_seq(queue,seqnum);
+             }
+           }
+               else{
+                 pkt_t *pktToSend=pkt_new();
+                 if(!memcpy(pktToSend,receivedpkt,12))
+                  return E_NOMEM;
+                  status=pkt_set_type(pktToSend,PTYPE_ACK);
+                  if(status!=PKT_OK)
+                    return status;
+                  size_t len=12;
+                  status=pkt_encode( pktToSend,bufdata, &len);
+                  if(status!=PKT_OK)
+                    return status;
+                  erreur=write(sfd,bufdata,len);
+                  if(erreur==-1)
+                    printf("impossible de répondre via la socket(receiver)\n");
+                  pkt_del(pktToSend);
+                  addTail(queue,receivedpkt);
+               }
+             }
+           else{
+             pkt_t *pktToSend=pkt_new();
+             if(!memcpy(pktToSend,receivedpkt,12))
+              return E_NOMEM;
+              status=pkt_set_type(pktToSend,PTYPE_NACK);
+              if(status!=PKT_OK)
+                return status;
+              size_t len=12;
+              status=pkt_encode( pktToSend,bufdata, &len);
+              if(status!=PKT_OK)
+                return status;
+              erreur=write(sfd,bufdata,len);
+              if(erreur==-1)
+              printf("impossible de répondre via la socket(receiver)\n");
+              pkt_del(pktToSend);
+              addTail(queue,receivedpkt);
+}
+}
+} else{
+            fprintf(stderr,"Time out\n");
+            return 1;
+        }
+      }
+      free(queue);
+      return 1;
+    }
+    free(queue);
+    return -1;
+  }
