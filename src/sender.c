@@ -25,9 +25,10 @@
 #include <fcntl.h>
 #include <sys/time.h>
 #include <errno.h>
+
 #define true 1
 #define false 0
-
+#define WINDOW_SIZE 32
 
 
 
@@ -95,6 +96,8 @@ int main(int argc, char* argv[]){
   fd_set readfds;
   tv.tv_sec = 0;
   tv.tv_usec = 1;
+  int window_offset = 0;
+
 
   while ((opt = getopt(argc, argv, "f:")) != -1) {
     switch (opt) {
@@ -171,8 +174,8 @@ int main(int argc, char* argv[]){
           pkt_set_seqnum(pkt1,seqnum % 32);
           seqnum++;
           pkt_set_length(pkt1,byteRead);
-            struct timeval tv1;
-            gettimeofday(&tv1, NULL);
+          struct timeval tv1;
+          gettimeofday(&tv1, NULL);
           uint32_t timestamp1=(tv1.tv_sec)* 1000 + (tv1.tv_usec) /1000 ;
           pkt_set_timestamp(pkt1,timestamp1);
           int length1=htons( pkt_get_length(pkt1));
