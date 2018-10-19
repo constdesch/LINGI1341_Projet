@@ -28,23 +28,22 @@ const char * real_address(const char *address, struct sockaddr_in6 *rval){
     else
     {
         struct sockaddr_in6* h2=(struct sockaddr_in6 *) (res->ai_addr);
-        memcpy(rval,h2,sizeof(struct sockaddr_in6));
+        *rval=*h2;
         if(rval!=NULL){
-            freeaddrinfo(res);
+          freeaddrinfo(res);
             return NULL ;
         }
         char * error="l'adresse n'est pas bonne .";
-        freeaddrinfo(res);
+freeaddrinfo(res);
         return error;
-    }
+          }
 }
-
 int create_socket(struct sockaddr_in6 *source_addr,
                   int src_port,
                   struct sockaddr_in6 *dest_addr,
                   int dst_port){
-    /*CREATION SOCKET*/
-    int fd = socket(AF_INET6, SOCK_DGRAM, 0);
+      /*CREATION SOCKET*/
+    int fd = socket(AF_INET6, SOCK_DGRAM, IPPROTO_UDP);
     if(fd==-1) {fprintf(stderr,"bug pour socket \n"); return -1;}
 
     /*ON CONNECTE LE PORT SOURCE*/
@@ -58,32 +57,35 @@ int create_socket(struct sockaddr_in6 *source_addr,
     }
 
     /*BIND*/
-    if(source_addr!=NULL){
-        source_addr->sin6_family=AF_INET6;
-        int errb = bind(fd,(struct sockaddr *) source_addr,
-                        sizeof(struct sockaddr_in6));
-        if (errb==-1){
+    if(source_addr==NULL){
+        dest_addr->sin6_family=AF_INET6;
+        int errc = connect(fd,(struct sockaddr*) dest_addr,
+                                                   sizeof(struct sockaddr_in6));
+        if(errc == -1){
             fprintf(stderr,"bug pour bind \n");
             close(fd);
             return -1;
         }
     }
     /*CONNECT*/
-    if(dest_addr!=NULL){
-        dest_addr->sin6_family=AF_INET6;
-        int errc=connect(fd,(struct sockaddr*) dest_addr,
-                         sizeof(struct sockaddr_in6));
-        if(errc == -1){
+    if(dest_addr==NULL){
+        source_addr->sin6_family=AF_INET6;
+
+
+        int errb=bind(fd,(struct sockaddr *) source_addr,
+                                                   sizeof(struct sockaddr_in6));
+        if(errb==-1){
+
             int ernum=errno;
             fprintf(stderr,"l'erreur: %s \n",strerror(ernum));
             close(fd);
             fprintf(stderr,"bug pour connect \n");
             return -1;
         }
-    }
-    return fd;
-}
 
+}
+        return fd;
+}
 void read_write_loop(int sfd){
     char bufread[1024]; /* char bufreadfile[512] */
     char bufwrite[1024];/* char bufwritedfs[512]*/
@@ -161,7 +163,6 @@ void read_write_loop(int sfd){
                 err = write(sfd,data,data_length);
                 if(err==-1) fprintf(stderr,"Could not write on the socket.\n");
             } */
-
             int err = read(sfd,bufwrite,sizeof(bufwrite));
             if (err==0) return;
             if(err==-1){ fprintf(stderr,"Erreur read");}

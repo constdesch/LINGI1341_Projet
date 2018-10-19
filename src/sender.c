@@ -61,16 +61,16 @@ int timeOutRoutine(queue_pkt_t* queue, int sfd){
     else if (length>0) tot_length = 16 + (size_t) length;
     else fprintf(stderr,"Length should not be negative.\n");
     /*Encode the packet in a char* and write on sfd*/
-    printf("le payload du pkt dans la routine est: %s", pkt_get_payload(pkt));
+
     char buf[tot_length];
     if(pkt==NULL){
       printf("pkt est NULL dans la routine wtf?\n");
     }
     status = pkt_encode(pkt,buf,&tot_length);
-    printf("le buffer qu'on devrait écrire est: %s \n",buf);
+
     if(status!=PKT_OK) fprintf(stderr,"Encode failed : %d\n",status);
     int  erreur = write(sfd,buf,tot_length);
-    if(erreur==-1) fprintf(stderr,"Could not write on the socket.\n");
+    if(erreur==-1) fprintf(stderr,"Could not write on the socket. data\n");
   }
   return 0;
 }
@@ -85,7 +85,6 @@ int main(int argc, char* argv[]){
   // int client=0;
   int port = 0;
   int opt;
-  char *sender = "::1";
   char *receiver = NULL;
   char *filename = NULL;
   const char *err;
@@ -95,7 +94,7 @@ int main(int argc, char* argv[]){
   struct timeval tv;
   fd_set readfds;
   tv.tv_sec = 0;
-  tv.tv_usec = 500;
+  tv.tv_usec = 1;
 
   while ((opt = getopt(argc, argv, "f:")) != -1) {
     switch (opt) {
@@ -130,15 +129,11 @@ int main(int argc, char* argv[]){
       fprintf(stderr, "Could not resolve receiver name %s : %s\n",receiver,err);
     }
     /* Resolve sender name */
-    struct sockaddr_in6 src_addr;
-    err = real_address(sender,&src_addr);
-    if(err){
-      fprintf(stderr,"Could not resolve sender name %s : %s\n",sender,err);
-    }
-
 
     /*Create a socket bound and connected */
     int sfd = create_socket(NULL, -1, &dst_addr, port); /* Connected */ /* src_port = dst_port ? */
+    printf("valeur de sfd:%d",sfd);
+    printf(" port port %d\n",htons(port));
     if(sfd==-1) fprintf(stderr,"Could not create socket.\n");
 
     /* Option -f mentionned */
@@ -157,14 +152,66 @@ int main(int argc, char* argv[]){
       int byteRead = read(file,bufreadfile,512);
       if (byteRead==-1) fprintf(stderr,"Could not read in file specified\n");
       while(byteRead!=0 || queue->full != 0){
-        if(byteRead !=0) printf("La a cause de read.\n");
         /* Renvoyer les paquets dont le delai a expire */
 
         /* Lire sur la socket */
         FD_ZERO(&readfds);
+
         FD_SET(sfd,&readfds);
-        erreur=select(sfd+1,&readfds,NULL,NULL,&tv);
-      if (FD_ISSET(sfd, &readfds)){ /* Quelque chose d'ecrit sur la socket */
+        int timer=select(sfd+1,&readfds,NULL,NULL,&tv);
+        if (queue->full != windowSize && byteRead!=0 ){
+          /* Place dans la liste ? */
+          size_t data_length;
+          /* Create the header */
+          printf("on crée notre premier paquet\n");
+          pkt_t* pkt1 = pkt_new();
+          pkt_set_type(pkt1,PTYPE_DATA);
+          pkt_set_tr(pkt1,0);
+          pkt_set_window(pkt1,queue->full);// ou 32
+          pkt_set_seqnum(pkt1,seqnum % 32);
+          seqnum++;
+          pkt_set_length(pkt1,byteRead);
+            struct timeval tv1;
+            gettimeofday(&tv1, NULL);
+          uint32_t timestamp1=(tv1.tv_sec)* 1000 + (tv1.tv_usec) /1000 ;
+          pkt_set_timestamp(pkt1,timestamp1);
+          int length1=htons( pkt_get_length(pkt1));
+          pkt_set_payload(pkt1,bufreadfile,byteRead);
+          uLong crc2= crc32(0L, Z_NULL, 0);
+          crc2= crc32(crc2, (Bytef *) pkt_get_payload(pkt1),length1);
+          uLong crc1 = crc32(0L, Z_NULL, 0);
+          crc1=crc32(crc1,(Bytef*) pkt1,8);
+          pkt_set_crc1(pkt1,htonl(crc1));
+          pkt_set_crc2(pkt1,htonl(crc2));
+          /* Encode the header */
+          data_length = byteRead +16;
+          char data[data_length];
+          status = pkt_encode(pkt1,data,&data_length);
+          if(status!=PKT_OK){printf("ici?\n"); printf("Encode failed : %d\n", (int) status);}
+
+          pkt_t *pkt2 = pkt_new();
+          status = pkt_decode(data,data_length,pkt2);
+          if(status!= PKT_OK){printf("La???\n"); return status;}
+          if( addTail(queue, pkt1)==NULL){
+            fprintf(stdout,"l'ajout à la liste n'a pas réussi");
+            return -1;
+          }
+          erreur = write(sfd,data,data_length);
+          printf("%s on écrit dans la socket\n",data);
+          if(erreur==-1){
+          fprintf(stderr,"l'erreur: %s \n",strerror(errno));
+           fprintf(stderr,"Could not write on the socket.\n");
+         }
+          memset(bufreadfile,0,sizeof(bufreadfile));
+          byteRead = read(file,bufreadfile,512);
+        if(byteRead==-1){fprintf(stderr,"read(2) failed.\n"); return-1;}
+        if(queue==NULL){
+          fprintf(stderr,"la queue est null\n");
+        }
+      }
+
+  else  if(timer>0){
+   if (FD_ISSET(sfd, &readfds)){ /* Quelque chose d'ecrit sur la socket */
         /* On decode ce qui est ecrit */
         printf("est ce qu'on reçoit des acks stp dis moi oui \n");
         char bufdata[512];
@@ -176,10 +223,6 @@ int main(int argc, char* argv[]){
         int len=strlen(bufdata);
         pkt_t *receivedpkt = pkt_new();
         status = pkt_decode(bufdata,len,receivedpkt);
-        printf("la: \n");
-        printf("Type : %d\n",pkt_get_type(receivedpkt));
-        printf("Seqnum: %d\n",pkt_get_seqnum(receivedpkt));
-        printf("Tr: %d\n",pkt_get_tr(receivedpkt));
         if(status!=PKT_OK)  return status;
 
         /* Case ACK */
@@ -222,66 +265,13 @@ int main(int argc, char* argv[]){
         }
         free(receivedpkt);
       }
+    }
+      else if(queue->head!=NULL){
+     timeOutRoutine(queue,sfd);
+   }
 
       /* Ecrire sur la socket */
-      if (queue->full != windowSize && byteRead!=0){
-        /* Place dans la liste ? */
-        size_t data_length;
-        /* Create the header */
-        printf("on crée notre premier paquet\n");
-        pkt_t* pkt1 = pkt_new();
-        pkt_set_type(pkt1,PTYPE_DATA);
-        pkt_set_tr(pkt1,0);
-        pkt_set_window(pkt1,queue->full);// ou 32
-        pkt_set_seqnum(pkt1,seqnum % 32);
-        seqnum++;
-        pkt_set_length(pkt1,byteRead);
-          struct timeval tv1;
-          gettimeofday(&tv1, NULL);
-        uint32_t timestamp1=(tv1.tv_sec)* 1000 + (tv1.tv_usec) /1000 ;
-        pkt_set_timestamp(pkt1,timestamp1);
-        int length1=htons( pkt_get_length(pkt1));
-        printf("%s",bufreadfile);
-        pkt_set_payload(pkt1,bufreadfile,byteRead);
-        uLong crc2= crc32(0L, Z_NULL, 0);
-        crc2= crc32(crc2, (Bytef *) pkt_get_payload(pkt1),length1);
-        uLong crc1 = crc32(0L, Z_NULL, 0);
-        crc1=crc32(crc1,(Bytef*) pkt1,8);
-        pkt_set_crc1(pkt1,htonl(crc1));
-        pkt_set_crc2(pkt1,htonl(crc2));
-        /* Encode the header */
-        data_length = byteRead +16;
-        char data[data_length];
-        status = pkt_encode(pkt1,data,&data_length);
-        printf("data : %s\n",data);
-        if(status!=PKT_OK){printf("ici?\n"); printf("Encode failed : %d\n", (int) status);}
 
-        pkt_t *pkt2 = pkt_new();
-        status = pkt_decode(data,data_length,pkt2);
-        if(status!= PKT_OK){printf("La???\n"); return status;}
-        printf("C'est ici : \n");
-        printf("Type : %d\n",pkt_get_type(pkt2));
-        printf("Seqnum: %d\n",pkt_get_seqnum(pkt2));
-        printf("Tr: %d\n",pkt_get_tr(pkt2));
-
-
-
-        if( addTail(queue, pkt1)==NULL){
-          fprintf(stdout,"l'ajout à la liste n'a pas réussi");
-          return -1;
-        }
-        erreur = write(sfd,data,data_length);
-        if(erreur==-1) fprintf(stderr,"Could not write on the socket.\n");
-        memset(bufreadfile,0,sizeof(bufreadfile));
-        byteRead = read(file,bufreadfile,512);
-      }
-      if(byteRead==-1){fprintf(stderr,"read(2) failed.\n"); return-1;}
-      if(queue==NULL){
-        fprintf(stderr,"la queue est null\n");
-      }
-      if(queue->head!=NULL){
-      timeOutRoutine(queue,sfd);
-    }
   }
     free(queue);
     return 1;

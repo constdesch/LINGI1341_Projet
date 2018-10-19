@@ -77,6 +77,7 @@ int main(int argc, char* argv[]){
   //  if(strlen(sender)==0 && sender[0]=='.' && sender[1]=='.'){
     //  openall=1;
     //}
+    printf("sender:%s \n",sender);
     port = atoi(argv[optind+1]); /*port est le deuxieme argument */
     if(!sender) fprintf(stderr, "Sender is NULL\n");
     if(!port) fprintf(stderr, "Port is 0\n");
@@ -112,6 +113,7 @@ if(filename != NULL){
       printf("on ne sait pas ouvrir fichier %s \n",filename);
       return -1;
     }
+    dup2(file,STDOUT_FILENO);
 }
 else{
      file = STDOUT_FILENO;
@@ -123,18 +125,17 @@ if(file!=-1){
     erreur=select(sfd+1,&readfds,NULL,NULL,&tv);
        if(erreur<0){
          free(queue);
-           fprintf(stderr,"select a pas fonctionne\n");
+           printf("select a pas fonctionne\n");
            return -1;
        }
        else if(FD_ISSET(sfd, &readfds)){
-         printf("est ce qu'on reçoit des acks dans le receiver \n");
-         char bufdata[512];
-         if(read(sfd,bufdata,512)==-1){
+         char bufdata[528];
+         if(read(sfd,bufdata,528)==-1){
            free(queue);
-           fprintf(stderr,"impossible de lire sur la socket dans le receiver \n");
+           printf("impossible de lire sur la socket dans le receiver \n");
            return -1;
          }
-         int length=strlen(bufdata);
+         size_t length=528;
          pkt_t *receivedpkt = pkt_new();
          status = pkt_decode(bufdata,length,receivedpkt);
          /*
@@ -142,10 +143,12 @@ if(file!=-1){
          printf("Seqnum: %d\n",pkt_get_seqnum(receivedpkt));
          printf("Tr: %d\n",pkt_get_tr(receivedpkt));
          */
-         if(status!=PKT_OK)  return status;
+         if(status!=PKT_OK)
+         {printf("le status est pas bon dans receiver?%d \n",(int)(status));
+            return status;
+         }
          /* Case ACK */
          if(pkt_get_type(receivedpkt) == PTYPE_DATA){
-           printf("PUTAIIIIIIIIIIIIIIIN ACK  dans le receiver !!!!!!!!!!!!!!!!\n");
            uint8_t receivedseqnum = pkt_get_seqnum(receivedpkt); /*seqnum of received packet*/
            if( pkt_get_tr(receivedpkt)!=1){
              if(receivedseqnum==seqnum){
@@ -154,6 +157,9 @@ if(file!=-1){
                 return E_NOMEM;
                 status=pkt_set_type(pktToSend,PTYPE_ACK);
                 if(status!=PKT_OK)
+                  return status;
+                status=pkt_set_length(pktToSend,0);
+                  if(status!=PKT_OK)
                   return status;
                 size_t len=12;
                 status=pkt_encode( pktToSend,bufdata, &len);
@@ -181,6 +187,9 @@ if(file!=-1){
                 status=pkt_set_type(pktToSend,PTYPE_ACK);
                 if(status!=PKT_OK)
                   return status;
+                  status=pkt_set_length(pktToSend,0);
+                  if(status!=PKT_OK)
+                    return status;
                  len=12;
                 status=pkt_encode( pktToSend,bufdata, &len);
                 if(status!=PKT_OK)
@@ -189,6 +198,7 @@ if(file!=-1){
                erreur=write(file,pkt_get_payload(pktrec),pkt_get_length(pktrec));
                if(erreur==-1){
                     printf("impossible d'écrire des pkt hors séquence dans le fichier file dans le receiver  \n");
+                    return -1;
                }
                queue_delete_pkt_timestamp(queue,pkt_get_timestamp(pktrec));
                if(seqnum==255){
@@ -207,6 +217,9 @@ if(file!=-1){
                   status=pkt_set_type(pktToSend,PTYPE_ACK);
                   if(status!=PKT_OK)
                     return status;
+                  status=pkt_set_length(pktToSend,0);
+                  if(status!=PKT_OK)
+                      return status;
                   size_t len=12;
                   status=pkt_encode( pktToSend,bufdata, &len);
                   if(status!=PKT_OK)
@@ -237,13 +250,15 @@ if(file!=-1){
 }
 }
 } else{
-            fprintf(stderr,"Time out\n");
+            printf("Time out\n");
             return 1;
         }
       }
       free(queue);
+      printf("on sort sans problème\n");
       return 1;
     }
     free(queue);
-    return -1;
+printf("on rentre jamais \n");
+        return -1;
   }

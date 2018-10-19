@@ -49,22 +49,25 @@ pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
         return E_UNCONSISTENT;
     }
 
-    if( memcpy(pkt,data,12)==NULL)
+    if( memcpy(pkt,data,12)==NULL){
+      printf("memcpy \n");
         return E_NOMEM;
-
+}
     pkt->length=ntohs(pkt->length);
 
-    if(memcpy(&pkt->crc2,data+12+pkt_get_length(pkt),4)==NULL)
+    if(memcpy(&pkt->crc2,data+12+pkt_get_length(pkt),4)==NULL){
+      printf("memcpy \n");
         return E_NOMEM;
+}
+    if(memcpy(&pkt->crc2,data+12+pkt_get_length(pkt),4)==NULL){
 
+        printf("memcpy \n");
+          return E_NOMEM;
+  }
 
-   if( memcpy(pkt,data,12)==NULL)
-       return E_NOMEM;
-    pkt->length=ntohs(pkt->length);
-    if(memcpy(&pkt->crc2,data+12+pkt_get_length(pkt),4)==NULL)
-        return E_NOMEM;
 
     if (pkt_get_type(pkt)!=PTYPE_DATA && pkt_get_tr(pkt)==1){
+      printf("format \n");
         return E_UNCONSISTENT;
     }
 
@@ -139,6 +142,7 @@ pkt_status_code pkt_encode(const pkt_t* pkt, char *buf, size_t *len)
             if  (memcpy(buf+12+pkt->length,&crc22,4)==NULL)
                 return E_NOMEM;
   }
+  printf("buf:%s \n",buf);
   *len=ll1;
   return PKT_OK;
 }
