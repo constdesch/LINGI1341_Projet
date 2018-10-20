@@ -1,0 +1,107 @@
+􏰁 Que mettez-vous dans le champs Timestamp, et quelle utilisation en faites-vous ?
+􏰁 Comment réagissez-vous à la réception de paquets PTYPE_NACK ?
+􏰁 Comment avez-vous choisi la valeur du retransmission timeout ?
+􏰁 Quelle est la partie critique de votre implémentation, impactant la vitesse de transfert?
+􏰁 Quelles sont les performances de votre protocole? (évaluation graphique et/ou chi􏰂rée, scénarios explorés, explication de la méthodologie)
+􏰁 Quelle(s) stratégie(s) de tests avez-vous utilisée(s) ?
+
+\subsection{Introduction}
+Ce document est un rapport détaillant certains aspects de notre projet pour le cours de réseaux informatiques. Il tend
+à préciser certains choix de conceptions et montre en quelques lignes le déroulement du programme. Pour toutes informations
+concernant l'utilisation du programme et son lancement en ligne de commande, rendez-vous dans le fichier Readme.
+
+\subsection{Structure générale}
+Vous trouverez dans ce dossier /src deux fichiers avec l'extension '.c'. Il s'agit de sender.c et receiver.c qui sont les deux fonctions
+à appeler pour utiliser le chat. Vous trouverez dans ce même répertoire un autre dossier, /tools, contenant les différentes
+fonctions relatives aux sockets, aux paquets et aux listes chaînées que nous avons implémenté.
+
+\subsection{Déroulement du programme}
+
+\subsubsection{Sender.c}
+Le fichier sender.c gère l'envoie de données vers le receveur. Nous utilisons le sliding window protocol et le selective
+repeat. La fenêtre est représentée par une liste simplement chaînée et sa taille est fixée à 32. Pour transmettre les
+datagrammes, nous utilisons une socket.
+Le sender procède en trois étapes. Dans un premier temps, il cherche à lire l'information et procède de la manière suivante:
+\begin{itemize}
+  \item Si il y a de la place dans la liste:
+    \begin{itemize}
+      \item recupération d'un morceau d'au plus 512 bytes (le payload).
+      \item création d'un paquet et encodage du header. Le type du paquet est initialisé à P_TYPE_DATA et l'attribut
+      \textit{length} est fixé à la taille du morceau récupéré. On fixe un numéro de séquence dans l'intervalle [0,255] -
+      le numero de séquence est une variable de notre programme et est incrémentée à chaque attribution (on utilise modulo
+      pour rester dans la bonne gamme).
+      \item encodage du paquet (header + payload) dans une chaîne de caractère et écriture sur la socket.
+
+Dans un deuxième temps, le sender va lire sur la socket en quête de feedback du receveur. En supposant que de l'information
+y soit effectivement écrite, voici son fonctionnement:
+
+\begin{itemize}
+  \item Décodage de la chaîne de caractère afin de constituer un paquet.
+  \item Evaluation du type du paquet (ACK ou NACK)
+
+    \textbf{ACK :} Si c'est un ack, cela signifie que le feedback est positif. Deux cas de figures peuvent toutefois se
+    produire. Imaginons que nous ayons reçu un ack avec comme numéro de séquence 3. Cela signifie que le receveur attend
+    le paquet contenant le numéro de séquence 3. Mais a-t-il
+    //HMMMM Plus trop sur de cette section
+
+    \textbf{NACK:} A la réception d'un NACK, le sender va chercher le paquet en question dans la liste qu'il entretient.
+      Lorsqu'il le trouve, il met l'attribut timestamp à jour et renvoie le paquet. Dans le même temps, il supprime chaque
+      paquet contenant un numéro de sequence inférieur à celui du paquet non-acquis, ceux-ci ont bien été récupéré par le
+      receiver.
+
+// J'ai une question :
+// Pour gérer la sliding window, dans mon esprit au debut c'était que la liste commencait a un numéro de sequence,
+// tant qu'on a pas recu de ack avc ce numero de seq on retire aucun paquet apres et donc on est sur que la fenetre
+// sera tjrs au bon endroit vu qu'on retire pas le premier.
+// Par contre, je crois que jean voulait faire differemment, en mémorisant le seqnum du premier paquet, en additionnat avec
+// la taille de la fenetre et en sachant quelle seqnum max pouvait entrer dans la fenetre (condition a verifier au moment
+// de lire des datas dans le sender alors). L'un ou l'autre me vont mais different lors de la reception d'un ack. a discuter
+
+Enfin, la troisième et dernière étape du sender est de lancer une routine afin d'évaluer quels paquets ont expiré.
+Cette routine remplie sa mission en comparant la valeur de l'attribut timestamp avec "l'heure" actuelle. Si la différence
+est supérieure à la valeur du retransmission timeout alors le paquet doit être ré-envoyé (avec une mise à jour de son
+timestamp). La routine boucle sur la liste tant que le paquet rencontré a expiré. Puisque les paquets sont ajoutés
+chronologiquement, les paquets sont triés du plus ancien au plus récent.
+
+
+
+
+
+
+\subsubsection{receiver.c}
+ La fonction receiver est assez simple. Le receiver entretient également une liste de paquet ainsi qu'une variable contenant
+ le paquet attendu.
+
+ Elle cherche à lire de l'information sur une socket. Dès qu'un client est trouvé,
+ le receveur est connecté à son sender. Ensuite, on procède comme suit:
+ \begin{itemize}
+ \item Décodage de la chaîne de caractère afin de créer un paquet.
+ \item Si l'attribut tr du paquet est à 1, cela signifie que le paquet est tronqué. On ne peut pas envoyé un nack pour ce
+ paquet. En effet, puisqu'il est tronqué, les données qu'il contient ne sont pas fiables et par conséquent le nack serait
+ une potentielle source d'erreur.
+ \item Si le paquet n'est pas tronqué, le receiver regarde si le numéro de séquence du paquet est celui attendu.
+
+ Si tel est le cas :
+ \begin{itemize}
+  \item Le receiver récupère le payload et le dirige sur la sortie standard puis, si l'option -f est mentionnée, redirige
+  le flux vers le fichier spécifié.
+  \item envoi d'un ack contenant le timestamp et le numéro de séquence de la donnée reçue.
+  \item incrémentation de la variable indiquant le paquet attendu
+  \item parcours du buffer pour identifier si le paquet attendu si trouve. Si tel est le cas, les trois opérations ci-dessus
+  sont d'application et la place du paquet est libérée.
+
+Si ce n'est pas le cas :
+\begin{itemize}
+  \item Le paquet est stocker en queue du buffer.
+  \item Un Nack contenant le nuémro de séquence de la donnée attendue et le timestamp du paquet reçu.
+
+
+\subsection{Choix de programmation}
+\paragraph{Quelle valeur avons-nous choisi pour le retransmission timeout?} //ICI ON DEVRAIT PROCEDER PAR ESSAI ERREUR
+\paragraph{Que metttre dans le champs Timestamp, et quelle utilisation en faire ?}
+\paragraph{Pourquoi une liste et pas simplement un buffer}
+
+
+\subsection{Tests}
+\subsection{Performance}
+\subsection{Conclusion}
