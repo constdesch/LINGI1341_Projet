@@ -158,15 +158,18 @@ if(file!=-1){
                 { printf("%d,status",status);
                   return status;
                 }
+                erreur=write(file,pkt_get_payload(receivedpkt),pkt_get_length(receivedpkt));
+                if(erreur==-1){
+                  printf("impossible d'écrire dans le fichier file dans le receiver \n");
+                }
+                if(erreur==0){
+                 fin=1;
+                 continue;}
+                 if(erreur!=0){
                 erreur=write(sfd,envoi,len);
                 if(erreur==-1) printf("impossible de répondre via la socket(receiver)\n");
+              }
                 pkt_del(pktToSend);
-               erreur=write(file,pkt_get_payload(receivedpkt),pkt_get_length(receivedpkt));
-               if(erreur==-1){
-                 printf("impossible d'écrire dans le fichier file dans le receiver \n");
-               }
-               if(erreur==0)
-                fin=1;
 
              //si c'est celui qu'on attend pour débloquer la liste, il faut débloquer les autres.
              pkt_del(receivedpkt);
@@ -194,8 +197,10 @@ if(file!=-1){
                   return status;
                 pkt_del(pktToSend);
                erreur=write(file,pkt_get_payload(pktrec),pkt_get_length(pktrec));
-               if(erreur==0)
+               if(erreur==0){
                 fin=1;
+                continue;
+              }
                if(erreur==-1){
                     printf("impossible d'écrire des pkt hors séquence dans le fichier file dans le receiver  \n");
                     return -1;

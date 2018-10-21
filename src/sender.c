@@ -143,11 +143,12 @@ int main(int argc, char* argv[]){
     }
 
     if(file!=-1) {
+      int fin=0;
       char bufreadfile[512];
         char bufdata[512];
       int byteRead = read(file,bufreadfile,512);
       if (byteRead==-1) fprintf(stderr,"Could not read in file specified\n");
-      while(byteRead!=0 || queue->full != 0){
+      while(fin==0 &&(byteRead!=0 || queue->full != 0) ){
         int ecrit=1;
         /* Renvoyer les paquets dont le delai a expire */
         /* Lire sur la socket */
@@ -231,6 +232,10 @@ int main(int argc, char* argv[]){
         if(pkt_get_type(receivedpkt) == PTYPE_ACK){
           uint8_t receivedseqnum = pkt_get_seqnum(receivedpkt); /*seqnum of received packet*/
           pkt_t *testpkt = queue_get_timestamp(queue,pkt_get_timestamp(receivedpkt));/*pkt correponding to timestamp of receiving packet */
+          if(testpkt==NULL){
+            fin=1;
+            continue;
+          }
           if (pkt_get_timestamp(receivedpkt) ==pkt_get_timestamp( testpkt)){ /*are the timestamp and seqnum from the same packet?*/
             erreur = deletePrevious( queue,receivedseqnum);
             if (erreur==0) fprintf(stderr,"Seqnum not found in queue.\n");
@@ -241,7 +246,6 @@ int main(int argc, char* argv[]){
             pkt_del(receivedpkt);
           }
         }
-
         /* Case NACK */
         else if(pkt_get_type(receivedpkt) == PTYPE_NACK){
           pkt_del(receivedpkt);

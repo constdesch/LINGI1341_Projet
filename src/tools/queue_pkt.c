@@ -197,7 +197,7 @@ int queue_delete_pkt_timestamp(queue_pkt_t * queue,uint32_t timestamp){
     return -1;
   }
   if(queue->head==NULL){
-    fprintf(stderr,"la queue est vide \n");
+    printf("la queue est vide \n");
     return -1;
   }
   else{
