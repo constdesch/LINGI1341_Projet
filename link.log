@@ -1,0 +1,16 @@
+@@ Using random seed: 1540122923
+@@ Using parameters:
+.. port: 1341
+.. forward_port: 2456
+.. delay: 50
+.. jitter: 0
+.. err_rate: 0
+.. cut_rate: 0
+.. loss_rate: 10
+.. seed: 1540122923
+.. link_direction: Both ways
+@@ Remote host is ::1 [31651]
+[SEQ   0] Delayed packet by 50 ms
+[SEQ   0] Sent packet (Forward).
+[SEQ   0] Delayed packet by 50 ms
+[SEQ   0] Sent packet (Reverse).
