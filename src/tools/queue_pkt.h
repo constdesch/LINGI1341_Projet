@@ -7,6 +7,7 @@
 typedef struct node {
   pkt_t *data; // pointeur vers la donnée stockée
   struct node *next; // pointeur vers le noeud suivant
+  int envoi;
 } Node;
 typedef struct queue_pkt{
   int full;
@@ -21,3 +22,4 @@ pkt_t * getPos(queue_pkt_t * queue, int position);
 pkt_t * queue_get_seq(queue_pkt_t * queue,uint8_t seqnum);
 pkt_t * queue_get_timestamp(queue_pkt_t * queue,uint32_t timestamp);
 int queue_delete_pkt_timestamp(queue_pkt_t * queue,uint32_t timestamp);
+int set_pkt_envoi_timestamp(queue_pkt_t * queue,uint32_t timestamp);

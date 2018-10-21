@@ -23,6 +23,7 @@
 #include <unistd.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <time.h>
 #include <sys/time.h>
 #include <errno.h>
 #define true 1
@@ -33,10 +34,7 @@
 
 
 int timeOutRoutine(queue_pkt_t* queue, int sfd){
-  if(!queue) return 0;
-  struct timeval tv;
-  gettimeofday(&tv, NULL);
-  uint32_t tac = (tv.tv_sec)* 1000 + (tv.tv_usec) / 1000 ; /*Convertir en ms */
+  if(!queue) return 0; /*Convertir en ms */
   if(queue==NULL){
     fprintf(stderr,"queue est vide\n");
   }
@@ -46,16 +44,18 @@ int timeOutRoutine(queue_pkt_t* queue, int sfd){
   pkt_t* pkt= node->data;
   if(pkt==NULL)
   fprintf(stderr,"pkt est null\n");
-  uint32_t tic = pkt_get_timestamp(pkt); /*Time when the packet was sent*/
-  if ((tac-tic)>4500){ /* Timeout for the first node? Resend it! */
+  uint32_t tic=clock(); /*Time when the packet was sent*/
+  if (pkt_get_timestamp(pkt)+4*CLOCKS_PER_SEC>tic){ /* Timeout for the first node? Resend it! */
     /* New timestamp */
+    printf("pkt->seqnum:%d \n",pkt_get_seqnum(pkt));
     printf("on rentre dans tac - tic\n");
     while(node!=NULL){
-    gettimeofday(&tv, NULL);
-    double timestamp = (tv.tv_sec)* 1000 + (tv.tv_usec) / 1000 ; /*Convertir en ms */
+      printf("node->envoi==%d\n",node->envoi);
+      if(node->envoi==0){
+        printf("réenvoi du packet avec seqnum:%d\n",pkt_get_seqnum(pkt));
+    uint32_t timestamp = clock() ; /*Convertir en ms */
     pkt_status_code   status = pkt_set_timestamp(pkt,(uint32_t)timestamp);
     if(status != PKT_OK) printf("Setting timestamp failed.\n");
-    /*Check total length of packet*/
     uint16_t length = pkt_get_length(pkt);
     size_t tot_length;
     if (length == 0) tot_length =12;
@@ -70,8 +70,10 @@ int timeOutRoutine(queue_pkt_t* queue, int sfd){
     if(status!=PKT_OK) fprintf(stderr,"Encode failed : %d\n",status);
     int  erreur = write(sfd,buf,tot_length);
     if(erreur==-1) fprintf(stderr,"Could not write on the socket. data\n");
+  }
     node=node->next;
-    pkt=node->data;
+    if(node!=NULL)
+      pkt=node->data;
   }
 }
   return 0;
@@ -84,8 +86,7 @@ int main(int argc, char* argv[]){
   }
   int windowSize=32;
   init_queue(queue);
-  // int client=0;
-  int port = 0;
+  int port = 0;// init du port
   int opt;
   char *receiver = NULL;
   char *filename = NULL;
@@ -96,8 +97,7 @@ int main(int argc, char* argv[]){
   struct timeval tv;
   fd_set readfds;
   tv.tv_sec = 0;
-  tv.tv_usec = 1000;
-
+  tv.tv_usec = 100;
   while ((opt = getopt(argc, argv, "f:")) != -1) {
     switch (opt) {
       case 'f':
@@ -134,10 +134,7 @@ int main(int argc, char* argv[]){
 
     /*Create a socket bound and connected */
     int sfd = create_socket(NULL, -1, &dst_addr, port); /* Connected */ /* src_port = dst_port ? */
-    printf("valeur de sfd:%d",sfd);
-    printf(" port port %d\n",htons(port));
     if(sfd==-1) fprintf(stderr,"Could not create socket.\n");
-
     /* Option -f mentionned */
     int file;
     if(filename != NULL){
@@ -158,7 +155,6 @@ int main(int argc, char* argv[]){
         /* Renvoyer les paquets dont le delai a expire */
         /* Lire sur la socket */
         FD_ZERO(&readfds);
-
         FD_SET(sfd,&readfds);
         if(file==STDIN_FILENO){
           FD_SET(file,&readfds);
@@ -177,30 +173,29 @@ int main(int argc, char* argv[]){
           pkt_t* pkt1 = pkt_new();
           pkt_set_type(pkt1,PTYPE_DATA);
           pkt_set_tr(pkt1,0);
-          pkt_set_window(pkt1,queue->full);// ou 32
+          pkt_set_window(pkt1,windowSize);
           pkt_set_seqnum(pkt1,seqnum);
           if(seqnum==255)
             seqnum=0;
           else
             seqnum++;
           pkt_set_length(pkt1,byteRead);
-            struct timeval tv1;
-            gettimeofday(&tv1, NULL);
-          uint32_t timestamp1=(tv1.tv_sec)* 1000 + (tv1.tv_usec) /1000 ;
-          pkt_set_timestamp(pkt1,timestamp1);
+          //uint32_t timestamp1=(tv1.tv_sec)* 1000 + (tv1.tv_usec) /1000 ;
+          pkt_set_timestamp(pkt1,clock());
+          //printf("timestamp:%d",timestamp1);
           int length1=htons( pkt_get_length(pkt1));
           pkt_set_payload(pkt1,bufreadfile,byteRead);
-          uLong crc2= crc32(0L, Z_NULL, 0);
-          crc2= crc32(crc2, (Bytef *) pkt_get_payload(pkt1),length1);
           uLong crc1 = crc32(0L, Z_NULL, 0);
           crc1=crc32(crc1,(Bytef*) pkt1,8);
           pkt_set_crc1(pkt1,htonl(crc1));
+          uLong crc2= crc32(0L, Z_NULL, 0);
+          crc2= crc32(crc2, (Bytef *) pkt_get_payload(pkt1),length1);
           pkt_set_crc2(pkt1,htonl(crc2));
-          /* Encode the header */
           data_length = byteRead +16;
           char data[data_length];
           status = pkt_encode(pkt1,data,&data_length);
-          if(status!=PKT_OK){printf("ici?\n"); printf("Encode failed : %d\n", (int) status);}
+          if(status!=PKT_OK)
+            printf("Encode failed : %d\n", (int) status);
           if( addTail(queue, pkt1)==NULL){
             fprintf(stdout,"l'ajout à la liste n'a pas réussi");
             return -1;
@@ -212,7 +207,10 @@ int main(int argc, char* argv[]){
          }
           memset(bufreadfile,0,sizeof(bufreadfile));
           byteRead = read(file,bufreadfile,512);
-        if(byteRead==-1){fprintf(stderr,"read(2) failed.\n"); return-1;}
+        if(byteRead==-1){
+          fprintf(stderr,"read(2) failed.\n");
+          return-1;
+      }
         if(queue==NULL){
           fprintf(stderr,"la queue est null\n");
         }
@@ -234,40 +232,41 @@ int main(int argc, char* argv[]){
           continue;}
         /* Case ACK */
         if(pkt_get_type(receivedpkt) == PTYPE_ACK){
+          printf("hey\n");
           uint8_t receivedseqnum = pkt_get_seqnum(receivedpkt); /*seqnum of received packet*/
           pkt_t *testpkt = queue_get_timestamp(queue,pkt_get_timestamp(receivedpkt));/*pkt correponding to timestamp of receiving packet */
+          printf("testpkt->seqnum:%d\n",pkt_get_seqnum(testpkt));
           if (pkt_get_timestamp(receivedpkt) ==pkt_get_timestamp( testpkt)){ /*are the timestamp and seqnum from the same packet?*/
             erreur = deletePrevious( queue,receivedseqnum);
             if (erreur==0) fprintf(stderr,"Seqnum not found in queue.\n");
           }
           else{
-            erreur = deletePrevious(queue, receivedseqnum); /*should also test timestamp*/
-            if (erreur == 0) fprintf(stderr, "Seqnum not found in queue.\n");
+            erreur =  set_pkt_envoi_timestamp(queue, pkt_get_timestamp(receivedpkt)); /*should also test timestamp*/
+            if (erreur == -1) fprintf(stderr, "Seqnum not found in queue.\n");
+            pkt_del(receivedpkt);
           }
         }
 
         /* Case NACK */
         else if(pkt_get_type(receivedpkt) == PTYPE_NACK){
-          /* On supprime les paquets precedents dans la queue*/
-          uint8_t seqnum1 = pkt_get_seqnum(receivedpkt);
-          erreur = deletePrevious(queue, seqnum1); /*should also test timestamp*/
-          if (erreur == 0) fprintf(stderr, "Seqnum not found in queue.\n");
+          pkt_del(receivedpkt);
+          continue;
+        /* On supprime les paquets precedents dans la queue*/
+        // if (erreur == 0) fprintf(stderr, "Seqnum not found in queue.\n");
           /* On renvoie le paquet nack */
-          size_t data_length;
+          /*size_t data_length;
           uint16_t length = pkt_get_length(receivedpkt);
           if (length == 0) data_length = 12;
           else data_length =(size_t) length + 12;
 
           char buf[512];
-
-          status = pkt_encode(receivedpkt,buf,&data_length);
           if(status!=PKT_OK) fprintf(stderr,"Encode failed : %d\n",status);
-          erreur = write(sfd,buf,data_length);// data avant
           if(erreur==-1) fprintf(stderr,"Could not write on the socket.\n");
         }
-        pkt_del(receivedpkt);
+        pkt_del(receivedpkt);*/
       }
-      else if(queue->head!=NULL){
+    }
+      else {
      timeOutRoutine(queue,sfd);
    }
 
@@ -275,7 +274,7 @@ int main(int argc, char* argv[]){
 
   }
     free(queue);
-    return 1;
+    return 0;
   }
   fprintf(stderr,"Could not open the file (or stdout in -f not mentionned.\n");
   free(queue);

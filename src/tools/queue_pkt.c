@@ -8,6 +8,7 @@
 typedef struct node{
   pkt_t * data;
   struct node * next;
+  int envoi;
 }Node;
 typedef struct queue_pkt{
   int full;
@@ -29,6 +30,7 @@ void free_Node(Node * node){
 }
 Node * addTail(queue_pkt_t *queue, pkt_t *data) {
   Node *node= (Node *) malloc(sizeof(Node));
+  node->envoi=0;
   if(node==NULL){
   fprintf(stdout,"malloc pour node failed \n");
   return NULL;
@@ -151,6 +153,39 @@ pkt_t *queue_get_timestamp(queue_pkt_t * queue,uint32_t timestamp){
 return NULL;
 }
 }
+int set_pkt_envoi_timestamp(queue_pkt_t * queue,uint32_t timestamp){
+  if(queue==NULL){
+    fprintf(stderr,"la queuee n'existe pas\n");
+    return -1;
+  }
+  if(queue->head==NULL){
+    fprintf(stderr,"la queue est vide \n");
+    return -1;
+  }
+  else{
+    Node * node1=queue->head;
+    pkt_t * pkt=node1->data;
+    if(node1->next==NULL && pkt_get_timestamp(pkt)!=timestamp){
+      fprintf(stderr,"il n'y a pas de pkt avec ce timestamp dans la queue\n");
+      return -1;
+    }
+      if(pkt_get_timestamp(pkt)==timestamp){
+        node1->envoi=1;
+        return 1;
+}
+  while( node1!=NULL){
+    if(pkt_get_timestamp(pkt)==timestamp){
+      node1->envoi=1;
+      return 1;
+    }
+    node1=node1->next;
+    if(node1!=NULL)
+      pkt=node1->data;
+    }
+    return -1;
+  }
+}
+
 int queue_delete_pkt_timestamp(queue_pkt_t * queue,uint32_t timestamp){
   if(queue==NULL){
     fprintf(stderr,"la queuee n'existe pas\n");
