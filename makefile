@@ -13,6 +13,8 @@ sender: src/sender.o src/tools/pkt.o src/tools/connect.o src/tools/queue_pkt.o
 receiver: src/receiver.o  src/tools/pkt.o src/tools/connect.o src/tools/queue_pkt.o
 	@$(CC) -o  $@ $^ -lz
 
+test_queue_node: tests/test_queue_node.o src/sender.o src/tools/pkt.o src/tools/connect.o src/tools/queue_pkt.o
+
 src/tools/pkt.o: src/tools/pkt.c
 	@$(CC) $(CFLAGS)  -c -o  $@ $<
 
@@ -31,7 +33,7 @@ src/sender.o: src/sender.c
 .PHONY: clean
 
 clean:
-	@rm -rf src/tools/pkt.o src/tools/connect.o src/tools/queue_pkt.o
+	@rm -rf src/tools/pkt.o src/tools/connect.o src/tools/queue_pkt.o tests/test_queue_node.o
 
 mrproper:
 	@rm -rf sender receiver

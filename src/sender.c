@@ -26,9 +26,10 @@
 #include <time.h>
 #include <sys/time.h>
 #include <errno.h>
+
 #define true 1
 #define false 0
-
+#define WINDOW_SIZE 32
 
 
 
@@ -97,7 +98,14 @@ int main(int argc, char* argv[]){
   struct timeval tv;
   fd_set readfds;
   tv.tv_sec = 0;
+<<<<<<< HEAD
   tv.tv_usec = 100;
+=======
+  tv.tv_usec = 1;
+  int window_offset = 0;
+
+
+>>>>>>> d08ca26f4e5000b3a31bb027b89a1eef3f7ccc67
   while ((opt = getopt(argc, argv, "f:")) != -1) {
     switch (opt) {
       case 'f':
@@ -180,9 +188,16 @@ int main(int argc, char* argv[]){
           else
             seqnum++;
           pkt_set_length(pkt1,byteRead);
+<<<<<<< HEAD
           //uint32_t timestamp1=(tv1.tv_sec)* 1000 + (tv1.tv_usec) /1000 ;
           pkt_set_timestamp(pkt1,clock());
           //printf("timestamp:%d",timestamp1);
+=======
+          struct timeval tv1;
+          gettimeofday(&tv1, NULL);
+          uint32_t timestamp1=(tv1.tv_sec)* 1000 + (tv1.tv_usec) /1000 ;
+          pkt_set_timestamp(pkt1,timestamp1);
+>>>>>>> d08ca26f4e5000b3a31bb027b89a1eef3f7ccc67
           int length1=htons( pkt_get_length(pkt1));
           pkt_set_payload(pkt1,bufreadfile,byteRead);
           uLong crc1 = crc32(0L, Z_NULL, 0);
