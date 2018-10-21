@@ -1,0 +1,634 @@
+commit 9bc36df53be8cb2ba8ff1275b91db3d90b596314
+Author: Jean Gillain <jegillain@skywalker.info.ucl.ac.be>
+Date:   Sun Oct 21 18:26:31 2018 +0200
+
+    la fin de la journée
+
+ input_file            |    Bin 3000 -> 3000 bytes
+ link.log              | 739225 +++++++++++++++++++++++++++++------------------
+ received_file         |    Bin 3000 -> 3000 bytes
+ receiver              |    Bin 79536 -> 79344 bytes
+ receiver.log          |  58499 ++--
+ sender                |    Bin 81088 -> 80920 bytes
+ src/receiver.c        |     19 +-
+ src/receiver.o        |    Bin 60624 -> 59728 bytes
+ src/sender.c          |      8 +-
+ src/sender.o          |    Bin 64480 -> 63784 bytes
+ src/tools/connect.o   |    Bin 0 -> 27640 bytes
+ src/tools/queue_pkt.c |      2 +-
+ src/tools/queue_pkt.o |    Bin 25400 -> 25560 bytes
+ 13 files changed, 490616 insertions(+), 307137 deletions(-)
+
+commit 1dc138243221c2ce2da5cc222f29e01d72da6196
+Author: Jean Gillain <jegillain@skywalker.info.ucl.ac.be>
+Date:   Sun Oct 21 17:53:03 2018 +0200
+
+    je pense c'est bon là
+
+ input_file            |    Bin 3000 -> 3000 bytes
+ link.log              | 301497 ++++++++++++++++++++++++++++++++++++++++++++---
+ received_file         |    Bin 3000 -> 3000 bytes
+ receiver              |    Bin 80472 -> 79536 bytes
+ receiver.log          |  43056 ++++++-
+ sender                |    Bin 83104 -> 81088 bytes
+ src/receiver.c        |     22 +-
+ src/receiver.o        |    Bin 63392 -> 60624 bytes
+ src/sender.c          |     38 +-
+ src/sender.o          |    Bin 70520 -> 64480 bytes
+ src/tools/queue_pkt.c |     14 -
+ src/tools/queue_pkt.h |      3 -
+ src/tools/queue_pkt.o |    Bin 25400 -> 25400 bytes
+ 13 files changed, 323333 insertions(+), 21297 deletions(-)
+
+commit 285e2a07aad91f60c4f76bea839e8d5f9baffcb4
+Merge: 7351dfe d08ca26
+Author: Jean Gillain <jegillain@skywalker.info.ucl.ac.be>
+Date:   Sun Oct 21 17:13:50 2018 +0200
+
+    aller
+
+commit 7351dfe6e4265a443b1ffc714f6f24789e8fd6fd
+Author: Jean Gillain <jegillain@skywalker.info.ucl.ac.be>
+Date:   Sun Oct 21 17:12:22 2018 +0200
+
+    aller stp
+
+ ...�6:���~�\\sf���J>�28bF���_�6:���~�s" | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 7e30d0f1d0d40ae16ef71bfee71dfc5acadd7b97
+Author: Jean Gillain <jegillain@skywalker.info.ucl.ac.be>
+Date:   Sun Oct 21 17:11:30 2018 +0200
+
+    mec j'y crois pas, après c'est pas parfait
+
+ input_file            |   Bin 512 -> 3000 bytes
+ link.log              | 53311 +++++++++++++++++++++++++++++++++++++++++++++++-
+ received_file         |   Bin 512 -> 3000 bytes
+ receiver              |   Bin 77504 -> 80472 bytes
+ receiver.log          |  5906 +++++-
+ sender                |   Bin 82664 -> 83104 bytes
+ sender.log            |     1 +
+ src/receiver.c        |    57 +-
+ src/receiver.o        |   Bin 57088 -> 63392 bytes
+ src/sender.c          |    81 +-
+ src/sender.o          |   Bin 72208 -> 70520 bytes
+ src/tools/queue_pkt.c |    35 +
+ src/tools/queue_pkt.h |     2 +
+ src/tools/queue_pkt.o |   Bin 23152 -> 25400 bytes
+ test.sh               |     4 +-
+ 15 files changed, 59315 insertions(+), 82 deletions(-)
+
+commit 5beade8e1e0ef5229e492e3299cb54675e3bdc93
+Author: Jean Gillain <jegillain@skywalker.info.ucl.ac.be>
+Date:   Sun Oct 21 17:11:24 2018 +0200
+
+    mec j'y crois pas, après c'est pas parfait
+
+ fileout       |   0
+ input_file    |   3 +++
+ link.log      |  16 ++++++++++++++++
+ link_sim      | Bin 0 -> 23176 bytes
+ received_file |   3 +++
+ receiver.log  |   3 +++
+ sender.log    |   0
+ test.sh       |  58 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 8 files changed, 83 insertions(+)
+
+commit 9b65e69e95d10ab34c4d2ed7663a07793d13c20d
+Author: Jean Gillain <jegillain@skywalker.info.ucl.ac.be>
+Date:   Sun Oct 21 13:58:51 2018 +0200
+
+    les tests de base fourni par les délégués du cours passent
+
+ file.txt              | 663 ++++++++++++++++++++++++++++++++++++--------------
+ filename.txt          | 545 +++++++++++++++++++++++++++++++++++++----
+ receiver              | Bin 74904 -> 77504 bytes
+ sender                | Bin 82816 -> 82664 bytes
+ src/file.txt          |   0
+ src/receiver.c        |  58 +++--
+ src/receiver.o        | Bin 49384 -> 57088 bytes
+ src/sender.c          |  72 +++---
+ src/sender.o          | Bin 73648 -> 72208 bytes
+ src/tools/pkt.c       |   5 +-
+ src/tools/pkt.o       | Bin 29736 -> 30240 bytes
+ src/tools/queue_pkt.c |  39 +--
+ src/tools/queue_pkt.o | Bin 23536 -> 23152 bytes
+ 13 files changed, 1071 insertions(+), 311 deletions(-)
+
+commit d08ca26f4e5000b3a31bb027b89a1eef3f7ccc67
+Author: constdesch <constantin.deschaetzen@student.uclouvain.be>
+Date:   Sat Oct 20 23:01:53 2018 +0300
+
+    Fin des tests queue et nodes, ajout makefile pour le test
+
+ makefile                |   4 ++-
+ src/tools/connect.o     | Bin 27624 -> 0 bytes
+ src/tools/pkt.o         | Bin 29728 -> 0 bytes
+ src/tools/queue_pkt.o   | Bin 23528 -> 0 bytes
+ tests/test_queue_node.c |  71 ++++++++++++++++++++++++++++++++++++++++++------
+ 5 files changed, 65 insertions(+), 10 deletions(-)
+
+commit 5f5538066d0b3f4f2576d408de2f760f6dcefa34
+Author: constdesch <constantin.deschaetzen@student.uclouvain.be>
+Date:   Sat Oct 20 17:17:16 2018 +0300
+
+    Debut des tests queue + debut rapport
+
+ Rapport.tex             | 107 ++++++++++++++++++++++++++++++++++++++++++++++++
+ tests/test_queue_node.c |  88 +++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 195 insertions(+)
+
+commit 0dc436f02e5fc4c84c80be232073772cc0b4dfcd
+Author: Constantin de Schaetzen <codeschaetze@skywalker.info.ucl.ac.be>
+Date:   Fri Oct 19 15:36:37 2018 +0200
+
+    Debut de tests unitaires et ajout free_queue et init_node
+
+ receiver              | Bin 74904 -> 74960 bytes
+ sender                | Bin 82816 -> 82872 bytes
+ src/copy              |   0
+ src/sender.c          |   9 ++++++---
+ src/tools/connect.o   | Bin 27640 -> 27624 bytes
+ src/tools/pkt.o       | Bin 29736 -> 29728 bytes
+ src/tools/queue_pkt.c |  19 +++++++++++++++++++
+ src/tools/queue_pkt.h |   4 ++++
+ src/tools/queue_pkt.o | Bin 23536 -> 23528 bytes
+ 9 files changed, 29 insertions(+), 3 deletions(-)
+
+commit c9677fb3f16407fc4b2937e29b5c9477e3d19b71
+Author: Jean Gillain <jegillain@vader.info.ucl.ac.be>
+Date:   Fri Oct 19 14:57:43 2018 +0200
+
+    askip ça marche à moitié
+
+ filename.txt        |  53 ++++++++++++++++++++
+ receiver            | Bin 75104 -> 74904 bytes
+ sender              | Bin 89600 -> 82816 bytes
+ src/receiver.c      |  35 +++++++++----
+ src/receiver.o      | Bin 49648 -> 49384 bytes
+ src/sender.c        | 140 ++++++++++++++++++++++++----------------------------
+ src/sender.o        | Bin 81592 -> 73648 bytes
+ src/tools/connect.c |  43 ++++++++--------
+ src/tools/connect.o | Bin 28304 -> 27640 bytes
+ src/tools/pkt.c     |  20 +++++---
+ src/tools/pkt.o     | Bin 28880 -> 29736 bytes
+ 11 files changed, 177 insertions(+), 114 deletions(-)
+
+commit 6142027f9082e07a5922933c4477e6ccf1377a75
+Author: Jean Gillain <jegillain@vader.info.ucl.ac.be>
+Date:   Fri Oct 19 11:20:18 2018 +0200
+
+    ajout du receiver
+
+ filename.txt          |   0
+ makefile              |   2 +-
+ receiver              | Bin 0 -> 75104 bytes
+ sender                | Bin 89576 -> 89600 bytes
+ src/receiver.c        | 211 +++++++++++++++++++++++++++++++++++++++++++++-----
+ src/receiver.o        | Bin 0 -> 49648 bytes
+ src/sender.c          |   5 +-
+ src/sender.o          | Bin 81504 -> 81592 bytes
+ src/tools/connect.o   | Bin 28296 -> 28304 bytes
+ src/tools/pkt.o       | Bin 28872 -> 28880 bytes
+ src/tools/queue_pkt.o | Bin 23528 -> 23536 bytes
+ 11 files changed, 194 insertions(+), 24 deletions(-)
+
+commit 8f4f92acc06f0ddf2b9187a023fdf54850eddb58
+Merge: 0ed46eb ddb343a
+Author: Constantin de Schaetzen <codeschaetze@skywalker.info.ucl.ac.be>
+Date:   Fri Oct 19 01:31:45 2018 +0200
+
+    Je suis pas trop sur de ce que je commit
+
+commit 0ed46ebd9d8029158bc36dcb89e00d4c0766d0d9
+Author: Constantin de Schaetzen <codeschaetze@skywalker.info.ucl.ac.be>
+Date:   Fri Oct 19 01:17:25 2018 +0200
+
+    des printf pour tester encode et decode
+
+ sender       | Bin 80536 -> 83384 bytes
+ src/sender.c |  19 ++++++++++++++++++-
+ src/sender.o | Bin 66080 -> 75504 bytes
+ 3 files changed, 18 insertions(+), 1 deletion(-)
+
+commit ddb343ad3a8b25dd92740d76a06341a44f955cf2
+Author: Jean Gillain <jegillain@vader.info.ucl.ac.be>
+Date:   Fri Oct 19 01:16:38 2018 +0200
+
+    ajout d'un petit texte
+
+ file.txt              | 181 +++++++++++++++++++++++++++++++++++++++++++++++++-
+ sender                | Bin 80536 -> 82232 bytes
+ src/sender.c          |  50 +++++++-------
+ src/sender.o          | Bin 66080 -> 69504 bytes
+ src/tools/connect.o   | Bin 28296 -> 28304 bytes
+ src/tools/pkt.c       |  72 ++++++++++++--------
+ src/tools/pkt.o       | Bin 28872 -> 30016 bytes
+ src/tools/queue_pkt.o | Bin 23528 -> 23536 bytes
+ 8 files changed, 249 insertions(+), 54 deletions(-)
+
+commit ee76cd47e28bf693ac9485082be4325f0add6581
+Author: Constantin de Schaetzen <codeschaetze@skywalker.info.ucl.ac.be>
+Date:   Thu Oct 18 23:39:51 2018 +0200
+
+    Modifications appel socket() : on arrive a recevoir des ack(s)
+
+ sender                | Bin 80304 -> 80536 bytes
+ src/sender.c          |  34 +++++++++++++++++-----------------
+ src/sender.o          | Bin 65008 -> 66080 bytes
+ src/tools/connect.o   | Bin 28304 -> 28296 bytes
+ src/tools/pkt.o       | Bin 28880 -> 28872 bytes
+ src/tools/queue_pkt.o | Bin 23536 -> 23528 bytes
+ 6 files changed, 17 insertions(+), 17 deletions(-)
+
+commit 3e790d5a466fd72390fe0e86ae87b2ccec32b8f2
+Author: Jean Gillain <jegillain@vader.info.ucl.ac.be>
+Date:   Thu Oct 18 22:44:41 2018 +0200
+
+    jspp
+
+ makefile              |   4 +-
+ sender                | Bin 23681 -> 80304 bytes
+ src/sender.c          | 324 ++++++++++++++++++++++++++------------------------
+ src/sender.o          | Bin 9544 -> 65008 bytes
+ src/tools/connect.c   |   6 +-
+ src/tools/connect.o   | Bin 5152 -> 28304 bytes
+ src/tools/pkt.o       | Bin 6544 -> 28880 bytes
+ src/tools/queue_pkt.c |   7 +-
+ src/tools/queue_pkt.o | Bin 0 -> 23536 bytes
+ 9 files changed, 179 insertions(+), 162 deletions(-)
+
+commit ce0e7fb502c68b0c9704b1dfca74a1f05a9800d7
+Author: Jean Gillain <jegillain@vader.info.ucl.ac.be>
+Date:   Thu Oct 18 22:42:02 2018 +0200
+
+    jsp
+
+ file.txt            |  2 ++
+ src/sender.c        | 26 ++++++++++++++++++++------
+ src/tools/connect.c |  2 ++
+ 3 files changed, 24 insertions(+), 6 deletions(-)
+
+commit 54d712d3a4eb2a4ba649a13832eea36f266fa3f9
+Author: Jean Gillain <jegillain@vader.info.ucl.ac.be>
+Date:   Thu Oct 18 20:47:14 2018 +0200
+
+    debug
+
+ src/tools/connect.o   | Bin 5168 -> 5152 bytes
+ src/tools/pkt.o       | Bin 6552 -> 6544 bytes
+ src/tools/queue_pkt.c |  12 ++++++------
+ src/tools/queue_pkt.o | Bin 4728 -> 0 bytes
+ 4 files changed, 6 insertions(+), 6 deletions(-)
+
+commit 734db14f5e209495df9627a468f8b1e5cf2b489a
+Author: Jean Gillain <jegillain@binks.info.ucl.ac.be>
+Date:   Thu Oct 18 18:52:11 2018 +0200
+
+    la meme
+
+ src/tools/queue_pkt.c | 49 ++++++++++++++++++++++++++++++++++++++++++++++++-
+ src/tools/queue_pkt.h |  3 ++-
+ 2 files changed, 50 insertions(+), 2 deletions(-)
+
+commit 0a3e5b861168ada052322f837f82f353a7d565f6
+Author: Jean Gillain <jegillain@jabba.info.ucl.ac.be>
+Date:   Thu Oct 18 17:56:51 2018 +0200
+
+    déso c'était une blague mtn c'est bon
+
+ sender                 | Bin 0 -> 23681 bytes
+ src/sender.c           | 103 +++++++++++----------
+ src/sender.c~          | 247 +++++++++++++++++++++++++++++++++++++++++++++++++
+ src/sender.o           | Bin 0 -> 9544 bytes
+ src/tools/connect.o    | Bin 0 -> 5168 bytes
+ src/tools/pkt.o        | Bin 0 -> 6552 bytes
+ src/tools/queue_pkt.c  |  17 +++-
+ src/tools/queue_pkt.c~ | 149 +++++++++++++++++++++++++++++
+ src/tools/queue_pkt.h  |   6 +-
+ src/tools/queue_pkt.h~ |  22 +++++
+ src/tools/queue_pkt.o  | Bin 0 -> 4728 bytes
+ 11 files changed, 488 insertions(+), 56 deletions(-)
+
+commit 909df8a35f174a083b1b720c292c789f3e23b461
+Author: Jean Gillain <jegillain@r2d2.info.ucl.ac.be>
+Date:   Thu Oct 18 16:21:24 2018 +0200
+
+    quelques bugs encore et toujours
+
+ src/receiver.o        |   0
+ src/sender.c          |  69 ++++++++++++++++-----------
+ src/tools/pkt.h       | 130 ++++++++++++++++++++++++++++++++++++++++++++++++++
+ src/tools/queue_pkt.c |  52 +++++++++++++++++++-
+ src/tools/queue_pkt.h |  22 +++++++++
+ 5 files changed, 244 insertions(+), 29 deletions(-)
+
+commit 1e3856a5e7a3bbe614852f04e40bff36846678b7
+Merge: df4df52 453169c
+Author: constdesch <constantin.deschaetzen@student.uclouvain.be>
+Date:   Thu Oct 18 15:51:07 2018 +0200
+
+    Merge branch 'master' of https://github.com/constdesch/LINGI1341_Projet
+
+commit df4df5260d8af38a053b2d6635e445df39031d31
+Author: constdesch <constantin.deschaetzen@student.uclouvain.be>
+Date:   Thu Oct 18 15:50:54 2018 +0200
+
+    Ajout du connect.h mais vraiment cette fois-ci
+
+ src/tools/connect.h | 54 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 54 insertions(+)
+
+commit 453169c9daa7b0cfc52e599217f7461d56e252a4
+Merge: 4cb4166 31c2b0b
+Author: Jean Gillain <jegillain@r2d2.info.ucl.ac.be>
+Date:   Thu Oct 18 15:48:56 2018 +0200
+
+    Merge branch 'master' of https://github.com/constdesch/LINGI1341_Projet
+
+commit 31c2b0be117eeca397cd45c521898ba4a9a184dc
+Author: constdesch <constantin.deschaetzen@student.uclouvain.be>
+Date:   Thu Oct 18 15:48:49 2018 +0200
+
+    Ajout de connect.h
+
+ src/tools/connect.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 4cb4166f860043c0ea9c3b4606158e5ae5783613
+Author: Jean Gillain <jegillain@r2d2.info.ucl.ac.be>
+Date:   Thu Oct 18 15:47:39 2018 +0200
+
+    ajout des .h
+
+ src/sender.c          | 62 +++++++++++++++++++++++++--------------------------
+ src/tools/queue_pkt.c |  9 --------
+ 2 files changed, 31 insertions(+), 40 deletions(-)
+
+commit 5aab358cd475953ed1b090322fa6be77818987bb
+Merge: 0007ba6 08193cb
+Author: Jean Gillain <jegillain@r2d2.info.ucl.ac.be>
+Date:   Thu Oct 18 15:42:39 2018 +0200
+
+    Merge branch 'master' of https://github.com/constdesch/LINGI1341_Projet
+
+commit 0007ba6de2f6c87468b93c5ec43187f30695e2d8
+Author: Jean Gillain <jegillain@r2d2.info.ucl.ac.be>
+Date:   Thu Oct 18 15:42:29 2018 +0200
+
+    le makefile est fini wouhou enfin
+
+ makefile              |  41 +++++++++++++++-------------
+ out/connect.o         | Bin 936 -> 0 bytes
+ out/pkt.o             | Bin 936 -> 0 bytes
+ out/queue_pkt.o       | Bin 944 -> 0 bytes
+ out/receiver.o        | Bin 944 -> 0 bytes
+ src/tools/connect.c   |  28 +++++++++++---------
+ src/tools/pkt.c       |   3 ---
+ src/tools/queue_pkt.c |  72 ++++++++++++++++++++++++++------------------------
+ 8 files changed, 74 insertions(+), 70 deletions(-)
+
+commit 08193cb54acc83690e115913d5ed522d53855aaf
+Author: constdesch <constantin.deschaetzen@student.uclouvain.be>
+Date:   Thu Oct 18 15:42:01 2018 +0200
+
+    Ouverture des fichiers dans receiver.c
+
+ src/receiver.c | 85 ++++++++++++++++++++++++++++++++--------------------------
+ src/sender.c   | 42 +++++++++++++++--------------
+ 2 files changed, 69 insertions(+), 58 deletions(-)
+
+commit 4c27bd82adef01e862a39fc996c6ffc2b36664f2
+Merge: b8f75d3 d9acf4f
+Author: Jean Gillain <jegillain@r2d2.info.ucl.ac.be>
+Date:   Thu Oct 18 15:19:59 2018 +0200
+
+    Merge branch 'master' of https://github.com/constdesch/LINGI1341_Projet
+
+commit d9acf4f1da604eb481571041508382d55e4d4e52
+Author: constdesch <constantin.deschaetzen@student.uclouvain.be>
+Date:   Thu Oct 18 15:19:24 2018 +0200
+
+    Getopt pour le receiver
+
+ src/receiver.c | 71 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ src/sender.c   |  9 +-------
+ 2 files changed, 72 insertions(+), 8 deletions(-)
+
+commit e270f13cb77dfadc43c43bf8b0d63cfcd65ac166
+Author: constdesch <constantin.deschaetzen@student.uclouvain.be>
+Date:   Thu Oct 18 15:04:18 2018 +0200
+
+    timeOutRoutine ne renvoie plus que le premier noeud
+
+ src/sender.c | 49 +++++++++++++++++++++++--------------------------
+ 1 file changed, 23 insertions(+), 26 deletions(-)
+
+commit b8f75d37a70f8a0ea5f6e8d6950846b241f54a85
+Merge: 716c7d9 fb748f5
+Author: Jean Gillain <jegillain@r2d2.info.ucl.ac.be>
+Date:   Thu Oct 18 14:41:41 2018 +0200
+
+    Merge branch 'master' of https://github.com/constdesch/LINGI1341_Projet
+
+commit fb748f56a68accb1efd86cdbe13a719876ebc345
+Merge: e743cd1 3ca9441
+Author: constdesch <constantin.deschaetzen@student.uclouvain.be>
+Date:   Thu Oct 18 14:41:22 2018 +0200
+
+    Merge branch 'master' of https://github.com/constdesch/LINGI1341_Projet
+
+commit e743cd19953f0c1752a6ad63f796860ad2de923b
+Author: constdesch <constantin.deschaetzen@student.uclouvain.be>
+Date:   Thu Oct 18 14:41:11 2018 +0200
+
+    Fix quelques bugs des seqnums et des buffer
+
+ src/sender.c | 29 +++++++++++++++++++++--------
+ 1 file changed, 21 insertions(+), 8 deletions(-)
+
+commit 716c7d9493c1a8ee9570d95f2e50920dc1e209f0
+Author: Jean Gillain <jegillain@r2d2.info.ucl.ac.be>
+Date:   Thu Oct 18 14:37:21 2018 +0200
+
+    changement de pkt.c pour ne plus avoir de problèmes
+
+ src/tools/pkt.c | 49 +++++++++++++------------------------------------
+ 1 file changed, 13 insertions(+), 36 deletions(-)
+
+commit 3ca94413715c9ff1345d244e9d607077f60697b8
+Author: Jean Gillain <jegillain@r2d2.info.ucl.ac.be>
+Date:   Thu Oct 18 14:27:15 2018 +0200
+
+    le bon makefile cette fois
+
+ src/tools/pkt.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 649c723db3fdeb23c0a8654d857434504f4fa404
+Merge: ab456c5 f7678f1
+Author: constdesch <constantin.deschaetzen@student.uclouvain.be>
+Date:   Thu Oct 18 14:25:30 2018 +0200
+
+    Merge branch 'master' of https://github.com/constdesch/LINGI1341_Projet
+
+commit f7678f125bebe7a49dd29cd14b14d5c0e2e6821f
+Author: Jean Gillain <jegillain@r2d2.info.ucl.ac.be>
+Date:   Thu Oct 18 14:24:38 2018 +0200
+
+    ajout du makefile
+
+ makefile        | 21 ++++-----------------
+ src/tools/pkt.c | 32 +++++++++++++-------------------
+ 2 files changed, 17 insertions(+), 36 deletions(-)
+
+commit ab456c5c70a25e20918115db70355bfe5c4f8361
+Author: constdesch <constantin.deschaetzen@student.uclouvain.be>
+Date:   Thu Oct 18 12:43:06 2018 +0200
+
+    modifs sender pour verifier timestamp et seqnum en meme temps
+
+ src/sender.c | 25 ++++++++++++++++++-------
+ 1 file changed, 18 insertions(+), 7 deletions(-)
+
+commit 6fe98c5ad478695abfd9aa076f956f4cf5208f54
+Merge: 9bb29d8 e2c3bca
+Author: constdesch <constantin.deschaetzen@student.uclouvain.be>
+Date:   Thu Oct 18 11:45:46 2018 +0200
+
+    Merge branch 'master' of https://github.com/constdesch/LINGI1341_Projet
+
+commit e2c3bca939d70a5d9c69c444e357bfdb791b0ef1
+Author: Jean Gillain <jegillain@calrissian.info.ucl.ac.be>
+Date:   Thu Oct 18 11:44:31 2018 +0200
+
+    changement dans la queue plus circulaire
+
+ src/tools/queue_pkt.c | 87 +++++++++++++++++++++++----------------------------
+ 1 file changed, 40 insertions(+), 47 deletions(-)
+
+commit 9bb29d825431d715bc8ee4811f1adb99cc9e69f0
+Author: constdesch <constantin.deschaetzen@student.uclouvain.be>
+Date:   Thu Oct 18 11:42:45 2018 +0200
+
+    Ajout d'une timeoutroutine et modif dans le sender.c
+
+ src/sender.c | 119 ++++++++++++++++++++++++++++++++++++++++++++++-------------
+ 1 file changed, 93 insertions(+), 26 deletions(-)
+
+commit 47ca2ecf3fad90ddd22146a80db291841cc08e37
+Author: Jean Gillain <jegillain@calrissian.info.ucl.ac.be>
+Date:   Thu Oct 18 09:34:27 2018 +0200
+
+    réajout de la liste
+
+ src/tools/queue_pkt.c | 107 +++++++++++++++++++++++++++++++++++++++++++++++---
+ 1 file changed, 102 insertions(+), 5 deletions(-)
+
+commit 375eb082d5268a0eb793d6828baf8f22b4311c65
+Merge: c71bf4f 88ac497
+Author: constdesch <constantin.deschaetzen@student.uclouvain.be>
+Date:   Thu Oct 18 09:18:08 2018 +0200
+
+    erge branch 'master' of https://github.com/constdesch/LINGI1341_Projet
+
+commit c71bf4f1577094c19deff4304013d68ea3b8c4de
+Author: constdesch <constantin.deschaetzen@student.uclouvain.be>
+Date:   Wed Oct 17 16:58:09 2018 +0200
+
+    Fonction read_write_loop
+
+ src/sender.c        | 26 +++++++++++---
+ src/tools/connect.c | 54 +++++++++++++++++++++++++++--
+ src/tools/pkt.c     | 99 +++++++++++++++++++++++++++++------------------------
+ 3 files changed, 127 insertions(+), 52 deletions(-)
+
+commit 88ac4975aa550d3160653768dd7cf7035010fe70
+Author: Jean Gillain <jegillain@jabba.info.ucl.ac.be>
+Date:   Wed Oct 17 16:20:23 2018 +0200
+
+    l'ajout de la liste hope ça fonctionne mamen
+
+ src/tools/.##pkt.c#   |  1 -
+ src/tools/.#pkt.c     |  1 -
+ src/tools/pkt.c       | 38 +++++++++++++++++++++-----------------
+ src/tools/queue_pkt.c |  7 +++++++
+ 4 files changed, 28 insertions(+), 19 deletions(-)
+
+commit c110208b7d28a5fde63bf23225283857f4eed762
+Author: constdesch <constantin.deschaetzen@student.uclouvain.be>
+Date:   Wed Oct 17 10:36:45 2018 +0200
+
+    Import fonctions inginious + modifications sender.c
+
+ src/sender.c        |  73 ++++++++++++++++------------
+ src/tools/connect.c | 133 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 175 insertions(+), 31 deletions(-)
+
+commit 1fb10179ec254f77bcdb8214c0a1513e5a88522d
+Author: Jean Gillain <jegillain@jabba.info.ucl.ac.be>
+Date:   Wed Oct 17 10:35:48 2018 +0200
+
+    changement de la struct des segments
+
+ src/tools/.##pkt.c# | 1 +
+ src/tools/.#pkt.c   | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 5a12a8e9cb10a0489835c9d4546959fa2b7a2c74
+Author: Jean Gillain <jegillain@jabba.info.ucl.ac.be>
+Date:   Wed Oct 17 09:51:16 2018 +0200
+
+    ajout du makefile + structure
+
+ makefile              |  54 ++++++++++
+ out/connect.o         | Bin 0 -> 936 bytes
+ out/pkt.o             | Bin 0 -> 936 bytes
+ out/queue_pkt.o       | Bin 0 -> 944 bytes
+ out/receiver.o        | Bin 0 -> 944 bytes
+ src/receiver.c        |   0
+ src/receiver.h        |   0
+ src/sender.c          | 119 +++++++++++++++++++++++
+ src/sender.h          |  13 +++
+ src/tools/connect.c   |   0
+ src/tools/pkt.c       | 265 ++++++++++++++++++++++++++++++++++++++++++++++++++
+ src/tools/queue_pkt.c |   0
+ 12 files changed, 451 insertions(+)
+
+commit 6ddb0cd8c155efd907b11b4f5c5e29c5e1a19266
+Author: Jean Gillain <jegillain@jabba.info.ucl.ac.be>
+Date:   Wed Oct 17 09:47:50 2018 +0200
+
+    la structure + makefile
+
+ sender.c | 119 ---------------------------------------------------------------
+ sender.h |  13 -------
+ 2 files changed, 132 deletions(-)
+
+commit ba241d9ed2ab88252642ef7d59c907e35eea7daa
+Author: constdesch <constantin.deschaetzen@student.uclouvain.be>
+Date:   Wed Oct 17 09:06:56 2018 +0200
+
+    Ajout des fichiers sender
+
+ sender.h | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+commit 09213a2db272117457db67d82327f08fe632af90
+Author: constdesch <constantin.deschaetzen@student.uclouvain.be>
+Date:   Wed Oct 17 09:05:53 2018 +0200
+
+    Ajout du sender .h
+
+ sender.c | 119 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 119 insertions(+)
+
+commit 42dd2ecd57dd00e3f0e29488ee72cb06e505c326
+Author: constdesch <35048484+constdesch@users.noreply.github.com>
+Date:   Wed Oct 17 08:59:23 2018 +0200
+
+    Initial commit
+
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
