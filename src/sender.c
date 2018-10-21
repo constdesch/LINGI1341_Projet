@@ -50,6 +50,7 @@ int timeOutRoutine(queue_pkt_t* queue, int sfd){
   if ((tac-tic)>4500){ /* Timeout for the first node? Resend it! */
     /* New timestamp */
     printf("on rentre dans tac - tic\n");
+    while(node!=NULL){
     gettimeofday(&tv, NULL);
     double timestamp = (tv.tv_sec)* 1000 + (tv.tv_usec) / 1000 ; /*Convertir en ms */
     pkt_status_code   status = pkt_set_timestamp(pkt,(uint32_t)timestamp);
@@ -61,17 +62,18 @@ int timeOutRoutine(queue_pkt_t* queue, int sfd){
     else if (length>0) tot_length = 16 + (size_t) length;
     else fprintf(stderr,"Length should not be negative.\n");
     /*Encode the packet in a char* and write on sfd*/
-
     char buf[tot_length];
     if(pkt==NULL){
       printf("pkt est NULL dans la routine wtf?\n");
     }
     status = pkt_encode(pkt,buf,&tot_length);
-
     if(status!=PKT_OK) fprintf(stderr,"Encode failed : %d\n",status);
     int  erreur = write(sfd,buf,tot_length);
     if(erreur==-1) fprintf(stderr,"Could not write on the socket. data\n");
+    node=node->next;
+    pkt=node->data;
   }
+}
   return 0;
 }
 int main(int argc, char* argv[]){
@@ -94,7 +96,7 @@ int main(int argc, char* argv[]){
   struct timeval tv;
   fd_set readfds;
   tv.tv_sec = 0;
-  tv.tv_usec = 1;
+  tv.tv_usec = 1000;
 
   while ((opt = getopt(argc, argv, "f:")) != -1) {
     switch (opt) {
@@ -139,37 +141,48 @@ int main(int argc, char* argv[]){
     /* Option -f mentionned */
     int file;
     if(filename != NULL){
-      file = open(filename,O_RDONLY);
+      file = open(filename,O_RDONLY,S_IRWXU|S_IRWXO);
 
     }
     else{ /* Option f not mentionned */
-      filename = argv[argc-1]; /*ATTENTION suggere que ce sera toujours le dernier element */
       file = STDIN_FILENO; /* Only for reading */
     }
 
     if(file!=-1) {
       char bufreadfile[512];
+        char bufdata[512];
       int byteRead = read(file,bufreadfile,512);
       if (byteRead==-1) fprintf(stderr,"Could not read in file specified\n");
       while(byteRead!=0 || queue->full != 0){
+        int ecrit=1;
         /* Renvoyer les paquets dont le delai a expire */
-
         /* Lire sur la socket */
         FD_ZERO(&readfds);
 
         FD_SET(sfd,&readfds);
+        if(file==STDIN_FILENO){
+          FD_SET(file,&readfds);
+        }
         int timer=select(sfd+1,&readfds,NULL,NULL,&tv);
-        if (queue->full != windowSize && byteRead!=0 ){
+        if(timer==-1)
+          return timer;
+        //on envoie nos paquets si la queue n'est pas full et qu'on est pas à la fin du fichier
+        if(file==STDIN_FILENO)
+          ecrit=FD_ISSET(file,&readfds);
+        if (queue->full != windowSize && byteRead!=0 && ecrit){
           /* Place dans la liste ? */
           size_t data_length;
           /* Create the header */
-          printf("on crée notre premier paquet\n");
+          printf("%d\n",seqnum);
           pkt_t* pkt1 = pkt_new();
           pkt_set_type(pkt1,PTYPE_DATA);
           pkt_set_tr(pkt1,0);
           pkt_set_window(pkt1,queue->full);// ou 32
-          pkt_set_seqnum(pkt1,seqnum % 32);
-          seqnum++;
+          pkt_set_seqnum(pkt1,seqnum);
+          if(seqnum==255)
+            seqnum=0;
+          else
+            seqnum++;
           pkt_set_length(pkt1,byteRead);
             struct timeval tv1;
             gettimeofday(&tv1, NULL);
@@ -188,16 +201,11 @@ int main(int argc, char* argv[]){
           char data[data_length];
           status = pkt_encode(pkt1,data,&data_length);
           if(status!=PKT_OK){printf("ici?\n"); printf("Encode failed : %d\n", (int) status);}
-
-          pkt_t *pkt2 = pkt_new();
-          status = pkt_decode(data,data_length,pkt2);
-          if(status!= PKT_OK){printf("La???\n"); return status;}
           if( addTail(queue, pkt1)==NULL){
             fprintf(stdout,"l'ajout à la liste n'a pas réussi");
             return -1;
           }
           erreur = write(sfd,data,data_length);
-          printf("%s on écrit dans la socket\n",data);
           if(erreur==-1){
           fprintf(stderr,"l'erreur: %s \n",strerror(errno));
            fprintf(stderr,"Could not write on the socket.\n");
@@ -209,30 +217,27 @@ int main(int argc, char* argv[]){
           fprintf(stderr,"la queue est null\n");
         }
       }
-
-  else  if(timer>0){
-   if (FD_ISSET(sfd, &readfds)){ /* Quelque chose d'ecrit sur la socket */
+  else if (FD_ISSET(sfd, &readfds)){ /* Quelque chose d'ecrit sur la socket */
         /* On decode ce qui est ecrit */
-        printf("est ce qu'on reçoit des acks stp dis moi oui \n");
-        char bufdata[512];
-        if(read(sfd,bufdata,512)==-1){
-          fprintf(stderr,"impossible de lire sur la socket:%s \n",strerror(errno));
+        memset(bufdata,0,sizeof(bufreadfile));
+        erreur=read(sfd,bufdata,512);
+        if(erreur==-1){
+          printf("impossible de lire sur la socket:%s \n",strerror(errno));
           return -1;
         }
-
-        int len=strlen(bufdata);
         pkt_t *receivedpkt = pkt_new();
-        status = pkt_decode(bufdata,len,receivedpkt);
-        if(status!=PKT_OK)  return status;
-
+        status = pkt_decode(bufdata,erreur,receivedpkt);
+        if(status!=PKT_OK){
+          pkt_del(receivedpkt);
+          printf("la raison de notre sortie :%d",(int) status);
+          printf("la longueur du bufdata:%d\n",(int) erreur);
+          continue;}
         /* Case ACK */
         if(pkt_get_type(receivedpkt) == PTYPE_ACK){
-          printf("PUTAIIIIIIIIIIIIIIIN ACK !!!!!!!!!!!!!!!!\n");
           uint8_t receivedseqnum = pkt_get_seqnum(receivedpkt); /*seqnum of received packet*/
           pkt_t *testpkt = queue_get_timestamp(queue,pkt_get_timestamp(receivedpkt));/*pkt correponding to timestamp of receiving packet */
           if (pkt_get_timestamp(receivedpkt) ==pkt_get_timestamp( testpkt)){ /*are the timestamp and seqnum from the same packet?*/
-            printf(" on enlève la queue quand même non? \n");
-            erreur = deletePrevious(queue,receivedseqnum);
+            erreur = deletePrevious( queue,receivedseqnum);
             if (erreur==0) fprintf(stderr,"Seqnum not found in queue.\n");
           }
           else{
@@ -243,13 +248,10 @@ int main(int argc, char* argv[]){
 
         /* Case NACK */
         else if(pkt_get_type(receivedpkt) == PTYPE_NACK){
-          printf("PUTAIIIIIIIIIIIIIIIN NACK !!!!!!!!!!!!!!!!\n");
-
           /* On supprime les paquets precedents dans la queue*/
           uint8_t seqnum1 = pkt_get_seqnum(receivedpkt);
           erreur = deletePrevious(queue, seqnum1); /*should also test timestamp*/
           if (erreur == 0) fprintf(stderr, "Seqnum not found in queue.\n");
-
           /* On renvoie le paquet nack */
           size_t data_length;
           uint16_t length = pkt_get_length(receivedpkt);
@@ -263,9 +265,8 @@ int main(int argc, char* argv[]){
           erreur = write(sfd,buf,data_length);// data avant
           if(erreur==-1) fprintf(stderr,"Could not write on the socket.\n");
         }
-        free(receivedpkt);
+        pkt_del(receivedpkt);
       }
-    }
       else if(queue->head!=NULL){
      timeOutRoutine(queue,sfd);
    }
@@ -286,5 +287,6 @@ int main(int argc, char* argv[]){
       printf("close(file) n'a pas fonctionné\n");
     }
   }
+  free(queue);
   return 0;
 }

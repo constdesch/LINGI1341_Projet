@@ -22,7 +22,7 @@ void init_queue(queue_pkt_t* queue){
 void free_Node(Node * node){
   if(node!=NULL){
     if(node->data!=NULL){
-      free(node->data);
+      pkt_del(node->data);
     }
     free(node);
   }
@@ -36,7 +36,6 @@ Node * addTail(queue_pkt_t *queue, pkt_t *data) {
   node->data=data;
   if(queue->head==NULL) {
     queue->head=node;
-    fprintf(stdout,"le payload du node à la head:%s\n",pkt_get_payload(data));
     node->next=NULL;
     queue->tail=node;
     queue->full++;
@@ -56,25 +55,27 @@ int deletePrevious(queue_pkt_t *queue, uint8_t seqnum) {
   }
   Node *node1=queue->head;
   int count=0;
-  while(count!=seqnum){
-    Node *node3=node1;
-    if(node1->next!=NULL){
-      node1=node1->next;
-      free_Node(node3);
-      queue->full--;
-      count++;
-      queue->head=node1;
-    }
-    else{
-      free_Node(node3);
-      queue->full--;
-      count++;
-      queue->head=NULL;
-      queue->tail=NULL;
-      return count;
-    }
+  pkt_t* pkt=node1->data;
+  while(node1!=NULL && pkt_get_seqnum(pkt)!=seqnum){
+    Node * node2=node1;
+    node1=node1->next;
+    free_Node(node2);
+    queue->full--;
+    count++;
+    queue->head=node1;
   }
+  if(node1!=NULL){
+  Node * node3=node1;
+  node1=node1->next;
+  free_Node(node3);
+  queue->full--;
+  count++;
+  queue->head=node1;
+  if(node1==NULL)
+    queue->tail=node1;
   return count;
+}
+return -1;
 }
 pkt_t * getPos(queue_pkt_t * queue, int position){
   if(queue==NULL){

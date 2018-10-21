@@ -51,8 +51,8 @@ int main(int argc, char* argv[]){
     char * sender= NULL;
     struct timeval tv;
     fd_set readfds;
-    tv.tv_sec = 15;
-    tv.tv_usec = 5;
+    tv.tv_sec = 0;
+    tv.tv_usec = 1;
   //  int openall=0;
 
     while ((opt = getopt(argc, argv, "f:")) != -1) {
@@ -107,20 +107,15 @@ int main(int argc, char* argv[]){
 
 int file;
 if(filename != NULL){
-      file = open(filename,O_WRONLY);
-      if(file==-1){
-      free(queue);
-      printf("on ne sait pas ouvrir fichier %s \n",filename);
-      return -1;
+      file = open(filename,O_WRONLY|O_CREAT,S_IRWXO|S_IRWXU );
     }
-    dup2(file,STDOUT_FILENO);
-}
 else{
      file = STDOUT_FILENO;
 }
 if(file!=-1){
   while(1){
-    FD_ZERO(&readfds);
+    char envoi[12];
+      FD_ZERO(&readfds);
     FD_SET(sfd,&readfds);
     erreur=select(sfd+1,&readfds,NULL,NULL,&tv);
        if(erreur<0){
@@ -130,14 +125,14 @@ if(file!=-1){
        }
        else if(FD_ISSET(sfd, &readfds)){
          char bufdata[528];
-         if(read(sfd,bufdata,528)==-1){
+         erreur=read(sfd,bufdata,528);
+         if(erreur==-1){
            free(queue);
            printf("impossible de lire sur la socket dans le receiver \n");
            return -1;
          }
-         size_t length=528;
          pkt_t *receivedpkt = pkt_new();
-         status = pkt_decode(bufdata,length,receivedpkt);
+         status = pkt_decode(bufdata,erreur,receivedpkt);
          /*
          printf("Type : %d\n",pkt_get_type(receivedpkt));
          printf("Seqnum: %d\n",pkt_get_seqnum(receivedpkt));
@@ -145,26 +140,29 @@ if(file!=-1){
          */
          if(status!=PKT_OK)
          {printf("le status est pas bon dans receiver?%d \n",(int)(status));
-            return status;
+            continue;
          }
          /* Case ACK */
          if(pkt_get_type(receivedpkt) == PTYPE_DATA){
+           memset(envoi,0,sizeof(envoi));
            uint8_t receivedseqnum = pkt_get_seqnum(receivedpkt); /*seqnum of received packet*/
+           fprintf(stderr,"%d\n",receivedseqnum);
            if( pkt_get_tr(receivedpkt)!=1){
              if(receivedseqnum==seqnum){
                pkt_t *pktToSend=pkt_new();
-               if(!memcpy(pktToSend,receivedpkt,12))
-                return E_NOMEM;
-                status=pkt_set_type(pktToSend,PTYPE_ACK);
+               pkt_set_type(pktToSend, PTYPE_ACK);
+               pkt_set_window(pktToSend, 1);
+               pkt_set_seqnum(pktToSend, seqnum);
+               pkt_set_timestamp(pktToSend, pkt_get_timestamp(receivedpkt));
+                size_t len=524;
+                status=pkt_encode(pktToSend,envoi, &len);
+                fprintf(stderr,"la valeur de len:%d\n",(int) len);
                 if(status!=PKT_OK)
+                { printf("%d,status",status);
                   return status;
-                status=pkt_set_length(pktToSend,0);
-                  if(status!=PKT_OK)
-                  return status;
-                size_t len=12;
-                status=pkt_encode( pktToSend,bufdata, &len);
-                if(status!=PKT_OK) return status;
-                erreur=write(sfd,bufdata,len);
+                }
+                erreur=write(sfd,envoi,len);
+                fprintf(stderr,"envoi:%s",envoi);
                 if(erreur==-1) printf("impossible de répondre via la socket(receiver)\n");
                 pkt_del(pktToSend);
                erreur=write(file,pkt_get_payload(receivedpkt),pkt_get_length(receivedpkt));
@@ -177,10 +175,11 @@ if(file!=-1){
              else{
                seqnum++;
              }
+             //si c'est celui qu'on attend pour débloquer la liste, il faut débloquer les autres.
              pkt_del(receivedpkt);
              pkt_t * pktrec=queue_get_seq(queue,seqnum);
              while(pktrec!=NULL){
-               memset(bufdata,0,sizeof(bufdata));
+               memset(envoi,0,sizeof(envoi));
                pktToSend=pkt_new();
                if(!memcpy(pktToSend,pktrec,12))
                 return E_NOMEM;
@@ -200,6 +199,7 @@ if(file!=-1){
                     printf("impossible d'écrire des pkt hors séquence dans le fichier file dans le receiver  \n");
                     return -1;
                }
+               //le supprime de la liste
                queue_delete_pkt_timestamp(queue,pkt_get_timestamp(pktrec));
                if(seqnum==255){
                  seqnum=0;
@@ -220,6 +220,13 @@ if(file!=-1){
                   status=pkt_set_length(pktToSend,0);
                   if(status!=PKT_OK)
                       return status;
+                  status=pkt_set_seqnum(pktToSend,seqnum);
+                  if(status!=PKT_OK)
+                    return status;
+                  if(seqnum==255)
+                    seqnum=0;
+                  else
+                    seqnum++;
                   size_t len=12;
                   status=pkt_encode( pktToSend,bufdata, &len);
                   if(status!=PKT_OK)
@@ -251,6 +258,7 @@ if(file!=-1){
 }
 } else{
             printf("Time out\n");
+            free(queue);
             return 1;
         }
       }

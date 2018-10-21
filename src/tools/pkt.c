@@ -45,7 +45,8 @@ void pkt_del(pkt_t *pkt)
 
 pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
 {
-    if(len<12){
+    if(len<8){
+      printf("la longueur pourqoui ça va pas ?\n");
         return E_UNCONSISTENT;
     }
 
@@ -142,7 +143,7 @@ pkt_status_code pkt_encode(const pkt_t* pkt, char *buf, size_t *len)
             if  (memcpy(buf+12+pkt->length,&crc22,4)==NULL)
                 return E_NOMEM;
   }
-  printf("buf:%s \n",buf);
+
   *len=ll1;
   return PKT_OK;
 }
