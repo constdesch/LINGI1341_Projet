@@ -20,25 +20,11 @@ typedef struct queue_pkt{
   Node *tail;
 }queue_pkt_t;
 
-void init_node(Node* node){
-  node->data=NULL;
-  node->next=NULL;
-
-}
 void init_queue(queue_pkt_t* queue){
   queue->full=0;
   queue->head=NULL;
   queue->tail=NULL;
 }
-
-void free_queue(queue_pkt_t* queue){
-  if(queue!=NULL){
-    if(!queue->head) free(queue->head);
-    if(!queue->tail) free(queue->tail);
-    free(queue);
-  }
-}
-
 void free_Node(Node * node){
   if(node!=NULL){
     if(node->data!=NULL){

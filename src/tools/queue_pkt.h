@@ -16,10 +16,7 @@ typedef struct queue_pkt{
 }queue_pkt_t;
 
 void init_queue(queue_pkt_t* queue);
-void init_node(Node* node){
-void free_queue(queue_pkt_t* queue);
 void free_Node(Node * node);
-
 Node * addTail(queue_pkt_t *queue, pkt_t *data);
 int deletePrevious(queue_pkt_t *queue, uint8_t seqnum) ;
 pkt_t * getPos(queue_pkt_t * queue, int position);

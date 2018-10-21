@@ -21,11 +21,12 @@
 #include "tools/pkt.h"
 #include "tools/queue_pkt.h"
 #include <unistd.h>
-#include <sys/stat.h>
-#include <fcntl.h>
 #include <time.h>
 #include <sys/time.h>
 #include <errno.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 #define true 1
 #define false 0
@@ -48,12 +49,8 @@ int timeOutRoutine(queue_pkt_t* queue, int sfd){
   uint32_t tic=clock(); /*Time when the packet was sent*/
   if (pkt_get_timestamp(pkt)+4*CLOCKS_PER_SEC>tic){ /* Timeout for the first node? Resend it! */
     /* New timestamp */
-    printf("pkt->seqnum:%d \n",pkt_get_seqnum(pkt));
-    printf("on rentre dans tac - tic\n");
     while(node!=NULL){
-      printf("node->envoi==%d\n",node->envoi);
       if(node->envoi==0){
-        printf("réenvoi du packet avec seqnum:%d\n",pkt_get_seqnum(pkt));
     uint32_t timestamp = clock() ; /*Convertir en ms */
     pkt_status_code   status = pkt_set_timestamp(pkt,(uint32_t)timestamp);
     if(status != PKT_OK) printf("Setting timestamp failed.\n");
@@ -65,7 +62,7 @@ int timeOutRoutine(queue_pkt_t* queue, int sfd){
     /*Encode the packet in a char* and write on sfd*/
     char buf[tot_length];
     if(pkt==NULL){
-      printf("pkt est NULL dans la routine wtf?\n");
+      fprintf(stderr,"pkt est NULL dans la routine wtf?\n");
     }
     status = pkt_encode(pkt,buf,&tot_length);
     if(status!=PKT_OK) fprintf(stderr,"Encode failed : %d\n",status);
@@ -98,14 +95,10 @@ int main(int argc, char* argv[]){
   struct timeval tv;
   fd_set readfds;
   tv.tv_sec = 0;
-<<<<<<< HEAD
   tv.tv_usec = 100;
-=======
-  tv.tv_usec = 1;
-  int window_offset = 0;
 
 
->>>>>>> d08ca26f4e5000b3a31bb027b89a1eef3f7ccc67
+
   while ((opt = getopt(argc, argv, "f:")) != -1) {
     switch (opt) {
       case 'f':
@@ -128,9 +121,6 @@ int main(int argc, char* argv[]){
 
     if(!receiver) fprintf(stderr, "Receiver is NULL\n");
     if(!port) fprintf(stderr, "Port is 0\n");
-    printf("Receiver : %s\n",receiver);
-    printf("Port : %d\n",port);
-
 
     /* Resolve receiver name */
     struct sockaddr_in6 dst_addr;
@@ -147,7 +137,6 @@ int main(int argc, char* argv[]){
     int file;
     if(filename != NULL){
       file = open(filename,O_RDONLY,S_IRWXU|S_IRWXO);
-
     }
     else{ /* Option f not mentionned */
       file = STDIN_FILENO; /* Only for reading */
@@ -177,7 +166,6 @@ int main(int argc, char* argv[]){
           /* Place dans la liste ? */
           size_t data_length;
           /* Create the header */
-          printf("%d\n",seqnum);
           pkt_t* pkt1 = pkt_new();
           pkt_set_type(pkt1,PTYPE_DATA);
           pkt_set_tr(pkt1,0);
@@ -188,16 +176,10 @@ int main(int argc, char* argv[]){
           else
             seqnum++;
           pkt_set_length(pkt1,byteRead);
-<<<<<<< HEAD
           //uint32_t timestamp1=(tv1.tv_sec)* 1000 + (tv1.tv_usec) /1000 ;
           pkt_set_timestamp(pkt1,clock());
           //printf("timestamp:%d",timestamp1);
-=======
-          struct timeval tv1;
-          gettimeofday(&tv1, NULL);
-          uint32_t timestamp1=(tv1.tv_sec)* 1000 + (tv1.tv_usec) /1000 ;
-          pkt_set_timestamp(pkt1,timestamp1);
->>>>>>> d08ca26f4e5000b3a31bb027b89a1eef3f7ccc67
+
           int length1=htons( pkt_get_length(pkt1));
           pkt_set_payload(pkt1,bufreadfile,byteRead);
           uLong crc1 = crc32(0L, Z_NULL, 0);
@@ -210,9 +192,9 @@ int main(int argc, char* argv[]){
           char data[data_length];
           status = pkt_encode(pkt1,data,&data_length);
           if(status!=PKT_OK)
-            printf("Encode failed : %d\n", (int) status);
+            fprintf(stderr,"Encode failed : %d\n", (int) status);
           if( addTail(queue, pkt1)==NULL){
-            fprintf(stdout,"l'ajout à la liste n'a pas réussi");
+            fprintf(stderr,"l'ajout à la liste n'a pas réussi");
             return -1;
           }
           erreur = write(sfd,data,data_length);
@@ -235,7 +217,7 @@ int main(int argc, char* argv[]){
         memset(bufdata,0,sizeof(bufreadfile));
         erreur=read(sfd,bufdata,512);
         if(erreur==-1){
-          printf("impossible de lire sur la socket:%s \n",strerror(errno));
+          fprintf(stderr,"impossible de lire sur la socket:%s \n",strerror(errno));
           return -1;
         }
         pkt_t *receivedpkt = pkt_new();
@@ -247,10 +229,8 @@ int main(int argc, char* argv[]){
           continue;}
         /* Case ACK */
         if(pkt_get_type(receivedpkt) == PTYPE_ACK){
-          printf("hey\n");
           uint8_t receivedseqnum = pkt_get_seqnum(receivedpkt); /*seqnum of received packet*/
           pkt_t *testpkt = queue_get_timestamp(queue,pkt_get_timestamp(receivedpkt));/*pkt correponding to timestamp of receiving packet */
-          printf("testpkt->seqnum:%d\n",pkt_get_seqnum(testpkt));
           if (pkt_get_timestamp(receivedpkt) ==pkt_get_timestamp( testpkt)){ /*are the timestamp and seqnum from the same packet?*/
             erreur = deletePrevious( queue,receivedseqnum);
             if (erreur==0) fprintf(stderr,"Seqnum not found in queue.\n");

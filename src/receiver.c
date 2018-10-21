@@ -52,7 +52,7 @@ int main(int argc, char* argv[]){
     struct timeval tv;
     fd_set readfds;
     tv.tv_sec = 0;
-    tv.tv_usec = 1;
+    tv.tv_usec = 100;
   //  int openall=0;
 
     while ((opt = getopt(argc, argv, "f:")) != -1) {
@@ -76,14 +76,10 @@ int main(int argc, char* argv[]){
     sender = argv[optind]; /*sender est le premier argument */
   //  if(strlen(sender)==0 && sender[0]=='.' && sender[1]=='.'){
     //  openall=1;
-    //}
-    printf("sender:%s \n",sender);
+    //
     port = atoi(argv[optind+1]); /*port est le deuxieme argument */
     if(!sender) fprintf(stderr, "Sender is NULL\n");
     if(!port) fprintf(stderr, "Port is 0\n");
-    printf("Sender : %s\n",sender);
-    printf("Port : %d\n",port);
-
     /* Option -f mentionned */
     struct sockaddr_in6 dst_addr;
     err = real_address(sender,&dst_addr);
@@ -113,7 +109,8 @@ else{
      file = STDOUT_FILENO;
 }
 if(file!=-1){
-  while(1){
+  int fin=0;
+  while(fin!=1){
     char envoi[12];
       FD_ZERO(&readfds);
     FD_SET(sfd,&readfds);
@@ -154,7 +151,6 @@ if(file!=-1){
                pkt_set_window(pktToSend, 32);
                pkt_set_seqnum(pktToSend, seqnum);
                pkt_set_timestamp(pktToSend, pkt_get_timestamp(receivedpkt));
-               printf("timestamp %d\n",pkt_get_timestamp(pktToSend));
                 size_t len=524;
                 status=pkt_encode(pktToSend,envoi, &len);
                 fprintf(stderr,"la valeur de len:%d\n",(int) len);
@@ -169,10 +165,11 @@ if(file!=-1){
                if(erreur==-1){
                  printf("impossible d'écrire dans le fichier file dans le receiver \n");
                }
+               if(erreur==0)
+                fin=1;
 
              //si c'est celui qu'on attend pour débloquer la liste, il faut débloquer les autres.
              pkt_del(receivedpkt);
-             printf("seqnumreceived:%d\n",seqnum);
              if(seqnum==255){
                seqnum=0;
            }
@@ -197,11 +194,12 @@ if(file!=-1){
                   return status;
                 pkt_del(pktToSend);
                erreur=write(file,pkt_get_payload(pktrec),pkt_get_length(pktrec));
+               if(erreur==0)
+                fin=1;
                if(erreur==-1){
                     printf("impossible d'écrire des pkt hors séquence dans le fichier file dans le receiver  \n");
                     return -1;
                }
-               printf("est ce qu'on écrit ici?\n");
                //le supprime de la liste
                queue_delete_pkt_timestamp(queue,pkt_get_timestamp(pktrec));
                if(seqnum==255){
@@ -214,8 +212,6 @@ if(file!=-1){
              }
            }
                else{
-                 printf("timestamp %d\n",pkt_get_timestamp(receivedpkt));
-                 printf("ils arrivent de manière décalé:%d \n",pkt_get_seqnum(receivedpkt));
                  pkt_t *pktToSend=pkt_new();
                 pkt_set_type(pktToSend,PTYPE_ACK);
                 pkt_set_tr(pktToSend,0);
@@ -228,9 +224,7 @@ if(file!=-1){
                   status=pkt_encode( pktToSend,bufdata, &len);
                   if(status!=PKT_OK)
                     return status;
-                    printf("le seqnum renvoyé est :%d",pkt_get_seqnum(pktToSend));
                   erreur=write(sfd,bufdata,len);
-                  printf("la longueur du réenvoyé:%d",erreur);
                   if(erreur==-1)
                     printf("impossible de répondre via la socket(receiver)\n");
                   pkt_del(pktToSend);
