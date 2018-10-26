@@ -223,12 +223,10 @@ pkt_status_code pkt_set_tr(pkt_t *pkt, const uint8_t tr)
 
 pkt_status_code pkt_set_window(pkt_t *pkt, const uint8_t window)
 {
-    if(window < MAX_WINDOW_SIZE){
+    if(window <=MAX_WINDOW_SIZE){
         pkt->window = window;
         return PKT_OK;}
     return E_WINDOW;
-    pkt->window = window;
-    return PKT_OK;
 }
 
 

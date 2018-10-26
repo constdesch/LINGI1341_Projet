@@ -25,6 +25,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <sys/time.h>
+#include <time.h>
 
 #define true 1
 #define false 0
@@ -35,6 +36,7 @@
 
 int main(int argc, char* argv[]){
   queue_pkt_t * queue=malloc(sizeof(queue_pkt_t));
+  //uint32_t lasttimewereceive=0;
   if(!queue){
     printf("malloc failed \n");
     return -1;
@@ -47,7 +49,6 @@ int main(int argc, char* argv[]){
     const char *err;
     pkt_status_code status;
     uint32_t seqnum = 0;
-    char * receiver = "::1";
     char * sender= NULL;
     struct timeval tv;
     fd_set readfds;
@@ -87,12 +88,7 @@ int main(int argc, char* argv[]){
       fprintf(stderr, "Could not resolve sender name %s : %s\n",sender,err);
     }
     /* Resolve sender name */
-    struct sockaddr_in6 src_addr;
-    err = real_address(receiver,&src_addr);
-    if(err){
-      fprintf(stderr,"Could not resolve sender name %s : %s\n",sender,err);
-    }
-    int sfd = create_socket(&src_addr, port,NULL, -1); /* Connected */ /* src_port = dst_port ? */
+    int sfd = create_socket(&dst_addr, port,NULL, -1); /* Connected */ /* src_port = dst_port ? */
     if (sfd > 0 && wait_for_client(sfd) < 0) { /* Connected */
 			fprintf(stderr,
 					"Could not connect the socket after the first message.\n");
@@ -143,28 +139,31 @@ if(file!=-1){
          if(pkt_get_type(receivedpkt) == PTYPE_DATA){
            memset(envoi,0,sizeof(envoi));
            uint8_t receivedseqnum = pkt_get_seqnum(receivedpkt); /*seqnum of received packet*/
-           fprintf(stderr,"%d\n",receivedseqnum);
            if( pkt_get_tr(receivedpkt)!=1){
              if(receivedseqnum==seqnum){
                pkt_t *pktToSend=pkt_new();
                pkt_set_type(pktToSend, PTYPE_ACK);
-               pkt_set_window(pktToSend, 32);
-               pkt_set_seqnum(pktToSend, seqnum/1);
+               if(pkt_set_window(pktToSend, pkt_get_window(receivedpkt))!=PKT_OK)
+               fprintf(stderr,"la window a pas la bonne taille");
+               pkt_set_seqnum(pktToSend, seqnum+1);
                pkt_set_timestamp(pktToSend, pkt_get_timestamp(receivedpkt));
+            //   lasttimewereceive=pkt_get_timestamp(receivedpkt);
                 size_t len=524;
                 status=pkt_encode(pktToSend,envoi, &len);
-                fprintf(stderr,"la valeur de len:%d\n",(int) len);
                 if(status!=PKT_OK)
                 { printf("%d,status",status);
                   return status;
                 }
+              /*  if(pkt_get_length(receivedpkt)==0){
+                  fin=1;
+                  fprintf(stderr,"on sort pour la bonne raison cette fois\n");
+                  pkt_del(receivedpkt);
+                  continue;
+                }*/
                 erreur=write(file,pkt_get_payload(receivedpkt),pkt_get_length(receivedpkt));
                 if(erreur==-1){
                   printf("impossible d'écrire dans le fichier file dans le receiver \n");
                 }
-                if(erreur==0){
-                 fin=1;
-                 continue;}
                  if(erreur!=0){
                 erreur=write(sfd,envoi,len);
                 if(erreur==-1) printf("impossible de répondre via la socket(receiver)\n");
@@ -196,11 +195,13 @@ if(file!=-1){
                 if(status!=PKT_OK)
                   return status;
                 pkt_del(pktToSend);
+            /*    if(pkt_get_length(pktrec)==0){
+                  fin=1;
+                  fprintf(stderr,"on sort pour la bonne raison cette fois\n");
+                  queue_delete_pkt_timestamp(queue,pkt_get_timestamp(pktrec));
+                  continue;
+                }*/
                erreur=write(file,pkt_get_payload(pktrec),pkt_get_length(pktrec));
-               if(erreur==0){
-                fin=1;
-                continue;
-              }
                if(erreur==-1){
                     printf("impossible d'écrire des pkt hors séquence dans le fichier file dans le receiver  \n");
                     return -1;
@@ -221,10 +222,11 @@ if(file!=-1){
                 pkt_set_type(pktToSend,PTYPE_ACK);
                 pkt_set_tr(pktToSend,0);
                 pkt_set_length(pktToSend,0);
-                pkt_set_window(pktToSend,32);
+                pkt_set_window(pktToSend,31);
                 pkt_set_seqnum(pktToSend,seqnum+1);
                 pkt_set_crc1(pktToSend,pkt_get_crc1(receivedpkt));
                 pkt_set_timestamp(pktToSend,pkt_get_timestamp(receivedpkt));
+              //  lasttimewereceive=pkt_get_timestamp(receivedpkt);
                   size_t len=12;
                   status=pkt_encode( pktToSend,bufdata, &len);
                   if(status!=PKT_OK)
@@ -258,11 +260,21 @@ if(file!=-1){
 }
 }
 }
+/*else{
+  uint32_t actualtime=clock();
+if((lasttimewereceive+6*CLOCKS_PER_SEC>actualtime) && (lasttimewereceive!=0)){
+  fprintf(stderr,"on break jamais mon cul?\n");
+  fin=1;
+  continue;
+}
+}*/
       }
       fprintf(stderr,"on sort quand même à un moment jésus christ \n");
       free(queue);
+      if(close(sfd)==-1)
+      return -1;
       printf("on sort sans problème\n");
-      return 1;
+      return 0;
     }
     free(queue);
 printf("on rentre jamais \n");

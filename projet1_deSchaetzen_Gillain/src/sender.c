@@ -30,7 +30,7 @@
 
 #define true 1
 #define false 0
-#define WINDOW_SIZE 32
+#define WINDOW_SIZE 31
 
 
 
@@ -82,7 +82,7 @@ int main(int argc, char* argv[]){
     fprintf(stderr,"malloc failed for queue\n");
     return -1;
   }
-  int windowSize=32;
+  uint8_t windowSize=31;
   init_queue(queue);
   int port = 0;// init du port
   int opt;
@@ -216,7 +216,7 @@ int main(int argc, char* argv[]){
   else if (FD_ISSET(sfd, &readfds)){ /* Quelque chose d'ecrit sur la socket */
         /* On decode ce qui est ecrit */
         memset(bufdata,0,sizeof(bufreadfile));
-        erreur=read(sfd,bufdata,512);
+        erreur=read(sfd,bufdata,12);
         if(erreur==-1){
           fprintf(stderr,"impossible de lire sur la socket:%s \n",strerror(errno));
           return -1;
@@ -236,9 +236,10 @@ int main(int argc, char* argv[]){
             fin=1;
             continue;
           }
-          if (pkt_get_seqnum(receivedpkt) ==pkt_get_seqnum( testpkt)-1){ /*are the timestamp and seqnum from the same packet?*/
+          if (pkt_get_seqnum(receivedpkt) ==pkt_get_seqnum( testpkt)+1){ /*are the timestamp and seqnum from the same packet?*/
             erreur = deletePrevious( queue,receivedseqnum);
             if (erreur==0) fprintf(stderr,"Seqnum not found in queue.\n");
+            pkt_del(receivedpkt);
           }
           else{
             erreur =  set_pkt_envoi_timestamp(queue, pkt_get_timestamp(receivedpkt)); /*should also test timestamp*/
