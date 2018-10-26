@@ -236,7 +236,7 @@ int main(int argc, char* argv[]){
             fin=1;
             continue;
           }
-          if (pkt_get_timestamp(receivedpkt) ==pkt_get_timestamp( testpkt)){ /*are the timestamp and seqnum from the same packet?*/
+          if (pkt_get_seqnum(receivedpkt) ==pkt_get_seqnum( testpkt)-1){ /*are the timestamp and seqnum from the same packet?*/
             erreur = deletePrevious( queue,receivedseqnum);
             if (erreur==0) fprintf(stderr,"Seqnum not found in queue.\n");
           }
@@ -272,6 +272,27 @@ int main(int argc, char* argv[]){
       /* Ecrire sur la socket */
 
   }
+  fprintf(stderr,"on sort de la boucle un jour?\n");
+  pkt_t* pkt1 = pkt_new();
+  pkt_set_type(pkt1,PTYPE_DATA);
+  pkt_set_tr(pkt1,0);
+  pkt_set_window(pkt1,windowSize);
+  pkt_set_seqnum(pkt1,seqnum);
+  pkt_set_length(pkt1,0);
+  //uint32_t timestamp1=(tv1.tv_sec)* 1000 + (tv1.tv_usec) /1000 ;
+  pkt_set_timestamp(pkt1,clock());
+  pkt_set_payload(pkt1,"",0);
+  uLong crc1 = crc32(0L, Z_NULL, 0);
+  crc1=crc32(crc1,(Bytef*) pkt1,8);
+  pkt_set_crc1(pkt1,htonl(crc1));
+  size_t length1=12;
+  char data[12];
+  status = pkt_encode(pkt1,data,&length1);
+  if(status!=PKT_OK)
+    return -1;
+  int error1=write(sfd,data,length1);
+  if(error1==-1)
+    return -1;
     free(queue);
     return 0;
   }

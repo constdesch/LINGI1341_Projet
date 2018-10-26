@@ -149,7 +149,7 @@ if(file!=-1){
                pkt_t *pktToSend=pkt_new();
                pkt_set_type(pktToSend, PTYPE_ACK);
                pkt_set_window(pktToSend, 32);
-               pkt_set_seqnum(pktToSend, seqnum);
+               pkt_set_seqnum(pktToSend, seqnum/1);
                pkt_set_timestamp(pktToSend, pkt_get_timestamp(receivedpkt));
                 size_t len=524;
                 status=pkt_encode(pktToSend,envoi, &len);
@@ -222,7 +222,7 @@ if(file!=-1){
                 pkt_set_tr(pktToSend,0);
                 pkt_set_length(pktToSend,0);
                 pkt_set_window(pktToSend,32);
-                pkt_set_seqnum(pktToSend,seqnum);
+                pkt_set_seqnum(pktToSend,seqnum+1);
                 pkt_set_crc1(pktToSend,pkt_get_crc1(receivedpkt));
                 pkt_set_timestamp(pktToSend,pkt_get_timestamp(receivedpkt));
                   size_t len=12;
@@ -233,6 +233,7 @@ if(file!=-1){
                   if(erreur==-1)
                     printf("impossible de répondre via la socket(receiver)\n");
                   pkt_del(pktToSend);
+                  if(queue_get_seq(queue,pkt_get_seqnum(receivedpkt))==NULL)
                   addTail(queue,receivedpkt);
                }
              }
@@ -258,6 +259,7 @@ if(file!=-1){
 }
 }
       }
+      fprintf(stderr,"on sort quand même à un moment jésus christ \n");
       free(queue);
       printf("on sort sans problème\n");
       return 1;
