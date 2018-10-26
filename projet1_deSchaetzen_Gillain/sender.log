@@ -1,2 +1,13 @@
-il n'y a pas de pkt avec ce timestamp dans la liste 
-on sort de la boucle un jour?
+le seqnum du dernier envoyé est :0
+le seqnum du dernier envoyé est :1
+le seqnum du dernier envoyé est :2
+le seqnum du dernier envoyé est :3
+le seqnum du dernier envoyé est :4
+le seqnum du dernier envoyé est :5
+le seqnum received est :1
+le seqnum received est :1
+le nombre de delete est:1
+le seqnum received est :1
+il n'y a pas de pkt avec ce seqnum dans la liste 
+wtf quand meme 
+le seqnum received est :1

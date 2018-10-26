@@ -96,7 +96,7 @@ int main(int argc, char* argv[]){
   fd_set readfds;
   tv.tv_sec = 0;
   tv.tv_usec = 100;
-
+  uint8_t seqnumreceive=0;
 
 
   while ((opt = getopt(argc, argv, "f:")) != -1) {
@@ -115,6 +115,7 @@ int main(int argc, char* argv[]){
         abort();
       }
     }
+    windowSize=1;
     if(argc - optind <2) fprintf(stderr,"Wrong number of arguments, expected two\n");
     receiver = argv[optind]; /*receiver est le premier argument */
     port = atoi(argv[optind+1]); /*port est le deuxieme argument */
@@ -179,8 +180,8 @@ int main(int argc, char* argv[]){
           pkt_set_length(pkt1,byteRead);
           //uint32_t timestamp1=(tv1.tv_sec)* 1000 + (tv1.tv_usec) /1000 ;
           pkt_set_timestamp(pkt1,clock());
+          fprintf(stderr,"le seqnum du dernier envoyé est :%d\n",pkt_get_seqnum(pkt1));
           //printf("timestamp:%d",timestamp1);
-
           int length1=htons( pkt_get_length(pkt1));
           pkt_set_payload(pkt1,bufreadfile,byteRead);
           uLong crc1 = crc32(0L, Z_NULL, 0);
@@ -212,6 +213,7 @@ int main(int argc, char* argv[]){
         if(queue==NULL){
           fprintf(stderr,"la queue est null\n");
         }
+        windowSize=31;
       }
   else if (FD_ISSET(sfd, &readfds)){ /* Quelque chose d'ecrit sur la socket */
         /* On decode ce qui est ecrit */
@@ -230,20 +232,21 @@ int main(int argc, char* argv[]){
           continue;}
         /* Case ACK */
         if(pkt_get_type(receivedpkt) == PTYPE_ACK){
-          uint8_t receivedseqnum = pkt_get_seqnum(receivedpkt); /*seqnum of received packet*/
-          pkt_t *testpkt = queue_get_timestamp(queue,pkt_get_timestamp(receivedpkt));/*pkt correponding to timestamp of receiving packet */
+  fprintf(stderr,"le seqnum received est :%d\n",pkt_get_seqnum(receivedpkt));
+            pkt_t *testpkt = queue_get_seq(queue,pkt_get_seqnum(receivedpkt)-1);/*pkt correponding to timestamp of receiving packet */
           if(testpkt==NULL){
+            fprintf(stderr,"wtf quand meme \n");
+          }
+          if(testpkt==NULL && queue->full==0){
             fin=1;
             continue;
           }
-          if (pkt_get_seqnum(receivedpkt) ==pkt_get_seqnum( testpkt)+1){ /*are the timestamp and seqnum from the same packet?*/
-            erreur = deletePrevious( queue,receivedseqnum);
+          fprintf(stderr,"le seqnum received est :%d\n",pkt_get_seqnum(receivedpkt));
+          if (pkt_get_seqnum(receivedpkt) <=(seqnumreceive+32)){ /*are the timestamp and seqnum from the same packet?*/
+            seqnumreceive=pkt_get_seqnum(receivedpkt)-1;
+            erreur = deletePrevious( queue,seqnumreceive);
+            fprintf(stderr,"le nombre de delete est:%d\n",erreur);
             if (erreur==0) fprintf(stderr,"Seqnum not found in queue.\n");
-            pkt_del(receivedpkt);
-          }
-          else{
-            erreur =  set_pkt_envoi_timestamp(queue, pkt_get_timestamp(receivedpkt)); /*should also test timestamp*/
-            if (erreur == -1) fprintf(stderr, "Seqnum not found in queue.\n");
             pkt_del(receivedpkt);
           }
         }

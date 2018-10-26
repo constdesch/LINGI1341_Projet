@@ -58,6 +58,7 @@ Node * addTail(queue_pkt_t *queue, pkt_t *data) {
 }
 int deletePrevious(queue_pkt_t *queue, uint8_t seqnum) {
   if(queue->head==NULL){
+    fprintf(stderr,"la head est null\n");
     return -1;
   }
   Node *node1=queue->head;
@@ -67,6 +68,7 @@ int deletePrevious(queue_pkt_t *queue, uint8_t seqnum) {
     Node * node2=node1;
     node1=node1->next;
     free_Node(node2);
+    pkt=node1->data;
     queue->full--;
     count++;
     queue->head=node1;

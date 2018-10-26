@@ -48,7 +48,7 @@ int main(int argc, char* argv[]){
     char *filename = NULL;
     const char *err;
     pkt_status_code status;
-    uint32_t seqnum = 0;
+    uint8_t seqnum = 0;
     char * sender= NULL;
     struct timeval tv;
     fd_set readfds;
@@ -145,7 +145,13 @@ if(file!=-1){
                pkt_set_type(pktToSend, PTYPE_ACK);
                if(pkt_set_window(pktToSend, pkt_get_window(receivedpkt))!=PKT_OK)
                fprintf(stderr,"la window a pas la bonne taille");
-               pkt_set_seqnum(pktToSend, seqnum+1);
+               if(seqnum==255){
+                 seqnum=0;
+              }
+              else{
+               seqnum++;
+              }
+               pkt_set_seqnum(pktToSend, seqnum);
                pkt_set_timestamp(pktToSend, pkt_get_timestamp(receivedpkt));
             //   lasttimewereceive=pkt_get_timestamp(receivedpkt);
                 size_t len=524;
