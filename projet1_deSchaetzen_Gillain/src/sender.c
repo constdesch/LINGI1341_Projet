@@ -41,18 +41,19 @@ int timeOutRoutine(queue_pkt_t* queue, int sfd){
     fprintf(stderr,"queue est vide\n");
   }
   Node *node = queue->head;
-  if(node==NULL)
+  if(node==NULL){
   fprintf(stderr,"queue->head est vide\n");
+  return 0;}
   pkt_t* pkt= node->data;
   if(pkt==NULL)
   fprintf(stderr,"pkt est null\n");
   uint32_t tic=clock(); /*Time when the packet was sent*/
-  if (pkt_get_timestamp(pkt)+4*CLOCKS_PER_SEC>tic){ /* Timeout for the first node? Resend it! */
+  if ((tic-pkt_get_timestamp(pkt))*1000/CLOCKS_PER_SEC>4000){ /* Timeout for the first node? Resend it! */
     /* New timestamp */
+    fprintf(stderr,"on rentre pas ici quand même!\n");
     while(node!=NULL){
       if(node->envoi==0){
-    uint32_t timestamp = clock() ; /*Convertir en ms */
-    pkt_status_code   status = pkt_set_timestamp(pkt,(uint32_t)timestamp);
+    pkt_status_code   status = pkt_set_timestamp(pkt,clock());
     if(status != PKT_OK) printf("Setting timestamp failed.\n");
     uint16_t length = pkt_get_length(pkt);
     size_t tot_length;
@@ -178,10 +179,9 @@ int main(int argc, char* argv[]){
           else
             seqnum++;
           pkt_set_length(pkt1,byteRead);
-          //uint32_t timestamp1=(tv1.tv_sec)* 1000 + (tv1.tv_usec) /1000 ;
           pkt_set_timestamp(pkt1,clock());
+          fprintf(stderr,"pkt_get_timestamp:%d",pkt_get_timestamp(pkt1));
           fprintf(stderr,"le seqnum du dernier envoyé est :%d\n",pkt_get_seqnum(pkt1));
-          //printf("timestamp:%d",timestamp1);
           int length1=htons( pkt_get_length(pkt1));
           pkt_set_payload(pkt1,bufreadfile,byteRead);
           uLong crc1 = crc32(0L, Z_NULL, 0);
@@ -234,15 +234,18 @@ int main(int argc, char* argv[]){
         if(pkt_get_type(receivedpkt) == PTYPE_ACK){
   fprintf(stderr,"le seqnum received est :%d\n",pkt_get_seqnum(receivedpkt));
             pkt_t *testpkt = queue_get_seq(queue,pkt_get_seqnum(receivedpkt)-1);/*pkt correponding to timestamp of receiving packet */
+            if(testpkt==NULL && queue->full==0 && byteRead==0){
+              fprintf(stderr,"on rentre pas  là quand même?\n");
+              pkt_del(receivedpkt);
+              break;
+            }
           if(testpkt==NULL){
             fprintf(stderr,"wtf quand meme \n");
-          }
-          if(testpkt==NULL && queue->full==0){
-            fin=1;
+            pkt_del(receivedpkt);
             continue;
           }
-          fprintf(stderr,"le seqnum received est :%d\n",pkt_get_seqnum(receivedpkt));
-          if (pkt_get_seqnum(receivedpkt) <=(seqnumreceive+32)){ /*are the timestamp and seqnum from the same packet?*/
+          fprintf(stderr,"seqnumreceive:%d\n",(int) seqnumreceive);
+          if (pkt_get_seqnum(receivedpkt)<=seqnumreceive+31 ){ /*are the timestamp and seqnum from the same packet?*/
             seqnumreceive=pkt_get_seqnum(receivedpkt)-1;
             erreur = deletePrevious( queue,seqnumreceive);
             fprintf(stderr,"le nombre de delete est:%d\n",erreur);

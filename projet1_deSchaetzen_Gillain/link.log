@@ -1,4 +1,4 @@
-@@ Using random seed: 1540572680
+@@ Using random seed: 1540632291
 @@ Using parameters:
 .. port: 1341
 .. forward_port: 2456
@@ -6,2985 +6,539 @@
 .. jitter: 0
 .. err_rate: 0
 .. cut_rate: 0
-.. loss_rate: 80
-.. seed: 1540572680
+.. loss_rate: 50
+.. seed: 1540632291
 .. link_direction: Both ways
-@@ Remote host is ::1 [43166]
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Delayed packet by 50 ms
+@@ Remote host is ::1 [40880]
 [SEQ   0] Dropping packet
 [SEQ   1] Dropping packet
 [SEQ   2] Delayed packet by 50 ms
 [SEQ   3] Delayed packet by 50 ms
 [SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
 [SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   0] Dropping packet
+[SEQ   6] Delayed packet by 50 ms
+[SEQ   7] Dropping packet
+[SEQ   8] Dropping packet
+[SEQ   9] Delayed packet by 50 ms
+[SEQ  10] Dropping packet
+[SEQ  11] Dropping packet
+[SEQ  12] Dropping packet
+[SEQ  13] Delayed packet by 50 ms
+[SEQ  14] Dropping packet
+[SEQ  15] Delayed packet by 50 ms
+[SEQ  16] Delayed packet by 50 ms
+[SEQ  17] Dropping packet
+[SEQ  18] Dropping packet
+[SEQ  19] Dropping packet
+[SEQ  20] Delayed packet by 50 ms
+[SEQ  21] Dropping packet
+[SEQ  22] Dropping packet
+[SEQ  23] Dropping packet
+[SEQ  24] Dropping packet
+[SEQ  25] Dropping packet
+[SEQ  26] Delayed packet by 50 ms
+[SEQ  27] Dropping packet
+[SEQ  28] Delayed packet by 50 ms
+[SEQ  29] Delayed packet by 50 ms
+[SEQ  30] Delayed packet by 50 ms
 [SEQ   2] Sent packet (Forward).
-[SEQ   1] Dropping packet
 [SEQ   3] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
 [SEQ   5] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
+[SEQ   6] Sent packet (Forward).
+[SEQ   9] Sent packet (Forward).
+[SEQ  13] Sent packet (Forward).
+[SEQ  15] Sent packet (Forward).
+[SEQ  16] Sent packet (Forward).
+[SEQ   0] Dropping packet
+[SEQ  20] Sent packet (Forward).
 [SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
 [SEQ   0] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
 [SEQ   0] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
+[SEQ   0] Dropping packet
+[SEQ   0] Dropping packet
+[SEQ   0] Dropping packet
 [SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   1] Dropping packet
+[SEQ  26] Sent packet (Forward).
 [SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   0] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   4] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   1] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   5] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   5] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   4] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   1] Sent packet (Forward).
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   3] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   1] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   3] Sent packet (Forward).
+[SEQ  28] Sent packet (Forward).
 [SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   7] Delayed packet by 50 ms
+[SEQ  29] Sent packet (Forward).
+[SEQ  30] Sent packet (Forward).
 [SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   5] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   7] Dropping packet
 [SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
 [SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   4] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   2] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   5] Sent packet (Forward).
-[SEQ   1] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   5] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   5] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   7] Dropping packet
+[SEQ   0] Sent packet (Reverse).
+[SEQ   0] Sent packet (Reverse).
+[SEQ   0] Sent packet (Reverse).
+[SEQ   0] Sent packet (Reverse).
+[SEQ   0] Sent packet (Reverse).
 [SEQ   0] Delayed packet by 50 ms
 [SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   5] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   5] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   0] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Sent packet (Forward).
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   1] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   5] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   0] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   0] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Sent packet (Forward).
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   2] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   5] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   2] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   4] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   5] Sent packet (Forward).
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   1] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   1] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   5] Sent packet (Forward).
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   1] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   0] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   1] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   5] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   5] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   0] Sent packet (Forward).
 [SEQ   2] Dropping packet
 [SEQ   3] Delayed packet by 50 ms
 [SEQ   4] Delayed packet by 50 ms
 [SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
+[SEQ   6] Delayed packet by 50 ms
+[SEQ   7] Delayed packet by 50 ms
+[SEQ   8] Dropping packet
+[SEQ   9] Dropping packet
+[SEQ  10] Delayed packet by 50 ms
+[SEQ  11] Dropping packet
+[SEQ  12] Delayed packet by 50 ms
+[SEQ  13] Delayed packet by 50 ms
+[SEQ  14] Dropping packet
+[SEQ  15] Delayed packet by 50 ms
+[SEQ  16] Delayed packet by 50 ms
+[SEQ  17] Delayed packet by 50 ms
+[SEQ  18] Delayed packet by 50 ms
+[SEQ  19] Delayed packet by 50 ms
+[SEQ  20] Delayed packet by 50 ms
+[SEQ  21] Delayed packet by 50 ms
+[SEQ  22] Dropping packet
+[SEQ  23] Delayed packet by 50 ms
+[SEQ  24] Dropping packet
+[SEQ  25] Dropping packet
+[SEQ  26] Delayed packet by 50 ms
+[SEQ  27] Delayed packet by 50 ms
+[SEQ  28] Delayed packet by 50 ms
+[SEQ  29] Delayed packet by 50 ms
+[SEQ  30] Dropping packet
 [SEQ   0] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
+[SEQ   1] Sent packet (Forward).
+[SEQ   3] Sent packet (Forward).
 [SEQ   4] Sent packet (Forward).
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   5] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   3] Sent packet (Forward).
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   1] Sent packet (Forward).
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   2] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Sent packet (Forward).
-[SEQ   1] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   2] Delayed packet by 50 ms
 [SEQ   5] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
+[SEQ   6] Sent packet (Forward).
+[SEQ   7] Sent packet (Forward).
+[SEQ  10] Sent packet (Forward).
+[SEQ  12] Sent packet (Forward).
+[SEQ  13] Sent packet (Forward).
+[SEQ  15] Sent packet (Forward).
+[SEQ  16] Sent packet (Forward).
+[SEQ  17] Sent packet (Forward).
+[SEQ  18] Sent packet (Forward).
+[SEQ  19] Sent packet (Forward).
+[SEQ  20] Sent packet (Forward).
+[SEQ  21] Sent packet (Forward).
+[SEQ  23] Sent packet (Forward).
+[SEQ  26] Sent packet (Forward).
 [SEQ   1] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   7] Dropping packet
+[SEQ  27] Sent packet (Forward).
+[SEQ  28] Sent packet (Forward).
+[SEQ  29] Sent packet (Forward).
 [SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
 [SEQ   4] Delayed packet by 50 ms
 [SEQ   5] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   2] Sent packet (Forward).
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   1] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   1] Sent packet (Forward).
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   2] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   1] Sent packet (Reverse).
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   1] Sent packet (Reverse).
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   7] Sent packet (Reverse).
-[SEQ   3] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   7] Sent packet (Reverse).
-[SEQ   2] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   7] Sent packet (Reverse).
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Delayed packet by 50 ms
-[SEQ   5] Dropping packet
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   4] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   7] Sent packet (Reverse).
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   7] Sent packet (Reverse).
-[SEQ   0] Delayed packet by 50 ms
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   4] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   0] Dropping packet
-[SEQ   1] Delayed packet by 50 ms
-[SEQ   2] Sent packet (Forward).
-[SEQ   3] Delayed packet by 50 ms
-[SEQ   3] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   7] Sent packet (Reverse).
-[SEQ   2] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   3] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   4] Dropping packet
-[SEQ   5] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   0] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   5] Dropping packet
-[SEQ   1] Dropping packet
-[SEQ   2] Delayed packet by 50 ms
-[SEQ   7] Sent packet (Reverse).
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   5] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   1] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   2] Dropping packet
-[SEQ   3] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   2] Dropping packet
-[SEQ   4] Dropping packet
-[SEQ   5] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
 [SEQ   7] Delayed packet by 50 ms
 [SEQ   7] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   0] Sent packet (Forward).
-[SEQ   2] Sent packet (Forward).
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Delayed packet by 50 ms
+[SEQ   8] Delayed packet by 50 ms
+[SEQ   8] Delayed packet by 50 ms
+[SEQ   8] Delayed packet by 50 ms
+[SEQ   8] Delayed packet by 50 ms
+[SEQ   8] Dropping packet
+[SEQ   8] Delayed packet by 50 ms
+[SEQ   8] Delayed packet by 50 ms
+[SEQ   8] Dropping packet
+[SEQ   8] Dropping packet
+[SEQ   8] Delayed packet by 50 ms
+[SEQ   8] Delayed packet by 50 ms
+[SEQ   8] Delayed packet by 50 ms
+[SEQ   8] Delayed packet by 50 ms
+[SEQ   8] Delayed packet by 50 ms
+[SEQ   8] Dropping packet
+[SEQ   8] Dropping packet
+[SEQ   4] Sent packet (Reverse).
 [SEQ   7] Sent packet (Reverse).
-[SEQ   7] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   0] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Sent packet (Reverse).
-[SEQ   1] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   4] Sent packet (Forward).
-[SEQ   5] Sent packet (Forward).
-[SEQ   2] Sent packet (Forward).
-[SEQ   5] Sent packet (Forward).
-[SEQ   1] Sent packet (Forward).
-[SEQ   2] Sent packet (Forward).
-[SEQ   0] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   0] Sent packet (Forward).
-[SEQ   1] Sent packet (Forward).
-[SEQ   5] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   2] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   4] Sent packet (Forward).
-[SEQ   0] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   2] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   5] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   0] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Sent packet (Reverse).
-[SEQ   5] Sent packet (Forward).
-[SEQ   0] Sent packet (Forward).
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   2] Sent packet (Forward).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   0] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   2] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   4] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   5] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   4] Sent packet (Forward).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   5] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   5] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   4] Sent packet (Forward).
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   1] Sent packet (Forward).
-[SEQ   2] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   0] Sent packet (Forward).
-[SEQ   2] Sent packet (Forward).
-[SEQ   0] Sent packet (Forward).
-[SEQ   0] Sent packet (Forward).
-[SEQ   4] Sent packet (Forward).
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   1] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   4] Sent packet (Forward).
-[SEQ   0] Sent packet (Forward).
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   4] Sent packet (Forward).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   3] Sent packet (Forward).
-[SEQ   5] Sent packet (Forward).
-[SEQ   0] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   1] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   0] Sent packet (Forward).
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   0] Sent packet (Forward).
-[SEQ   1] Sent packet (Forward).
-[SEQ   0] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Sent packet (Reverse).
-[SEQ   3] Sent packet (Forward).
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Sent packet (Reverse).
-[SEQ   2] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   2] Sent packet (Forward).
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   2] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   5] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   4] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   1] Sent packet (Forward).
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Sent packet (Reverse).
-[SEQ   3] Sent packet (Forward).
-[SEQ   5] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   0] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   2] Sent packet (Forward).
-[SEQ   4] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   0] Sent packet (Forward).
-[SEQ   1] Sent packet (Forward).
-[SEQ   0] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   4] Sent packet (Forward).
-[SEQ   5] Sent packet (Forward).
-[SEQ   2] Sent packet (Forward).
-[SEQ   2] Sent packet (Forward).
-[SEQ   4] Sent packet (Forward).
-[SEQ   1] Sent packet (Forward).
-[SEQ   2] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   4] Sent packet (Forward).
-[SEQ   5] Sent packet (Forward).
-[SEQ   0] Sent packet (Forward).
-[SEQ   5] Sent packet (Forward).
-[SEQ   4] Sent packet (Forward).
-[SEQ   0] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   2] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   5] Sent packet (Forward).
-[SEQ   0] Sent packet (Forward).
-[SEQ   2] Sent packet (Forward).
-[SEQ   4] Sent packet (Forward).
-[SEQ   0] Sent packet (Forward).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   4] Sent packet (Forward).
-[SEQ   1] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   4] Sent packet (Forward).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   5] Sent packet (Forward).
-[SEQ   1] Sent packet (Forward).
-[SEQ   4] Sent packet (Forward).
-[SEQ   0] Sent packet (Forward).
-[SEQ   1] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   5] Sent packet (Forward).
-[SEQ   0] Sent packet (Forward).
-[SEQ   2] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   5] Sent packet (Forward).
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   2] Sent packet (Forward).
-[SEQ   1] Sent packet (Forward).
-[SEQ   2] Sent packet (Forward).
-[SEQ   4] Sent packet (Forward).
-[SEQ   1] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   5] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   5] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   0] Sent packet (Forward).
-[SEQ   4] Sent packet (Forward).
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   4] Sent packet (Forward).
-[SEQ   0] Sent packet (Forward).
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   0] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   3] Sent packet (Forward).
-[SEQ   1] Sent packet (Forward).
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Dropping packet
-[SEQ   1] Sent packet (Forward).
-[SEQ   3] Sent packet (Forward).
-[SEQ   5] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   7] Dropping packet
-[SEQ   2] Sent packet (Forward).
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   5] Sent packet (Forward).
-[SEQ   5] Sent packet (Forward).
-[SEQ   7] Dropping packet
-[SEQ   7] Delayed packet by 50 ms
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
-[SEQ   7] Sent packet (Reverse).
+[SEQ   8] Sent packet (Reverse).
+[SEQ   8] Sent packet (Reverse).
+[SEQ   8] Sent packet (Reverse).
+[SEQ   8] Sent packet (Reverse).
+[SEQ   8] Sent packet (Reverse).
+[SEQ   8] Sent packet (Reverse).
+[SEQ   8] Sent packet (Reverse).
+[SEQ   8] Sent packet (Reverse).
+[SEQ   8] Sent packet (Reverse).
+[SEQ   8] Sent packet (Reverse).
+[SEQ   8] Sent packet (Reverse).
+[SEQ  31] Dropping packet
+[SEQ  32] Delayed packet by 50 ms
+[SEQ  33] Dropping packet
+[SEQ  34] Dropping packet
+[SEQ  35] Dropping packet
+[SEQ  36] Delayed packet by 50 ms
+[SEQ  37] Delayed packet by 50 ms
+[SEQ  38] Delayed packet by 50 ms
+[SEQ  32] Sent packet (Forward).
+[SEQ  36] Sent packet (Forward).
+[SEQ  37] Sent packet (Forward).
+[SEQ  38] Sent packet (Forward).
+[SEQ   8] Delayed packet by 50 ms
+[SEQ   8] Delayed packet by 50 ms
+[SEQ   8] Delayed packet by 50 ms
+[SEQ   8] Dropping packet
+[SEQ   8] Sent packet (Reverse).
+[SEQ   8] Sent packet (Reverse).
+[SEQ   8] Sent packet (Reverse).
+[SEQ   8] Delayed packet by 50 ms
+[SEQ   9] Delayed packet by 50 ms
+[SEQ  10] Dropping packet
+[SEQ  11] Dropping packet
+[SEQ  12] Dropping packet
+[SEQ  13] Dropping packet
+[SEQ  14] Delayed packet by 50 ms
+[SEQ  15] Delayed packet by 50 ms
+[SEQ  16] Dropping packet
+[SEQ  17] Delayed packet by 50 ms
+[SEQ  18] Delayed packet by 50 ms
+[SEQ  19] Delayed packet by 50 ms
+[SEQ  20] Delayed packet by 50 ms
+[SEQ  21] Dropping packet
+[SEQ  22] Dropping packet
+[SEQ  23] Dropping packet
+[SEQ  24] Delayed packet by 50 ms
+[SEQ  25] Dropping packet
+[SEQ  26] Dropping packet
+[SEQ  27] Delayed packet by 50 ms
+[SEQ  28] Delayed packet by 50 ms
+[SEQ  29] Dropping packet
+[SEQ  30] Dropping packet
+[SEQ  31] Delayed packet by 50 ms
+[SEQ  32] Delayed packet by 50 ms
+[SEQ  33] Dropping packet
+[SEQ  34] Dropping packet
+[SEQ  35] Dropping packet
+[SEQ  36] Delayed packet by 50 ms
+[SEQ  37] Dropping packet
+[SEQ  38] Delayed packet by 50 ms
+[SEQ   8] Sent packet (Forward).
+[SEQ   9] Sent packet (Forward).
+[SEQ  14] Sent packet (Forward).
+[SEQ  15] Sent packet (Forward).
+[SEQ  17] Sent packet (Forward).
+[SEQ  18] Sent packet (Forward).
+[SEQ  19] Sent packet (Forward).
+[SEQ  20] Sent packet (Forward).
+[SEQ  24] Sent packet (Forward).
+[SEQ  27] Sent packet (Forward).
+[SEQ  28] Sent packet (Forward).
+[SEQ  31] Sent packet (Forward).
+[SEQ  32] Sent packet (Forward).
+[SEQ   9] Dropping packet
+[SEQ  36] Sent packet (Forward).
+[SEQ  38] Sent packet (Forward).
+[SEQ  11] Delayed packet by 50 ms
+[SEQ  11] Dropping packet
+[SEQ  11] Dropping packet
+[SEQ  11] Dropping packet
+[SEQ  11] Delayed packet by 50 ms
+[SEQ  11] Dropping packet
+[SEQ  11] Delayed packet by 50 ms
+[SEQ  11] Dropping packet
+[SEQ  11] Delayed packet by 50 ms
+[SEQ  11] Dropping packet
+[SEQ  11] Dropping packet
+[SEQ  11] Dropping packet
+[SEQ  11] Delayed packet by 50 ms
+[SEQ  11] Dropping packet
+[SEQ  11] Sent packet (Reverse).
+[SEQ  11] Sent packet (Reverse).
+[SEQ  11] Sent packet (Reverse).
+[SEQ  11] Sent packet (Reverse).
+[SEQ  11] Sent packet (Reverse).
+[SEQ  39] Dropping packet
+[SEQ  40] Delayed packet by 50 ms
+[SEQ  41] Dropping packet
+[SEQ  40] Sent packet (Forward).
+[SEQ  11] Dropping packet
+[SEQ  11] Delayed packet by 50 ms
+[SEQ  12] Delayed packet by 50 ms
+[SEQ  13] Delayed packet by 50 ms
+[SEQ  14] Dropping packet
+[SEQ  15] Delayed packet by 50 ms
+[SEQ  16] Dropping packet
+[SEQ  17] Delayed packet by 50 ms
+[SEQ  18] Delayed packet by 50 ms
+[SEQ  19] Delayed packet by 50 ms
+[SEQ  20] Delayed packet by 50 ms
+[SEQ  21] Dropping packet
+[SEQ  22] Dropping packet
+[SEQ  23] Delayed packet by 50 ms
+[SEQ  24] Delayed packet by 50 ms
+[SEQ  25] Dropping packet
+[SEQ  26] Delayed packet by 50 ms
+[SEQ  27] Dropping packet
+[SEQ  28] Delayed packet by 50 ms
+[SEQ  29] Delayed packet by 50 ms
+[SEQ  30] Delayed packet by 50 ms
+[SEQ  31] Delayed packet by 50 ms
+[SEQ  32] Delayed packet by 50 ms
+[SEQ  33] Dropping packet
+[SEQ  34] Delayed packet by 50 ms
+[SEQ  35] Dropping packet
+[SEQ  36] Delayed packet by 50 ms
+[SEQ  37] Delayed packet by 50 ms
+[SEQ  38] Dropping packet
+[SEQ  39] Delayed packet by 50 ms
+[SEQ  40] Delayed packet by 50 ms
+[SEQ  41] Dropping packet
+[SEQ  11] Sent packet (Forward).
+[SEQ  12] Sent packet (Forward).
+[SEQ  13] Sent packet (Forward).
+[SEQ  15] Sent packet (Forward).
+[SEQ  17] Sent packet (Forward).
+[SEQ  18] Sent packet (Forward).
+[SEQ  19] Sent packet (Forward).
+[SEQ  20] Sent packet (Forward).
+[SEQ  23] Sent packet (Forward).
+[SEQ  24] Sent packet (Forward).
+[SEQ  26] Sent packet (Forward).
+[SEQ  28] Sent packet (Forward).
+[SEQ  29] Sent packet (Forward).
+[SEQ  30] Sent packet (Forward).
+[SEQ  31] Sent packet (Forward).
+[SEQ  32] Sent packet (Forward).
+[SEQ  34] Sent packet (Forward).
+[SEQ  36] Sent packet (Forward).
+[SEQ  37] Sent packet (Forward).
+[SEQ  39] Sent packet (Forward).
+[SEQ  40] Sent packet (Forward).
+[SEQ  12] Delayed packet by 50 ms
+[SEQ  22] Dropping packet
+[SEQ  22] Delayed packet by 50 ms
+[SEQ  22] Delayed packet by 50 ms
+[SEQ  22] Delayed packet by 50 ms
+[SEQ  22] Delayed packet by 50 ms
+[SEQ  22] Delayed packet by 50 ms
+[SEQ  22] Dropping packet
+[SEQ  22] Dropping packet
+[SEQ  22] Dropping packet
+[SEQ  22] Dropping packet
+[SEQ  22] Dropping packet
+[SEQ  22] Delayed packet by 50 ms
+[SEQ  22] Delayed packet by 50 ms
+[SEQ  22] Delayed packet by 50 ms
+[SEQ  22] Dropping packet
+[SEQ  22] Delayed packet by 50 ms
+[SEQ  22] Dropping packet
+[SEQ  22] Delayed packet by 50 ms
+[SEQ  22] Dropping packet
+[SEQ  22] Delayed packet by 50 ms
+[SEQ  12] Sent packet (Reverse).
+[SEQ  42] Delayed packet by 50 ms
+[SEQ  22] Sent packet (Reverse).
+[SEQ  22] Sent packet (Reverse).
+[SEQ  22] Sent packet (Reverse).
+[SEQ  22] Sent packet (Reverse).
+[SEQ  22] Sent packet (Reverse).
+[SEQ  22] Sent packet (Reverse).
+[SEQ  22] Sent packet (Reverse).
+[SEQ  22] Sent packet (Reverse).
+[SEQ  22] Sent packet (Reverse).
+[SEQ  22] Sent packet (Reverse).
+[SEQ  22] Sent packet (Reverse).
+[SEQ  43] Dropping packet
+[SEQ  44] Dropping packet
+[SEQ  45] Delayed packet by 50 ms
+[SEQ  46] Delayed packet by 50 ms
+[SEQ  47] Dropping packet
+[SEQ  48] Delayed packet by 50 ms
+[SEQ  49] Dropping packet
+[SEQ  50] Dropping packet
+[SEQ  51] Dropping packet
+[SEQ  52] Delayed packet by 50 ms
+[SEQ  42] Sent packet (Forward).
+[SEQ  22] Dropping packet
+[SEQ  45] Sent packet (Forward).
+[SEQ  46] Sent packet (Forward).
+[SEQ  48] Sent packet (Forward).
+[SEQ  52] Sent packet (Forward).
+[SEQ  22] Delayed packet by 50 ms
+[SEQ  22] Dropping packet
+[SEQ  22] Delayed packet by 50 ms
+[SEQ  22] Delayed packet by 50 ms
+[SEQ  22] Sent packet (Reverse).
+[SEQ  22] Sent packet (Reverse).
+[SEQ  22] Sent packet (Reverse).
+[SEQ  22] Delayed packet by 50 ms
+[SEQ  23] Delayed packet by 50 ms
+[SEQ  24] Delayed packet by 50 ms
+[SEQ  25] Delayed packet by 50 ms
+[SEQ  26] Delayed packet by 50 ms
+[SEQ  27] Delayed packet by 50 ms
+[SEQ  28] Dropping packet
+[SEQ  29] Delayed packet by 50 ms
+[SEQ  30] Dropping packet
+[SEQ  31] Dropping packet
+[SEQ  32] Dropping packet
+[SEQ  33] Dropping packet
+[SEQ  34] Delayed packet by 50 ms
+[SEQ  35] Dropping packet
+[SEQ  36] Delayed packet by 50 ms
+[SEQ  37] Delayed packet by 50 ms
+[SEQ  38] Dropping packet
+[SEQ  39] Delayed packet by 50 ms
+[SEQ  40] Dropping packet
+[SEQ  41] Dropping packet
+[SEQ  42] Dropping packet
+[SEQ  43] Dropping packet
+[SEQ  44] Dropping packet
+[SEQ  45] Delayed packet by 50 ms
+[SEQ  46] Dropping packet
+[SEQ  47] Dropping packet
+[SEQ  48] Delayed packet by 50 ms
+[SEQ  49] Dropping packet
+[SEQ  50] Dropping packet
+[SEQ  51] Delayed packet by 50 ms
+[SEQ  52] Delayed packet by 50 ms
+[SEQ  22] Sent packet (Forward).
+[SEQ  23] Sent packet (Forward).
+[SEQ  24] Sent packet (Forward).
+[SEQ  25] Sent packet (Forward).
+[SEQ  26] Sent packet (Forward).
+[SEQ  27] Sent packet (Forward).
+[SEQ  29] Sent packet (Forward).
+[SEQ  34] Sent packet (Forward).
+[SEQ  36] Sent packet (Forward).
+[SEQ  37] Sent packet (Forward).
+[SEQ  39] Sent packet (Forward).
+[SEQ  45] Sent packet (Forward).
+[SEQ  48] Sent packet (Forward).
+[SEQ  51] Sent packet (Forward).
+[SEQ  52] Sent packet (Forward).
+[SEQ  23] Dropping packet
+[SEQ  25] Dropping packet
+[SEQ  25] Dropping packet
+[SEQ  26] Delayed packet by 50 ms
+[SEQ  33] Dropping packet
+[SEQ  33] Dropping packet
+[SEQ  33] Delayed packet by 50 ms
+[SEQ  33] Delayed packet by 50 ms
+[SEQ  33] Dropping packet
+[SEQ  33] Dropping packet
+[SEQ  33] Delayed packet by 50 ms
+[SEQ  33] Dropping packet
+[SEQ  33] Delayed packet by 50 ms
+[SEQ  33] Dropping packet
+[SEQ  33] Dropping packet
+[SEQ  26] Sent packet (Reverse).
+[SEQ  33] Sent packet (Reverse).
+[SEQ  33] Sent packet (Reverse).
+[SEQ  33] Sent packet (Reverse).
+[SEQ  33] Sent packet (Reverse).
+[SEQ  53] Dropping packet
+[SEQ  54] Dropping packet
+[SEQ  55] Delayed packet by 50 ms
+[SEQ  56] Delayed packet by 50 ms
+[SEQ  57] Dropping packet
+[SEQ  58] Delayed packet by 50 ms
+[SEQ  55] Sent packet (Forward).
+[SEQ  56] Sent packet (Forward).
+[SEQ  58] Sent packet (Forward).
+[SEQ  33] Delayed packet by 50 ms
+[SEQ  33] Delayed packet by 50 ms
+[SEQ  33] Dropping packet
+[SEQ  33] Sent packet (Reverse).
+[SEQ  33] Sent packet (Reverse).
+[SEQ  33] Delayed packet by 50 ms
+[SEQ  34] Delayed packet by 50 ms
+[SEQ  35] Delayed packet by 50 ms
+[SEQ  36] Dropping packet
+[SEQ  37] Dropping packet
+[SEQ  38] Dropping packet
+[SEQ  39] Dropping packet
+[SEQ  40] Dropping packet
+[SEQ  41] Delayed packet by 50 ms
+[SEQ  42] Delayed packet by 50 ms
+[SEQ  43] Delayed packet by 50 ms
+[SEQ  44] Dropping packet
+[SEQ  45] Dropping packet
+[SEQ  46] Delayed packet by 50 ms
+[SEQ  47] Delayed packet by 50 ms
+[SEQ  48] Delayed packet by 50 ms
+[SEQ  49] Delayed packet by 50 ms
+[SEQ  50] Dropping packet
+[SEQ  51] Delayed packet by 50 ms
+[SEQ  52] Dropping packet
+[SEQ  53] Delayed packet by 50 ms
+[SEQ  54] Delayed packet by 50 ms
+[SEQ  55] Delayed packet by 50 ms
+[SEQ  56] Delayed packet by 50 ms
+[SEQ  57] Delayed packet by 50 ms
+[SEQ  58] Delayed packet by 50 ms
+[SEQ  33] Sent packet (Forward).
+[SEQ  34] Sent packet (Forward).
+[SEQ  35] Sent packet (Forward).
+[SEQ  41] Sent packet (Forward).
+[SEQ  42] Sent packet (Forward).
+[SEQ  43] Sent packet (Forward).
+[SEQ  46] Sent packet (Forward).
+[SEQ  47] Sent packet (Forward).
+[SEQ  48] Sent packet (Forward).
+[SEQ  49] Sent packet (Forward).
+[SEQ  51] Sent packet (Forward).
+[SEQ  53] Sent packet (Forward).
+[SEQ  54] Sent packet (Forward).
+[SEQ  55] Sent packet (Forward).
+[SEQ  56] Sent packet (Forward).
+[SEQ  57] Sent packet (Forward).
+[SEQ  58] Sent packet (Forward).
+[SEQ  34] Delayed packet by 50 ms
+[SEQ  35] Dropping packet
+[SEQ  36] Delayed packet by 50 ms
+[SEQ  42] Delayed packet by 50 ms
+[SEQ  43] Dropping packet
+[SEQ  44] Dropping packet
+[SEQ  44] Dropping packet
+[SEQ  44] Delayed packet by 50 ms
+[SEQ  44] Dropping packet
+[SEQ  44] Delayed packet by 50 ms
+[SEQ  44] Delayed packet by 50 ms
+[SEQ  44] Dropping packet
+[SEQ  44] Delayed packet by 50 ms
+[SEQ  44] Dropping packet
+[SEQ  44] Dropping packet
+[SEQ  44] Dropping packet
+[SEQ  44] Dropping packet
+[SEQ  34] Sent packet (Reverse).
+[SEQ  36] Sent packet (Reverse).
+[SEQ  42] Sent packet (Reverse).
+[SEQ  44] Sent packet (Reverse).
+[SEQ  44] Sent packet (Reverse).
+[SEQ  44] Sent packet (Reverse).
+[SEQ  44] Sent packet (Reverse).
+[SEQ  44] Delayed packet by 50 ms
+[SEQ  45] Delayed packet by 50 ms
+[SEQ  46] Dropping packet
+[SEQ  47] Dropping packet
+[SEQ  48] Dropping packet
+[SEQ  49] Dropping packet
+[SEQ  50] Delayed packet by 50 ms
+[SEQ  51] Dropping packet
+[SEQ  52] Delayed packet by 50 ms
+[SEQ  53] Dropping packet
+[SEQ  54] Delayed packet by 50 ms
+[SEQ  55] Dropping packet
+[SEQ  56] Delayed packet by 50 ms
+[SEQ  57] Delayed packet by 50 ms
+[SEQ  58] Delayed packet by 50 ms
+[SEQ  44] Sent packet (Forward).
+[SEQ  45] Sent packet (Forward).
+[SEQ  50] Sent packet (Forward).
+[SEQ  52] Sent packet (Forward).
+[SEQ  54] Sent packet (Forward).
+[SEQ  56] Sent packet (Forward).
+[SEQ  57] Sent packet (Forward).
+[SEQ  58] Sent packet (Forward).
+[SEQ  45] Dropping packet
+[SEQ  50] Dropping packet
+[SEQ  51] Dropping packet
+[SEQ  59] Delayed packet by 50 ms
+[SEQ  59] Dropping packet
+[SEQ  59] Delayed packet by 50 ms
+[SEQ  59] Delayed packet by 50 ms
+[SEQ  59] Dropping packet
+[SEQ  59] Sent packet (Reverse).
+[SEQ  59] Sent packet (Reverse).
+[SEQ  59] Sent packet (Reverse).
+[SEQ  59] Delayed packet by 50 ms
+[SEQ  59] Sent packet (Forward).

@@ -54,6 +54,7 @@ int main(int argc, char* argv[]){
     fd_set readfds;
     tv.tv_sec = 0;
     tv.tv_usec = 100;
+    uint32_t lasttimewereceive=0;
   //  int openall=0;
 
     while ((opt = getopt(argc, argv, "f:")) != -1) {
@@ -139,51 +140,46 @@ if(file!=-1){
          if(pkt_get_type(receivedpkt) == PTYPE_DATA){
            memset(envoi,0,sizeof(envoi));
            uint8_t receivedseqnum = pkt_get_seqnum(receivedpkt); /*seqnum of received packet*/
+           fprintf(stderr,"receivedseqnum:%d\n",(int) receivedseqnum);
            if( pkt_get_tr(receivedpkt)!=1){
+             fprintf(stderr,"seqnum:%d\n",seqnum);
              if(receivedseqnum==seqnum){
                pkt_t *pktToSend=pkt_new();
                pkt_set_type(pktToSend, PTYPE_ACK);
+               pkt_set_tr(pktToSend,0);
                if(pkt_set_window(pktToSend, pkt_get_window(receivedpkt))!=PKT_OK)
                fprintf(stderr,"la window a pas la bonne taille");
-               if(seqnum==255){
-                 seqnum=0;
-              }
-              else{
-               seqnum++;
-              }
-               pkt_set_seqnum(pktToSend, seqnum);
+               pkt_set_seqnum(pktToSend, seqnum+1);
                pkt_set_timestamp(pktToSend, pkt_get_timestamp(receivedpkt));
-            //   lasttimewereceive=pkt_get_timestamp(receivedpkt);
-                size_t len=524;
+               pkt_set_crc1(pktToSend,pkt_get_crc1(receivedpkt));//recalculer
+              lasttimewereceive=pkt_get_timestamp(receivedpkt);
+                size_t len=12;
                 status=pkt_encode(pktToSend,envoi, &len);
                 if(status!=PKT_OK)
                 { printf("%d,status",status);
                   return status;
                 }
-              /*  if(pkt_get_length(receivedpkt)==0){
+                if(pkt_get_length(receivedpkt)==0){
                   fin=1;
                   fprintf(stderr,"on sort pour la bonne raison cette fois\n");
                   pkt_del(receivedpkt);
                   continue;
-                }*/
+                }
                 erreur=write(file,pkt_get_payload(receivedpkt),pkt_get_length(receivedpkt));
                 if(erreur==-1){
                   printf("impossible d'écrire dans le fichier file dans le receiver \n");
                 }
                  if(erreur!=0){
-                erreur=write(sfd,envoi,len);
+                erreur=write(sfd,envoi,12);
                 if(erreur==-1) printf("impossible de répondre via la socket(receiver)\n");
               }
-                pkt_del(pktToSend);
-
+//                pkt_del(pktToSend); le free puis le réalouer ça me fait pas kiffer
+              if(seqnum==255)
+                seqnum=0;
+              else
+                seqnum++;
              //si c'est celui qu'on attend pour débloquer la liste, il faut débloquer les autres.
              pkt_del(receivedpkt);
-             if(seqnum==255){
-               seqnum=0;
-           }
-           else{
-             seqnum++;
-           }
              pkt_t * pktrec=queue_get_seq(queue,seqnum);
              while(pktrec!=NULL){
                memset(envoi,0,sizeof(envoi));
@@ -196,17 +192,16 @@ if(file!=-1){
                   status=pkt_set_length(pktToSend,0);
                   if(status!=PKT_OK)
                     return status;
-                 len=12;
                 status=pkt_encode( pktToSend,envoi, &len);
                 if(status!=PKT_OK)
                   return status;
                 pkt_del(pktToSend);
-            /*    if(pkt_get_length(pktrec)==0){
+                if(pkt_get_length(pktrec)==0){
                   fin=1;
                   fprintf(stderr,"on sort pour la bonne raison cette fois\n");
                   queue_delete_pkt_timestamp(queue,pkt_get_timestamp(pktrec));
                   continue;
-                }*/
+                }
                erreur=write(file,pkt_get_payload(pktrec),pkt_get_length(pktrec));
                if(erreur==-1){
                     printf("impossible d'écrire des pkt hors séquence dans le fichier file dans le receiver  \n");
@@ -214,25 +209,24 @@ if(file!=-1){
                }
                //le supprime de la liste
                queue_delete_pkt_timestamp(queue,pkt_get_timestamp(pktrec));
-               if(seqnum==255){
+               if(seqnum==255)
                  seqnum=0;
-               }
-               else{
+               else
                  seqnum++;
-               }
                pktrec= queue_get_seq(queue,seqnum);
              }
            }
-               else{
+	     else {
                  pkt_t *pktToSend=pkt_new();
                 pkt_set_type(pktToSend,PTYPE_ACK);
                 pkt_set_tr(pktToSend,0);
                 pkt_set_length(pktToSend,0);
                 pkt_set_window(pktToSend,31);
-                pkt_set_seqnum(pktToSend,seqnum+1);
+                fprintf(stderr,"pourquoi le seqnum changerait ici, %d\n",seqnum);
+                pkt_set_seqnum(pktToSend,seqnum);
                 pkt_set_crc1(pktToSend,pkt_get_crc1(receivedpkt));
                 pkt_set_timestamp(pktToSend,pkt_get_timestamp(receivedpkt));
-              //  lasttimewereceive=pkt_get_timestamp(receivedpkt);
+                lasttimewereceive=pkt_get_timestamp(receivedpkt);
                   size_t len=12;
                   status=pkt_encode( pktToSend,bufdata, &len);
                   if(status!=PKT_OK)
@@ -266,14 +260,14 @@ if(file!=-1){
 }
 }
 }
-/*else{
+else{
   uint32_t actualtime=clock();
-if((lasttimewereceive+6*CLOCKS_PER_SEC>actualtime) && (lasttimewereceive!=0)){
+if(((-lasttimewereceive+actualtime)*1000/CLOCKS_PER_SEC>4500) && (lasttimewereceive!=0)){
   fprintf(stderr,"on break jamais mon cul?\n");
   fin=1;
   continue;
 }
-}*/
+}
       }
       fprintf(stderr,"on sort quand même à un moment jésus christ \n");
       free(queue);
