@@ -38,13 +38,16 @@ void pkt_del(pkt_t *pkt)
     if(pkt!=NULL){
         if(pkt->payload!=NULL){
             free(pkt->payload);
-        }
+          }
         free(pkt);
     }
 }
 
 pkt_status_code pkt_decode(const char *data, const size_t len, pkt_t *pkt)
 {
+    if(!data){
+      return E_UNCONSISTENT;
+    }
     if(len<8){
       printf("la longueur pourqoui ça va pas ?\n");
         return E_UNCONSISTENT;

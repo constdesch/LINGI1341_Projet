@@ -30,154 +30,45 @@ pkt_get_timestamp:0le seqnum du dernier envoyé est :28
 pkt_get_timestamp:0le seqnum du dernier envoyé est :29
 pkt_get_timestamp:0le seqnum du dernier envoyé est :30
 pkt_get_timestamp:0le seqnum du dernier envoyé est :31
+le seqnum received est :0
+il n'y a pas de pkt avec ce seqnum dans la liste 
+wtf quand meme: seqnum - 0
+le seqnum received est :0
+il n'y a pas de pkt avec ce seqnum dans la liste 
+wtf quand meme: seqnum - 0
+le seqnum received est :0
+il n'y a pas de pkt avec ce seqnum dans la liste 
+wtf quand meme: seqnum - 0
+on rentre pas ici quand même!
+le seqnum received est :1
+seqnumreceive:0
+le nombre de delete est:1
+pkt_get_timestamp:4110000le seqnum du dernier envoyé est :32
 le seqnum received est :2
 seqnumreceive:0
-le nombre de delete est:2
-pkt_get_timestamp:90000le seqnum du dernier envoyé est :32
-pkt_get_timestamp:90000le seqnum du dernier envoyé est :33
+le nombre de delete est:1
+pkt_get_timestamp:4110000le seqnum du dernier envoyé est :33
 le seqnum received est :3
 seqnumreceive:1
 le nombre de delete est:1
-pkt_get_timestamp:90000le seqnum du dernier envoyé est :34
-le seqnum received est :5
+pkt_get_timestamp:4110000le seqnum du dernier envoyé est :34
+le seqnum received est :6
 seqnumreceive:2
-le nombre de delete est:2
-pkt_get_timestamp:90000le seqnum du dernier envoyé est :35
-pkt_get_timestamp:90000le seqnum du dernier envoyé est :36
-le seqnum received est :5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-on rentre pas ici quand même!
-le seqnum received est :5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-on rentre pas ici quand même!
-le seqnum received est :10
-seqnumreceive:4
-le nombre de delete est:5
-pkt_get_timestamp:8120000le seqnum du dernier envoyé est :37
-pkt_get_timestamp:8120000le seqnum du dernier envoyé est :38
-pkt_get_timestamp:8120000le seqnum du dernier envoyé est :39
-pkt_get_timestamp:8120000le seqnum du dernier envoyé est :40
-pkt_get_timestamp:8120000le seqnum du dernier envoyé est :41
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-on rentre pas ici quand même!
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-on rentre pas ici quand même!
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-on rentre pas ici quand même!
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-on rentre pas ici quand même!
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-on rentre pas ici quand même!
-le seqnum received est :11
-seqnumreceive:9
+le nombre de delete est:3
+pkt_get_timestamp:4110000le seqnum du dernier envoyé est :35
+pkt_get_timestamp:4110000le seqnum du dernier envoyé est :36
+pkt_get_timestamp:4110000le seqnum du dernier envoyé est :37
+le seqnum received est :7
+seqnumreceive:5
 le nombre de delete est:1
-pkt_get_timestamp:28160000le seqnum du dernier envoyé est :42
-le seqnum received est :42
-seqnumreceive:10
-le seqnum received est :42
-seqnumreceive:10
+pkt_get_timestamp:4110000le seqnum du dernier envoyé est :38
+le seqnum received est :7
+il n'y a pas de pkt avec ce seqnum dans la liste 
+wtf quand meme: seqnum - 7
+le seqnum received est :7
+il n'y a pas de pkt avec ce seqnum dans la liste 
+wtf quand meme: seqnum - 7
+le seqnum received est :7
+il n'y a pas de pkt avec ce seqnum dans la liste 
+wtf quand meme: seqnum - 7
+on rentre pas ici quand même!

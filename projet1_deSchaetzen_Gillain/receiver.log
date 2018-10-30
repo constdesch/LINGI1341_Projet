@@ -1,398 +1,150 @@
-receivedseqnum:0
-seqnum:0
-la queuee est vide 
-receivedseqnum:1
-seqnum:1
-la queuee est vide 
 receivedseqnum:2
-seqnum:2
+seqnum:0
+pourquoi le seqnum changerait ici, 0
 la queuee est vide 
-receivedseqnum:3
-seqnum:3
-la queuee est vide 
-receivedseqnum:4
-seqnum:4
-la queuee est vide 
-receivedseqnum:7
-seqnum:5
-pourquoi le seqnum changerait ici, 5
-la queuee est vide 
-receivedseqnum:9
-seqnum:5
-pourquoi le seqnum changerait ici, 5
+receivedseqnum:6
+seqnum:0
+pourquoi le seqnum changerait ici, 0
 il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:12
-seqnum:5
-pourquoi le seqnum changerait ici, 5
+receivedseqnum:11
+seqnum:0
+pourquoi le seqnum changerait ici, 0
 il n'y a pas de pkt avec ce seqnum dans la liste 
 receivedseqnum:15
-seqnum:5
-pourquoi le seqnum changerait ici, 5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:18
-seqnum:5
-pourquoi le seqnum changerait ici, 5
+seqnum:0
+pourquoi le seqnum changerait ici, 0
 il n'y a pas de pkt avec ce seqnum dans la liste 
 receivedseqnum:19
-seqnum:5
-pourquoi le seqnum changerait ici, 5
+seqnum:0
+pourquoi le seqnum changerait ici, 0
 il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:20
-seqnum:5
-pourquoi le seqnum changerait ici, 5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:21
-seqnum:5
-pourquoi le seqnum changerait ici, 5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:22
-seqnum:5
-pourquoi le seqnum changerait ici, 5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:29
-seqnum:5
-pourquoi le seqnum changerait ici, 5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:30
-seqnum:5
-pourquoi le seqnum changerait ici, 5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:31
-seqnum:5
-pourquoi le seqnum changerait ici, 5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:32
-seqnum:5
-pourquoi le seqnum changerait ici, 5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:33
-seqnum:5
-pourquoi le seqnum changerait ici, 5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:35
-seqnum:5
-pourquoi le seqnum changerait ici, 5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:6
-seqnum:5
-pourquoi le seqnum changerait ici, 5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:7
-seqnum:5
-pourquoi le seqnum changerait ici, 5
-receivedseqnum:8
-seqnum:5
-pourquoi le seqnum changerait ici, 5
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:9
-seqnum:5
-pourquoi le seqnum changerait ici, 5
-receivedseqnum:15
-seqnum:5
-pourquoi le seqnum changerait ici, 5
-receivedseqnum:20
-seqnum:5
-pourquoi le seqnum changerait ici, 5
-receivedseqnum:23
-seqnum:5
-pourquoi le seqnum changerait ici, 5
+receivedseqnum:24
+seqnum:0
+pourquoi le seqnum changerait ici, 0
 il n'y a pas de pkt avec ce seqnum dans la liste 
 receivedseqnum:27
-seqnum:5
-pourquoi le seqnum changerait ici, 5
+seqnum:0
+pourquoi le seqnum changerait ici, 0
 il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:30
-seqnum:5
-pourquoi le seqnum changerait ici, 5
-receivedseqnum:32
-seqnum:5
-pourquoi le seqnum changerait ici, 5
-receivedseqnum:34
-seqnum:5
-pourquoi le seqnum changerait ici, 5
+receivedseqnum:29
+seqnum:0
+pourquoi le seqnum changerait ici, 0
 il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:35
-seqnum:5
-pourquoi le seqnum changerait ici, 5
-receivedseqnum:36
-seqnum:5
-pourquoi le seqnum changerait ici, 5
+receivedseqnum:0
+seqnum:0
+il n'y a pas de pkt avec ce seqnum dans la liste 
+receivedseqnum:1
+seqnum:1
+il n'y a pas de pkt avec ce seqnum dans la liste 
+receivedseqnum:2
+seqnum:3
+pourquoi le seqnum changerait ici, 3
+il n'y a pas de pkt avec ce seqnum dans la liste 
+receivedseqnum:3
+seqnum:3
+il n'y a pas de pkt avec ce seqnum dans la liste 
+receivedseqnum:4
+seqnum:4
 il n'y a pas de pkt avec ce seqnum dans la liste 
 receivedseqnum:5
 seqnum:5
 il n'y a pas de pkt avec ce seqnum dans la liste 
 receivedseqnum:6
-seqnum:10
-pourquoi le seqnum changerait ici, 10
+seqnum:7
+pourquoi le seqnum changerait ici, 7
 il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:7
-seqnum:10
-pourquoi le seqnum changerait ici, 10
+receivedseqnum:9
+seqnum:7
+pourquoi le seqnum changerait ici, 7
 il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:12
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:14
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:20
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:21
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:22
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:26
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:27
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:29
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:32
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:37
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:38
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:39
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:40
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:41
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:11
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:13
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:17
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:21
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:23
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:24
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:25
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:26
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:27
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:33
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:37
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:38
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:39
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:41
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:12
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:13
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:15
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:17
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:19
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:22
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:30
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:32
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:33
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:34
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:35
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:37
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:38
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:39
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:40
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:41
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:15
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:16
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:17
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:18
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:20
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:23
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:25
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:27
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:28
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:30
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:31
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:33
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:35
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:36
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:39
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:21
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:23
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:26
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:27
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:31
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:32
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:34
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:36
-seqnum:10
-pourquoi le seqnum changerait ici, 10
-receivedseqnum:37
-seqnum:10
-pourquoi le seqnum changerait ici, 10
 receivedseqnum:10
-seqnum:10
+seqnum:7
+pourquoi le seqnum changerait ici, 7
 il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:14
-seqnum:42
-pourquoi le seqnum changerait ici, 42
-receivedseqnum:15
-seqnum:42
-pourquoi le seqnum changerait ici, 42
+receivedseqnum:12
+seqnum:7
+pourquoi le seqnum changerait ici, 7
 il n'y a pas de pkt avec ce seqnum dans la liste 
 receivedseqnum:18
-seqnum:42
-pourquoi le seqnum changerait ici, 42
+seqnum:7
+pourquoi le seqnum changerait ici, 7
 il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:20
-seqnum:42
-pourquoi le seqnum changerait ici, 42
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:21
-seqnum:42
-pourquoi le seqnum changerait ici, 42
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:22
-seqnum:42
-pourquoi le seqnum changerait ici, 42
-il n'y a pas de pkt avec ce seqnum dans la liste 
+receivedseqnum:19
+seqnum:7
+pourquoi le seqnum changerait ici, 7
+receivedseqnum:24
+seqnum:7
+pourquoi le seqnum changerait ici, 7
 receivedseqnum:26
-seqnum:42
-pourquoi le seqnum changerait ici, 42
-receivedseqnum:27
-seqnum:42
-pourquoi le seqnum changerait ici, 42
+seqnum:7
+pourquoi le seqnum changerait ici, 7
 il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:32
-seqnum:42
-pourquoi le seqnum changerait ici, 42
+receivedseqnum:27
+seqnum:7
+pourquoi le seqnum changerait ici, 7
+receivedseqnum:30
+seqnum:7
+pourquoi le seqnum changerait ici, 7
 il n'y a pas de pkt avec ce seqnum dans la liste 
 receivedseqnum:35
-seqnum:42
-pourquoi le seqnum changerait ici, 42
+seqnum:7
+pourquoi le seqnum changerait ici, 7
+il n'y a pas de pkt avec ce seqnum dans la liste 
+receivedseqnum:8
+seqnum:7
+pourquoi le seqnum changerait ici, 7
+il n'y a pas de pkt avec ce seqnum dans la liste 
+receivedseqnum:14
+seqnum:7
+pourquoi le seqnum changerait ici, 7
+il n'y a pas de pkt avec ce seqnum dans la liste 
+receivedseqnum:18
+seqnum:7
+pourquoi le seqnum changerait ici, 7
+receivedseqnum:19
+seqnum:7
+pourquoi le seqnum changerait ici, 7
+receivedseqnum:21
+seqnum:7
+pourquoi le seqnum changerait ici, 7
+il n'y a pas de pkt avec ce seqnum dans la liste 
+receivedseqnum:22
+seqnum:7
+pourquoi le seqnum changerait ici, 7
+il n'y a pas de pkt avec ce seqnum dans la liste 
+receivedseqnum:23
+seqnum:7
+pourquoi le seqnum changerait ici, 7
+il n'y a pas de pkt avec ce seqnum dans la liste 
+receivedseqnum:25
+seqnum:7
+pourquoi le seqnum changerait ici, 7
+il n'y a pas de pkt avec ce seqnum dans la liste 
+receivedseqnum:26
+seqnum:7
+pourquoi le seqnum changerait ici, 7
+receivedseqnum:27
+seqnum:7
+pourquoi le seqnum changerait ici, 7
+receivedseqnum:29
+seqnum:7
+pourquoi le seqnum changerait ici, 7
+receivedseqnum:31
+seqnum:7
+pourquoi le seqnum changerait ici, 7
+il n'y a pas de pkt avec ce seqnum dans la liste 
+receivedseqnum:34
+seqnum:7
+pourquoi le seqnum changerait ici, 7
+il n'y a pas de pkt avec ce seqnum dans la liste 
+receivedseqnum:35
+seqnum:7
+pourquoi le seqnum changerait ici, 7
+receivedseqnum:37
+seqnum:7
+pourquoi le seqnum changerait ici, 7
 il n'y a pas de pkt avec ce seqnum dans la liste 
 receivedseqnum:38
-seqnum:42
-pourquoi le seqnum changerait ici, 42
-il n'y a pas de pkt avec ce seqnum dans la liste 
-receivedseqnum:39
-seqnum:42
-pourquoi le seqnum changerait ici, 42
+seqnum:7
+pourquoi le seqnum changerait ici, 7
 il n'y a pas de pkt avec ce seqnum dans la liste 

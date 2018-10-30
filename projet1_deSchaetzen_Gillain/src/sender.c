@@ -235,6 +235,8 @@ int main(int argc, char* argv[]){
         /* Case ACK */
         if(pkt_get_type(receivedpkt) == PTYPE_ACK){
   fprintf(stderr,"le seqnum received est :%d\n",pkt_get_seqnum(receivedpkt));
+            uint8_t aa = pkt_get_seqnum(receivedpkt);
+
             pkt_t *testpkt = queue_get_seq(queue,pkt_get_seqnum(receivedpkt)-1);/*pkt correponding to timestamp of receiving packet */
             if(testpkt==NULL && queue->full==0 && byteRead==0){
               fprintf(stderr,"on rentre pas  là quand même?\n");
@@ -242,7 +244,7 @@ int main(int argc, char* argv[]){
               break;
             }
           if(testpkt==NULL){
-            fprintf(stderr,"wtf quand meme \n");
+            fprintf(stderr,"wtf quand meme: seqnum - %d\n",aa);
             pkt_del(receivedpkt);
             continue;
           }
@@ -258,6 +260,7 @@ int main(int argc, char* argv[]){
         /* Case NACK */
         else if(pkt_get_type(receivedpkt) == PTYPE_NACK){
           pkt_del(receivedpkt);
+          fprintf(stderr,"On est al frr\n");
           continue;
       }
     }
@@ -283,6 +286,7 @@ int main(int argc, char* argv[]){
   status = pkt_encode(pkt1,data,&length1);
   if(status!=PKT_OK)
     return -1;
+  pkt_del(pkt1);
   int error1=write(sfd,data,length1);
   if(error1==-1)
     return -1;
