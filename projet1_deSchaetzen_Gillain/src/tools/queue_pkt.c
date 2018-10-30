@@ -193,6 +193,55 @@ int set_pkt_envoi_timestamp(queue_pkt_t * queue,uint32_t timestamp){
   }
 }
 
+int queue_delete_pkt_seqnum(queue_pkt_t * queue,uint8_t seqnum){
+  if(queue==NULL){
+    fprintf(stderr,"la queuee n'existe pas\n");
+    return -1;
+  }
+  if(queue->head==NULL){
+    printf("la queue est vide \n");
+    return -1;
+  }
+  else{
+    Node * node1=queue->head;
+    pkt_t * pkt=node1->data;
+    if(node1->next==NULL && pkt_get_seqnum(pkt)!=seqnum){
+      fprintf(stderr,"il n'y a pas de pkt avec ce seqnum dans la queue\n");
+      return -1;
+    }
+    if(pkt_get_seqnum(pkt)==seqnum){
+      Node* node2=node1;
+      Node* node3=node1->next;
+      free_Node(node2);
+      queue->head=node3;
+      queue->full--;
+      return 1;
+    }
+  Node * node2=node1->next;
+  pkt=node2->data;
+    while(pkt_get_seqnum(pkt)!=seqnum && node2!=NULL){
+      node1=node2;
+      node2=node2->next;
+      pkt=node2->data;
+    }
+    if(node2==NULL){
+      fprintf(stderr,"il n'y a pas de pkt avec ce seqnum dans la queue\n");
+      return -1;
+    }
+    else{
+      Node * node3=node2;
+      node1->next=node2->next;
+      free_Node(node3);
+      if(node1->next==NULL){
+        queue->tail=node1;
+      }
+      queue->full--;
+      return 1;
+    }
+  }
+}
+
+
 int queue_delete_pkt_timestamp(queue_pkt_t * queue,uint32_t timestamp){
   if(queue==NULL){
     fprintf(stderr,"la queuee n'existe pas\n");
