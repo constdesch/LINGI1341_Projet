@@ -36,7 +36,10 @@
 
 
 int timeOutRoutine(queue_pkt_t* queue, int sfd){
-  if(!queue) return 0; /*Convertir en ms */
+  if(!queue) {
+    fprintf(stderr,"40\n");
+    return 0; /*Convertir en ms */
+  }
   if(queue==NULL){
     fprintf(stderr,"queue est vide\n");
     return 0;
@@ -162,8 +165,10 @@ int main(int argc, char* argv[]){
           FD_SET(file,&readfds);
         }
         int timer=select(sfd+1,&readfds,NULL,NULL,&tv);
-        if(timer==-1)
+        if(timer==-1){
+          fprintf(stderr,"166 fin du fichier \n");
           return timer;
+        }
         //on envoie nos paquets si la queue n'est pas full et qu'on est pas à la fin du fichier
         if(file==STDIN_FILENO)
           ecrit=FD_ISSET(file,&readfds);
@@ -199,6 +204,7 @@ int main(int argc, char* argv[]){
             fprintf(stderr,"Encode failed : %d\n", (int) status);
           if( addTail(queue, pkt1)==NULL){
             fprintf(stderr,"l'ajout à la liste n'a pas réussi");
+            fprintf(stderr,"204 fin du fichier \n");
             return -1;
           }
           erreur = write(sfd,data,data_length);
@@ -241,13 +247,13 @@ int main(int argc, char* argv[]){
               pkt_del(receivedpkt);
               break;
             }
-          if(testpkt==NULL){
+             if(testpkt==NULL){
             fprintf(stderr,"wtf quand meme \n");
             pkt_del(receivedpkt);
             continue;
           }
           fprintf(stderr,"seqnumreceive:%d\n",(int) seqnumreceive);
-          if (pkt_get_seqnum(receivedpkt)<=seqnumreceive+31 ){ /*are the timestamp and seqnum from the same packet?*/
+          if (pkt_get_seqnum(receivedpkt)<=seqnumreceive+32 ){ /*are the timestamp and seqnum from the same packet?*/
             seqnumreceive=pkt_get_seqnum(receivedpkt)-1;
             erreur = deletePrevious( queue,seqnumreceive);
             fprintf(stderr,"le nombre de delete est:%d\n",erreur);
@@ -259,6 +265,11 @@ int main(int argc, char* argv[]){
         else if(pkt_get_type(receivedpkt) == PTYPE_NACK){
           pkt_del(receivedpkt);
           continue;
+      }
+      else{
+        fprintf(stderr,"on rentre pas ici la quand même \n.");
+        pkt_del(receivedpkt);
+        continue;
       }
     }
       else {
@@ -281,17 +292,22 @@ int main(int argc, char* argv[]){
   size_t length1=12;
   char data[12];
   status = pkt_encode(pkt1,data,&length1);
-  if(status!=PKT_OK)
+  if(status!=PKT_OK){
+    fprintf(stderr,"289 fin\n");
     return -1;
+  }
   int error1=write(sfd,data,length1);
-  if(error1==-1)
+  if(error1==-1){
+    fprintf(stderr, "297 \n");
     return -1;
+  }
     free(queue);
     if(file!=STDIN_FILENO){
       if(close(file)==-1){
         printf("close(file) n'a pas fonctionné\n");
       }
     }
+    fprintf(stderr,"302 fin \n");
     return 0;
   }
   fprintf(stderr,"Could not open the file (or stdout in -f not mentionned.\n");
@@ -305,5 +321,6 @@ int main(int argc, char* argv[]){
     }
   }
   free(queue);
-  return 0;
+  fprintf(stderr,"316 fin du fichier\n");
+    return 0;
 }

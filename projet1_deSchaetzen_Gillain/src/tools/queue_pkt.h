@@ -24,3 +24,4 @@ pkt_t * queue_get_seq(queue_pkt_t * queue,uint8_t seqnum);
 pkt_t * queue_get_timestamp(queue_pkt_t * queue,uint32_t timestamp);
 int queue_delete_pkt_timestamp(queue_pkt_t * queue,uint32_t timestamp);
 int set_pkt_envoi_timestamp(queue_pkt_t * queue,uint32_t timestamp);
+int queue_delete_pkt_seqnum(queue_pkt_t * queue,uint8_t seqnum);
