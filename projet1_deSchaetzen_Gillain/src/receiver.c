@@ -127,13 +127,9 @@ if(file!=-1){
          }
          pkt_t *receivedpkt = pkt_new();
          status = pkt_decode(bufdata,erreur,receivedpkt);
-         /*
-         printf("Type : %d\n",pkt_get_type(receivedpkt));
-         printf("Seqnum: %d\n",pkt_get_seqnum(receivedpkt));
-         printf("Tr: %d\n",pkt_get_tr(receivedpkt));
-         */
          if(status!=PKT_OK)
          {printf("le status est pas bon dans receiver?%d \n",(int)(status));
+         pkt_del(receivedpkt);
             continue;
          }
          /* Case ACK */
@@ -200,6 +196,7 @@ if(file!=-1){
                   fin=1;
                   fprintf(stderr,"on sort pour la bonne raison cette fois\n");
                   queue_delete_pkt_timestamp(queue,pkt_get_timestamp(pktrec));
+                  //queue_delete_pkt_seqnum(queue,pkt_get_seqnum(pktrec));
                   continue;
                 }
                erreur=write(file,pkt_get_payload(pktrec),pkt_get_length(pktrec));
@@ -209,6 +206,7 @@ if(file!=-1){
                }
                //le supprime de la liste
                queue_delete_pkt_timestamp(queue,pkt_get_timestamp(pktrec));
+               //queue_delete_pkt_seqnum(queue,pkt_get_seqnum(pktrec));
                if(seqnum==255)
                  seqnum=0;
                else
@@ -235,6 +233,7 @@ if(file!=-1){
                   if(erreur==-1)
                     printf("impossible de répondre via la socket(receiver)\n");
                   pkt_del(pktToSend);
+                  //on ajoute seulement si il est pas dedans
                   if(queue_get_seq(queue,pkt_get_seqnum(receivedpkt))==NULL)
                   addTail(queue,receivedpkt);
                }
@@ -249,6 +248,9 @@ if(file!=-1){
               status=pkt_set_length(pktToSend,0);
               if(status!=PKT_OK)
                 return status;
+                status=pkt_set_seqnum(pktToSend,seqnum);
+                if(status!=PKT_OK)
+                  return status;
               size_t len=12;
               status=pkt_encode( pktToSend,bufdata, &len);
               if(status!=PKT_OK)

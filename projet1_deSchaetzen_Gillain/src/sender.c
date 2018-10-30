@@ -39,14 +39,16 @@ int timeOutRoutine(queue_pkt_t* queue, int sfd){
   if(!queue) return 0; /*Convertir en ms */
   if(queue==NULL){
     fprintf(stderr,"queue est vide\n");
+    return 0;
   }
   Node *node = queue->head;
   if(node==NULL){
   fprintf(stderr,"queue->head est vide\n");
   return 0;}
   pkt_t* pkt= node->data;
-  if(pkt==NULL)
+  if(pkt==NULL){
   fprintf(stderr,"pkt est null\n");
+  return 0;}
   uint32_t tic=clock(); /*Time when the packet was sent*/
   if ((tic-pkt_get_timestamp(pkt))*1000/CLOCKS_PER_SEC>4000){ /* Timeout for the first node? Resend it! */
     /* New timestamp */
@@ -165,7 +167,7 @@ int main(int argc, char* argv[]){
         //on envoie nos paquets si la queue n'est pas full et qu'on est pas à la fin du fichier
         if(file==STDIN_FILENO)
           ecrit=FD_ISSET(file,&readfds);
-        if (queue->full != windowSize && byteRead!=0 && ecrit){
+        if (queue->full != (windowSize+1) && byteRead!=0 && ecrit){
           /* Place dans la liste ? */
           size_t data_length;
           /* Create the header */
@@ -257,27 +259,12 @@ int main(int argc, char* argv[]){
         else if(pkt_get_type(receivedpkt) == PTYPE_NACK){
           pkt_del(receivedpkt);
           continue;
-        /* On supprime les paquets precedents dans la queue*/
-        // if (erreur == 0) fprintf(stderr, "Seqnum not found in queue.\n");
-          /* On renvoie le paquet nack */
-          /*size_t data_length;
-          uint16_t length = pkt_get_length(receivedpkt);
-          if (length == 0) data_length = 12;
-          else data_length =(size_t) length + 12;
-
-          char buf[512];
-          if(status!=PKT_OK) fprintf(stderr,"Encode failed : %d\n",status);
-          if(erreur==-1) fprintf(stderr,"Could not write on the socket.\n");
-        }
-        pkt_del(receivedpkt);*/
       }
     }
       else {
      timeOutRoutine(queue,sfd);
    }
-
       /* Ecrire sur la socket */
-
   }
   fprintf(stderr,"on sort de la boucle un jour?\n");
   pkt_t* pkt1 = pkt_new();
@@ -286,7 +273,6 @@ int main(int argc, char* argv[]){
   pkt_set_window(pkt1,windowSize);
   pkt_set_seqnum(pkt1,seqnum);
   pkt_set_length(pkt1,0);
-  //uint32_t timestamp1=(tv1.tv_sec)* 1000 + (tv1.tv_usec) /1000 ;
   pkt_set_timestamp(pkt1,clock());
   pkt_set_payload(pkt1,"",0);
   uLong crc1 = crc32(0L, Z_NULL, 0);
@@ -301,6 +287,11 @@ int main(int argc, char* argv[]){
   if(error1==-1)
     return -1;
     free(queue);
+    if(file!=STDIN_FILENO){
+      if(close(file)==-1){
+        printf("close(file) n'a pas fonctionné\n");
+      }
+    }
     return 0;
   }
   fprintf(stderr,"Could not open the file (or stdout in -f not mentionned.\n");
