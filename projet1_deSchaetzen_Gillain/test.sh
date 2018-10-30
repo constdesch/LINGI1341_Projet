@@ -7,7 +7,7 @@ rm -f received_file input_file
 dd if=/dev/urandom of=input_file bs=1 count=30000 &> /dev/null
 
 # On lance le simulateur de lien avec 10% de pertes et un délais de 50ms
-./link_sim -p 1341  -P 2456 -l 50 -d 50 -e 20 -R  &> link.log &
+./link_sim -p 1341  -P 2456 -l 50 -d 50  e -40 -R  &> link.log &
 link_pid=$!
 
 # On lance le receiver et capture sa sortie standard
