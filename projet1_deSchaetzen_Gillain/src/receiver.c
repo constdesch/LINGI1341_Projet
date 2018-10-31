@@ -276,7 +276,7 @@ if(file!=-1){
 }
 else{
   uint32_t actualtime=clock();
-if(((-lasttimewereceive+actualtime)*1000/CLOCKS_PER_SEC>4500) && (lasttimewereceive!=0)){
+if(((-lasttimewereceive+actualtime)*1000/CLOCKS_PER_SEC>4500)){
   fprintf(stderr,"on break jamais mon cul?\n");
 break;
 }
