@@ -33,6 +33,7 @@ void free_Node(Node * node){
     free(node);
   }
 }
+
 Node * addTail(queue_pkt_t *queue, pkt_t *data) {
   Node *node= (Node *) malloc(sizeof(Node));
   node->envoi=0;

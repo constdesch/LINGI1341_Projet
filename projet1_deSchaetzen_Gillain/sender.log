@@ -18,573 +18,69 @@ pkt_get_timestamp:0le seqnum du dernier envoyé est :16
 pkt_get_timestamp:0le seqnum du dernier envoyé est :17
 pkt_get_timestamp:0le seqnum du dernier envoyé est :18
 pkt_get_timestamp:0le seqnum du dernier envoyé est :19
-pkt_get_timestamp:0le seqnum du dernier envoyé est :20
-pkt_get_timestamp:0le seqnum du dernier envoyé est :21
-pkt_get_timestamp:0le seqnum du dernier envoyé est :22
-pkt_get_timestamp:0le seqnum du dernier envoyé est :23
-pkt_get_timestamp:0le seqnum du dernier envoyé est :24
-pkt_get_timestamp:0le seqnum du dernier envoyé est :25
-pkt_get_timestamp:0le seqnum du dernier envoyé est :26
-pkt_get_timestamp:0le seqnum du dernier envoyé est :27
-pkt_get_timestamp:0le seqnum du dernier envoyé est :28
-pkt_get_timestamp:0le seqnum du dernier envoyé est :29
-pkt_get_timestamp:0le seqnum du dernier envoyé est :30
-pkt_get_timestamp:0le seqnum du dernier envoyé est :31
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-<<<<<<< HEAD
-wtf quand meme: seqnum - 0
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme: seqnum - 0
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme: seqnum - 0
-=======
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-on rentre pas ici quand même!
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :0
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
->>>>>>> a9a34b8f77b8b142f454910b92f2db1b74702178
-on rentre pas ici quand même!
 le seqnum received est :1
 seqnumreceive:0
 le nombre de delete est:1
-<<<<<<< HEAD
-pkt_get_timestamp:4110000le seqnum du dernier envoyé est :32
 le seqnum received est :2
 seqnumreceive:0
 le nombre de delete est:1
-pkt_get_timestamp:4110000le seqnum du dernier envoyé est :33
-le seqnum received est :3
-seqnumreceive:1
-le nombre de delete est:1
-pkt_get_timestamp:4110000le seqnum du dernier envoyé est :34
-le seqnum received est :6
-seqnumreceive:2
-le nombre de delete est:3
-pkt_get_timestamp:4110000le seqnum du dernier envoyé est :35
-pkt_get_timestamp:4110000le seqnum du dernier envoyé est :36
-pkt_get_timestamp:4110000le seqnum du dernier envoyé est :37
-le seqnum received est :7
-seqnumreceive:5
-le nombre de delete est:1
-pkt_get_timestamp:4110000le seqnum du dernier envoyé est :38
-le seqnum received est :7
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme: seqnum - 7
-le seqnum received est :7
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme: seqnum - 7
-le seqnum received est :7
-=======
-pkt_get_timestamp:8060000le seqnum du dernier envoyé est :32
 le seqnum received est :2
-seqnumreceive:0
-le nombre de delete est:1
-pkt_get_timestamp:8060000le seqnum du dernier envoyé est :33
-le seqnum received est :3
-seqnumreceive:1
-le nombre de delete est:1
-pkt_get_timestamp:8060000le seqnum du dernier envoyé est :34
-le seqnum received est :4
-seqnumreceive:2
-le nombre de delete est:1
-pkt_get_timestamp:8060000le seqnum du dernier envoyé est :35
-le seqnum received est :5
-seqnumreceive:3
-le nombre de delete est:1
-pkt_get_timestamp:8060000le seqnum du dernier envoyé est :36
-le seqnum received est :6
-seqnumreceive:4
-le nombre de delete est:1
-pkt_get_timestamp:8060000le seqnum du dernier envoyé est :37
-le seqnum received est :7
-seqnumreceive:5
-le nombre de delete est:1
-pkt_get_timestamp:8060000le seqnum du dernier envoyé est :38
-le seqnum received est :8
-seqnumreceive:6
-le nombre de delete est:1
-pkt_get_timestamp:8060000le seqnum du dernier envoyé est :39
-le seqnum received est :8
 il n'y a pas de pkt avec ce seqnum dans la liste 
 wtf quand meme 
-le seqnum received est :8
+le seqnum received est :2
 il n'y a pas de pkt avec ce seqnum dans la liste 
 wtf quand meme 
-le seqnum received est :8
+le seqnum received est :2
 il n'y a pas de pkt avec ce seqnum dans la liste 
 wtf quand meme 
-le seqnum received est :8
+le seqnum received est :2
 il n'y a pas de pkt avec ce seqnum dans la liste 
 wtf quand meme 
-le seqnum received est :8
+le seqnum received est :2
 il n'y a pas de pkt avec ce seqnum dans la liste 
 wtf quand meme 
-le seqnum received est :8
+le seqnum received est :2
 il n'y a pas de pkt avec ce seqnum dans la liste 
 wtf quand meme 
-le seqnum received est :8
+le seqnum received est :2
 il n'y a pas de pkt avec ce seqnum dans la liste 
 wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
+le seqnum received est :2
 il n'y a pas de pkt avec ce seqnum dans la liste 
 wtf quand meme 
 on rentre pas ici quand même!
-le seqnum received est :8
+le seqnum received est :2
 il n'y a pas de pkt avec ce seqnum dans la liste 
 wtf quand meme 
-le seqnum received est :8
+le seqnum received est :2
 il n'y a pas de pkt avec ce seqnum dans la liste 
 wtf quand meme 
-le seqnum received est :8
+le seqnum received est :2
 il n'y a pas de pkt avec ce seqnum dans la liste 
 wtf quand meme 
-le seqnum received est :8
+le seqnum received est :2
 il n'y a pas de pkt avec ce seqnum dans la liste 
 wtf quand meme 
-le seqnum received est :8
+le seqnum received est :2
 il n'y a pas de pkt avec ce seqnum dans la liste 
 wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
+le seqnum received est :2
 il n'y a pas de pkt avec ce seqnum dans la liste 
 wtf quand meme 
 on rentre pas ici quand même!
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
 on rentre pas ici quand même!
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :8
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
 on rentre pas ici quand même!
-le seqnum received est :9
-seqnumreceive:7
-le nombre de delete est:1
-pkt_get_timestamp:24110000le seqnum du dernier envoyé est :40
-le seqnum received est :40
-seqnumreceive:8
-le nombre de delete est:31
-pkt_get_timestamp:24110000le seqnum du dernier envoyé est :41
-pkt_get_timestamp:24110000le seqnum du dernier envoyé est :42
-pkt_get_timestamp:24110000le seqnum du dernier envoyé est :43
-pkt_get_timestamp:24110000le seqnum du dernier envoyé est :44
-pkt_get_timestamp:24110000le seqnum du dernier envoyé est :45
-pkt_get_timestamp:24110000le seqnum du dernier envoyé est :46
-pkt_get_timestamp:24110000le seqnum du dernier envoyé est :47
-pkt_get_timestamp:24110000le seqnum du dernier envoyé est :48
-pkt_get_timestamp:24110000le seqnum du dernier envoyé est :49
-pkt_get_timestamp:24110000le seqnum du dernier envoyé est :50
-pkt_get_timestamp:24110000le seqnum du dernier envoyé est :51
-pkt_get_timestamp:24110000le seqnum du dernier envoyé est :52
-pkt_get_timestamp:24110000le seqnum du dernier envoyé est :53
-pkt_get_timestamp:24110000le seqnum du dernier envoyé est :54
-pkt_get_timestamp:24110000le seqnum du dernier envoyé est :55
-pkt_get_timestamp:24110000le seqnum du dernier envoyé est :56
-pkt_get_timestamp:24110000le seqnum du dernier envoyé est :57
-pkt_get_timestamp:24110000le seqnum du dernier envoyé est :58
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :40
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
 on rentre pas ici quand même!
-le seqnum received est :41
-seqnumreceive:39
-le nombre de delete est:1
-le seqnum received est :43
-seqnumreceive:40
-le nombre de delete est:2
-le seqnum received est :43
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :43
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :43
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :43
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :43
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :43
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :43
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :43
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :43
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
 on rentre pas ici quand même!
-le seqnum received est :43
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :43
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :43
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :43
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :43
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
 on rentre pas ici quand même!
-le seqnum received est :44
-seqnumreceive:42
-le nombre de delete est:1
-le seqnum received est :45
-seqnumreceive:43
-le nombre de delete est:1
-le seqnum received est :47
-seqnumreceive:44
-le nombre de delete est:2
-le seqnum received est :47
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :47
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :47
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme 
-le seqnum received est :47
->>>>>>> a9a34b8f77b8b142f454910b92f2db1b74702178
-il n'y a pas de pkt avec ce seqnum dans la liste 
-wtf quand meme: seqnum - 7
 on rentre pas ici quand même!
-<<<<<<< HEAD
-=======
-le seqnum received est :48
-seqnumreceive:46
-le nombre de delete est:1
-le seqnum received est :59
-seqnumreceive:47
-le nombre de delete est:11
-on sort de la boucle un jour?
-302 fin 
->>>>>>> a9a34b8f77b8b142f454910b92f2db1b74702178
+on rentre pas ici quand même!
+on rentre pas ici quand même!
+on rentre pas ici quand même!
+on rentre pas ici quand même!
+on rentre pas ici quand même!
+on rentre pas ici quand même!
+on rentre pas ici quand même!
+on rentre pas ici quand même!
+on rentre pas ici quand même!
+on rentre pas ici quand même!
